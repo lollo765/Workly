@@ -1,4 +1,4 @@
-<u><h1><%= @gig.title %></h1></u>
+<h1><%= @gig.title %></h1>
 
 <p> <%= "Skills required are: "%>  <u> <b> <%= @gig.skill %> </b> </u>
 <ul> </ul>
@@ -7,5 +7,7 @@
 </p>
 
   <%= link_to "Edit", edit_gig_path%>
+  &nbsp;&nbsp;&nbsp;
   <%= link_to "Back", root_path %>
+  &nbsp;&nbsp;&nbsp;
   <%= link_to "Destroy", gig_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 

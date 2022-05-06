@@ -1,11 +1,16 @@
 <h1>Gigs</h1>
 
 <ul>
+<br>
+<br>
   <% @gigs.each do |gig| %>
-    <li>
       <%= link_to gig.title, gig %>
-    </li>
   <% end %>
-</ul>
+</br>
+</br>
 
+<br>
+<br>
 <%= link_to "New Gig", new_gig_path %>
+</br>
+</br>
