@@ -29,6 +29,13 @@ gem "jbuilder"
 
 gem 'bootstrap', '~> 4.3.1'
 
+# Auth
+
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
 gem 'excon'
 
 # Use Redis adapter to run Action Cable in production
