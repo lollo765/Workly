@@ -32,7 +32,9 @@ gem 'bootstrap', '~> 4.3.1'
 # Auth
 
 gem 'devise'
+gem 'canard', '~> 0.6.2.pre'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
 gem 'excon'

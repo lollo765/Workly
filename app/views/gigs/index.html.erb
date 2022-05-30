@@ -11,6 +11,12 @@
 
 <br>
 <br>
-<%= link_to "New Gig", new_gig_path %>
+<% if user_signed_in? %>
+  <%= link_to "New Gig", new_gig_path %>
+<% end %>
+
+<% if !user_signed_in? %>
+  <%= link_to "New Gig", new_user_session_path %>
+<% end %>
 </br>
 </br>

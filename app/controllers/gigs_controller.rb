@@ -37,6 +37,7 @@ class GigsController < ApplicationController
 
   def destroy
     @gig = Gig.find(params[:id])
+    authorize! :create, @gig, :message => "BEWARE: you are not authorized to destroy this gig."
     @gig.destroy
 
     redirect_to root_path, status: :see_other
