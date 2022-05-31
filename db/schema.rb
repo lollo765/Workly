@@ -18,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_081705) do
     t.string "currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "cost"
-    t.text "description"
+    t.float "cost"
+    t.float "description"
   end
 
   create_table "users", force: :cascade do |t|

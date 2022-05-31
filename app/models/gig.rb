@@ -1,11 +1,12 @@
-class Gig < ApplicationRecord
-    
-    validates :title, presence: true
-    validates :categories, presence: true
-    validates :skill, presence: true
-    validates :currency, presence: true
-    validates :cost, presence: true, numericality: true
-    validates :description, presence: true
+class Gig
 
+    include Mongoid::Document
+
+    field :title, type: String
+    field :categories, type: String
+    field :skill, type: String
+    field :currency, type: String
+    field :cost, type: Integer
+    field :description, type: String
 
 end
