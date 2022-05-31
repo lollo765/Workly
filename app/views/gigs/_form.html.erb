@@ -1,4 +1,5 @@
 <%= form_with model: @gig do |form| %>
+  
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -8,9 +9,22 @@
   </div>
 
   <div>
-    <%= form.label :categories %><br>
-    <%= form.text_field :categories %><br>
-    <% gig.errors.full_messages_for(:categories).each do |message| %>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+    <% gig.errors.full_messages_for(:description).each do |message| %>
+      #<div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :currency %><br>
+    <%= form.select :currency, [['BTC', 'BTC'], ['DOGE', 'DOGE'], ['ETH', 'ETH']] %><br>
+  </div>
+
+  <div>
+    <%= form.label :cost %><br>
+    <%= form.number_field :cost, step: 'any' %><br>
+    <% gig.errors.full_messages_for(:cost).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -24,10 +38,14 @@
   </div>
 
   <div>
-    <%= form.label :currency %><br>
-    <%= form.select :currency, [['BTC', 'BTC'], ['DOGE', 'DOGE'], ['ETH', 'ETH']] %><br>
+    <%= form.label :categories %><br>
+    <%= form.text_field :categories %><br>
+    <% gig.errors.full_messages_for(:categories).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
-&nbsp;&nbsp;
+
+
   <div>
     <%= form.submit %><br>
   </div>

@@ -45,7 +45,7 @@ class GigsController < ApplicationController
 
   private
   def gig_params
-    params.require(:gig).permit(:title, :categories, :skill, :currency)
+    params.require(:gig).permit(:title, :categories, :skill, :currency, :cost, :description )
   end
 
 end
