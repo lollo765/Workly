@@ -1,0 +1,8 @@
+development:
+  clients:
+    default:
+      database: worklyLabAssi
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 1

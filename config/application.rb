@@ -17,7 +17,7 @@ require "rails/test_unit/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Mongoid.load!("../mongoid.yml")
+Mongoid.load!("mongoid.yml")
 
 module Communitywork
   class Application < Rails::Application
