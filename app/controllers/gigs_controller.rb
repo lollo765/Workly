@@ -1,7 +1,11 @@
 class GigsController < ApplicationController
 
   def index
-    @gigs = Gig.all 
+    if (params[:categories])
+      @gigs = Gig.where(categories: params[:categories])
+   else
+      @gigs = Gig.all
+   end
   end
 
   def show

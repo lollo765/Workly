@@ -44,6 +44,7 @@ gem 'omniauth-rails_csrf_protection'
 # MongoDB
 
 gem 'mongoid'
+gem 'kaminari-mongoid'
 
 gem 'excon'
 

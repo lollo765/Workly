@@ -1,13 +1,16 @@
 <h1>Gigs</h1>
 
-<ul>
-<br>
-<br>
-  <% @gigs.each do |gig| %>
-      <%= link_to gig.title, gig %>
-  <% end %>
-</br>
-</br>
+
+<% @gigs.each do |gig| %>
+  <%= link_to gig.title, gig %>
+<% end %>
+
+<%= form_tag gigs_path, method: 'get' do %>
+  <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ], "Design e Visual Art") %>
+  <%= submit_tag 'Filter' %>
+<% end %>
+
+
 
 <br>
 <br>
@@ -18,5 +21,3 @@
 <% if !user_signed_in? %>
   <%= link_to "New Gig", new_user_session_path %>
 <% end %>
-</br>
-</br>

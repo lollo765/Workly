@@ -129,6 +129,10 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jwt (2.3.0)
+    kaminari-core (1.2.2)
+    kaminari-mongoid (1.0.2)
+      kaminari-core (~> 1.0)
+      mongoid
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -309,6 +313,7 @@ DEPENDENCIES
   excon
   importmap-rails
   jbuilder
+  kaminari-mongoid
   mongoid
   omniauth-facebook
   omniauth-google-oauth2

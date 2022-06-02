@@ -39,7 +39,7 @@
 
   <div>
     <%= form.label :categories %><br>
-    <%= form.text_field :categories %><br>
+    <%= form.select :categories, [['Design e Visual Art', 'Design e Visual Art'], ['Programmazione', 'Programmazione'], ['Economia', 'Economia'], ['Musica e Videomaking', 'Musica e Videomaking']] %><br>
     <% gig.errors.full_messages_for(:categories).each do |message| %>
       <div><%= message %></div>
     <% end %>
