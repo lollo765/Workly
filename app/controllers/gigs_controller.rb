@@ -1,10 +1,13 @@
 class GigsController < ApplicationController
 
   def index
-    if (params[:categories])
-      @gigs = Gig.where(categories: params[:categories])
-   else
+    if (params[:search].blank? && params[:categories].blank?)
       @gigs = Gig.all
+    elsif (params[:search].blank? && !params[:categories].blank?)
+      @gigs = Gig.search(params[:categories])
+   else
+      @gigs = Gig.search(params[:search])
+
    end
   end
 

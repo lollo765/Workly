@@ -9,4 +9,10 @@ class Gig
     field :cost, type: Integer
     field :description, type: String
 
+    def self.search(input) 
+        if input
+            any_of({title: /#{input}/i}, {categories: /#{input}/i}, {description: /#{input}/i})
+        end
+    end
+
 end

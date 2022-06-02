@@ -5,9 +5,15 @@
   <%= link_to gig.title, gig %>
 <% end %>
 
+
 <%= form_tag gigs_path, method: 'get' do %>
   <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ], "Design e Visual Art") %>
   <%= submit_tag 'Filter' %>
+<% end %>
+
+<%= form_tag gigs_path, method: 'get' do %>
+  <%= text_field_tag :search, params[:search], placeholder:'Cerca...' %>
+  <%= button_tag "Cerca", name: nil, data: { disable_with: "Ricerca..." }%>
 <% end %>
 
 
