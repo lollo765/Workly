@@ -46,6 +46,10 @@ gem 'omniauth-rails_csrf_protection'
 gem 'mongoid'
 gem 'kaminari-mongoid'
 
+# Awesome Font
+
+gem "font-awesome-rails"
+
 gem 'excon'
 
 # Use Redis adapter to run Action Cable in production

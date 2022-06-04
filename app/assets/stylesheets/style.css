@@ -34,3 +34,11 @@ p {
     margin-left: 20em;
     margin-right: 20em;
   }
+
+.button {
+    background-color: rgb(68, 216, 88);
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    text-align: center;
+  }

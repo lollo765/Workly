@@ -21,11 +21,16 @@
     <p class="alert"><%= alert %></p>
 
     <% if user_signed_in? %>
-      Logged in as <%= current_user.email%> [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
+      <i class="fa-regular fa-user"></i> &nbsp; <%= current_user.email%> <br>
+      <%= link_to destroy_user_session_path do %>
+        <i class="fa fa-arrow-right-from-bracket"> </i> Logout
+      <% end %>
     <% end %>
 
     <% if !user_signed_in? %>
-      [<%= link_to 'Login', new_user_session_path, :method => :get%>]
+      <%= link_to new_user_session_path do %>
+        <i class="fa fa-arrow-right-to-bracket"> </i> Login
+      <% end %>
     <% end %>
 
     <%= yield %>

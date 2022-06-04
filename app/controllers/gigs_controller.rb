@@ -7,7 +7,6 @@ class GigsController < ApplicationController
       @gigs = Gig.search(params[:categories])
    else
       @gigs = Gig.search(params[:search])
-
    end
   end
 

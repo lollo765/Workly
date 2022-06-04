@@ -27,6 +27,9 @@ Devise.setup do |config|
   config.mailer_sender = 'matteofioreasl@gmail.com'
   config.omniauth :google_Oauth2, '468945831739-8kqp738kit03ho3vnkt12offjdfu02a0.apps.googleusercontent.com', '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'
   config.omniauth :facebook, '370149331744995', 'e71f079a7935fadde38fccca81239a60'
+  
+  ICONS = { google_oauth2: 'google plus', twitter: 'twitter', facebook: 'facebook', linkedin: 'linkedin', github: 'github'}
+  COLOR = { google_oauth2: 'blue', twitter: 'twitter', facebook: 'facebook', linkedin: 'linkedin', github: 'black' }
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
