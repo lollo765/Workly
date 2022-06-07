@@ -4,12 +4,16 @@
   
   <div>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
 
   <div>
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <% if current_user %>
+      <%= f.text_field :email, required: true, value:current_user.email  %>
+    <% else %>
+      <%= f.text_field :email, required: true%>
+    <% end %>
   </div>
 
   <div>
@@ -20,7 +24,7 @@
   <br>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit "Invia messaggio" %>
   </div>
 
   <br>
