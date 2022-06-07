@@ -50,6 +50,11 @@ gem 'kaminari-mongoid'
 
 gem "font-awesome-rails"
 
+# Mail Form
+
+gem 'mail_form'
+gem 'simple_form'
+
 gem 'excon'
 
 # Use Redis adapter to run Action Cable in production

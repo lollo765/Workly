@@ -21,9 +21,18 @@
 
 <br>
 <% if user_signed_in? %>
-  <%= link_to "New Gig", new_gig_path %>
+  <%= link_to new_gig_path do %>
+    <i class="fa-solid fa-plus"> </i> New Gig
+  <% end %>
 <% end %>
 
 <% if !user_signed_in? %>
-  <%= link_to "New Gig", new_user_session_path %>
+  <%= link_to new_user_session_path do %>
+    <i class="fa-solid fa-plus"> </i> New Gig
+  <% end %>
+<% end %>
+
+<br>
+<%= link_to new_contact_path do %>
+<i class="fa-solid fa-headset"></i> Assistenza
 <% end %>
