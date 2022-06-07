@@ -1,0 +1,32 @@
+<h1>Edit User</h1>
+
+<%= form_with url: "/update_user", method: :get do |f| %>
+    <div>
+        <%= f.label :Username %>
+        <br>
+        <%= f.text_field :name, :value => @user.name%>
+    </div>
+
+    <div>
+        <%= f.label :Address %>
+        <br>
+        <%= f.text_field :address, :value => @user.address%>
+    </div>
+
+    <div>
+        <%= f.label :Skill %>
+        <br>
+        <%= f.text_area :skill, :value => @user.skill%>
+    </div>
+
+    <div>
+        <%= f.label :Category %>
+        <br>
+        <%= f.text_field :category, :value => @user.category%>
+    </div>
+
+    <div>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+    </div>
+
+<% end %>

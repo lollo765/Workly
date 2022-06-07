@@ -1,6 +1,22 @@
 <h1>Gigs</h1>
 
-<ul>
+
+<br>
+<br>
+  <%= form_with url: "/search_user", method: :get do |f| %>
+  <div>
+      <%= f.text_field :name, placeholder: "search user"%>
+      <%= f.submit "Submit", class: 'btn btn-primary' %>
+  </div>
+  <% end %>
+
+<br>
+
+<%= form_tag user_pages_path, method: 'get' do %>
+  <%= text_field_tag :search, params[:search], placeholder:'Cerca...' %>
+  <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+<% end %>
+
 <br>
 <br>
   <% @gigs.each do |gig| %>

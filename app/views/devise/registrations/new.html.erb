@@ -4,8 +4,33 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :Username %><br />
+    <%= f.text_field :name, autofocus: true, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Immagine %><br />
+    <%= f.file_field :img%>
+  </div>
+
+  <div class="field">
+    <%= f.label :Address %><br />
+    <%= f.text_field :address, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Skill %><br />
+    <%= f.text_area :skill, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Category %><br />
+    <%= f.text_field :category, :required => true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">

@@ -8,5 +8,12 @@ class Gig
     field :currency, type: String
     field :cost, type: Integer
     field :description, type: String
+    field :email, type: String
+
+    def self.search(input) 
+        if input
+            any_of({email: /#{input}/i})
+        end
+    end
 
 end

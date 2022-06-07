@@ -10,9 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  #def create
+    # super
+    #@user = User.new(sign_up_params)
+    #if @user.save
+    #  redirect_to @user
+    #else 
+    #  render :new, status: :unprocessable_entity
+    #end
+  #end
 
   # GET /resource/edit
   # def edit
@@ -50,9 +56,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  #def configure_sign_up_params
+  #  devise_parameter_sanitizer.permit(:sign_up, keys: [:name], keys: [:address])
+  #end
+
+  #def sign_up_params
+  #  params.require(:user).permit(:name, :address, :email, :password, :password_confirmation)
+  #end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

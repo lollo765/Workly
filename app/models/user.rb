@@ -10,6 +10,12 @@ class User
   field :encrypted_password, :type => String, :default => ""
   field :provider, :type => String
   field :uid, :type => String
+  field :address, :type => String, :default => ""
+  field :name, :type => String, :default => ""
+  field :img, :type => String, :default => ""
+  field :skill, :type => String, :default => ""
+  field :review, :type => Integer, :default => 0
+  field :category, :type => String, :default => ""
 
   ## Password Expirable
   field :password_changed_at, :type => Time
@@ -56,7 +62,13 @@ class User
   field :invited_by_type, :type => String
 
   def user_params
-    params.require(:user).permit(:provider, :uid, :name,:email, :password, :password_confirmation, :encrypted_password)
+    params.require(:user).permit(:provider, :uid, :name, :email, :password, :password_confirmation, :encrypted_password)
+  end
+
+  def self.search(input) 
+    if input
+        any_of({name: /#{input}/i, email: /#{input}/i})
+    end
   end
 
   # run 'rake db:mongoid:create_indexes' to create indexes

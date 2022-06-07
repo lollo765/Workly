@@ -14,6 +14,7 @@ class GigsController < ApplicationController
 
   def create
     @gig = Gig.new(gig_params)
+    @gig.email=current_user.email
     if @gig.save
       redirect_to @gig
     else 
@@ -45,7 +46,7 @@ class GigsController < ApplicationController
 
   private
   def gig_params
-    params.require(:gig).permit(:title, :categories, :skill, :currency, :cost, :description )
+    params.require(:gig).permit(:title, :categories, :skill, :currency, :cost, :description, :email)
   end
 
 end

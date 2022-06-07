@@ -1,0 +1,22 @@
+<h1>User Page</h1>
+
+<br>
+<%= link_to "Change your password or delete your account", edit_user_registration_path %>
+<br>
+<br>
+<%= button_to "Edit", edit_user_path, :method => :get %>
+<br>
+
+<% @user.each do |user| %>
+      <%= user.name %>
+<% end %>
+
+<%= @user.email %>
+<br>
+<%= @user.name %>
+<br>
+<%= @user.address %>
+<br>
+<%= @user.skill %>
+<br>
+
