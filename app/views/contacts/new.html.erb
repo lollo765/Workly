@@ -1,3 +1,5 @@
+<h1> Assistenza </h1>
+
 <%= form_with model: @contact do |f| %>
   
   <div>
@@ -15,8 +17,16 @@
     <%= f.text_area :message %>
   </div>
 
+  <br>
+
   <div>
     <%= f.submit %>
   </div>
+
+  <br>
+
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-house"></i> Torna alla home
+  <% end %>
 
 <% end %>
