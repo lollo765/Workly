@@ -1,11 +1,13 @@
 class GigsController < ApplicationController
 
   def index
-    if (params[:search].blank? && params[:categories].blank?)
+    if (params[:search].blank? && params[:categories].blank? && params[:skill].blank?)
       @gigs = Gig.all
-    elsif (params[:search].blank? && !params[:categories].blank?)
+    elsif (!params[:categories].blank?)
       @gigs = Gig.search(params[:categories])
-   else
+    elsif (!params[:skill].blank?)
+      @gigs = Gig.search_for_skills(params[:skill])
+    else
       @gigs = Gig.search(params[:search])
    end
   end
@@ -20,6 +22,9 @@ class GigsController < ApplicationController
 
   def create
     @gig = Gig.new(gig_params)
+    if current_user
+      @gig.email = current_user.email
+    end 
     if @gig.save
       redirect_to @gig
     else 

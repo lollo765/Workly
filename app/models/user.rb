@@ -5,6 +5,10 @@ class User
   devise :omniauthable, :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable, omniauth_providers: [:facebook, :google_oauth2]
 
+  ## Admin?
+
+  field :admin, :type => Boolean, :default => false
+
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
@@ -56,7 +60,7 @@ class User
   field :invited_by_type, :type => String
 
   def user_params
-    params.require(:user).permit(:provider, :uid, :name,:email, :password, :password_confirmation, :encrypted_password)
+    params.require(:user).permit(:admin, :provider, :uid, :name,:email, :password, :password_confirmation, :encrypted_password)
   end
 
   # run 'rake db:mongoid:create_indexes' to create indexes
