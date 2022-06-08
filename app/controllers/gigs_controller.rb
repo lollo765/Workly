@@ -1,7 +1,5 @@
 class GigsController < ApplicationController
 
-  before_action :authorize_item, only: [:update, :edit, :destroy]
-
   def index
     if (params[:search].blank? && params[:categories].blank? && params[:skill].blank?)
       @gigs = Gig.all
@@ -40,13 +38,17 @@ class GigsController < ApplicationController
 
   def update
     @gig = Gig.find(params[:id])
-
-    if @gig.update(gig_params)
-      redirect_to @gig
-    else
+    if (current_user && (@gig.user == current_user || current_user.admin == true))
+      if @gig.update(gig_params)
+        redirect_to @gig
+      else
       render :edit, status: :unprocessable_entity
+      end
+    else
+      redirect_to root_path
     end
   end
+
 
   def destroy
     @gig = Gig.find(params[:id])

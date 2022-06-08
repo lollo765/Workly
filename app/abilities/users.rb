@@ -1,4 +1,4 @@
 Canard::Abilities.for(:user) do
-  can [:read, :create], Gig
-  cannot [:destroy], Gig
+  can [:read, :create, :edit, :destroy, :update], Gig
+
 end
