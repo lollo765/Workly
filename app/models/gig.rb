@@ -2,6 +2,8 @@ class Gig
 
     include Mongoid::Document
 
+    belongs_to :user
+
     field :title, type: String
     field :categories, type: String
     field :skill, type: String

@@ -1,5 +1,7 @@
 class GigsController < ApplicationController
 
+  before_action :authorize_item, only: [:update, :edit, :destroy]
+
   def index
     if (params[:search].blank? && params[:categories].blank? && params[:skill].blank?)
       @gigs = Gig.all
@@ -21,7 +23,7 @@ class GigsController < ApplicationController
   end
 
   def create
-    @gig = Gig.new(gig_params)
+    @gig = current_user.gigs.new(gig_params)
     if current_user
       @gig.email = current_user.email
     end 
@@ -57,6 +59,14 @@ class GigsController < ApplicationController
   private
   def gig_params
     params.require(:gig).permit(:title, :categories, :skill, :currency, :cost, :description )
+  end
+
+  private  
+  def authorize_item
+    @gig = Gig.find(params[:id])
+    unless @gig.user == current_user 
+      redirect_to gigs_path
+    end
   end
 
 end
