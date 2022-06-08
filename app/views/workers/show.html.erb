@@ -1,0 +1,36 @@
+<h1>Worker Page</h1>
+
+<% if @user.img == ""%>
+    <% @user.img = "https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png" %>
+<% end %>
+<%= image_tag(@user.img, width: "200px") %>
+<br>
+<%= @user.name %>
+<br>
+<%= @user.email %>
+<br>
+<%= @user.address %>
+<br>
+<%= @user.skill %>
+<br>
+<%= @user.category %>
+<br>
+<hr>
+
+<h3>Gigs </h3>
+<br>
+
+<% @gigs.each do |gig| %>
+    <% if gig.email == @user.email%>
+        <%= gig.title %>
+        <br>
+        <%= gig.categories %>
+        <br>
+        <%= gig.skill %>
+        <br>
+        <%= gig.currency %>
+        <br>
+        <%= gig.cost %>
+        <hr>
+    <% end %>
+<% end %>

@@ -62,12 +62,18 @@ class User
   field :invited_by_type, :type => String
 
   def user_params
-    params.require(:user).permit(:provider, :uid, :name, :email, :password, :password_confirmation, :encrypted_password)
+    params.require(:user).permit(:provider, :uid, :name, :address, :skill, :category, :email, :password, :password_confirmation, :encrypted_password)
   end
 
   def self.search(input) 
     if input
-        any_of({name: /#{input}/i, email: /#{input}/i})
+        any_of({name: /#{input}/i}, {skill: /#{input}/i}, {email: /#{input}/i})
+    end
+  end
+
+  def self.search_for_category(input) 
+    if input
+        any_of({category: /#{input}/i})
     end
   end
 

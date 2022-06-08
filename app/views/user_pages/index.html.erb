@@ -1,22 +1,19 @@
 <h1>User Page</h1>
 
 <br>
+<% if user_signed_in? %>
+    Logged in as <%= current_user.email%> [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
+<% end %>
+<br>
 <%= link_to "Change your password or delete your account", edit_user_registration_path %>
 <br>
 <br>
-<%= button_to "Edit", edit_user_path, :method => :get %>
-<br>
 
 <% @user.each do |user| %>
-      <%= user.name %>
+      
+      <br>
 <% end %>
 
-<%= @user.email %>
-<br>
-<%= @user.name %>
-<br>
-<%= @user.address %>
-<br>
-<%= @user.skill %>
-<br>
-
+<!--
+<%= button_to "Edit", edit_user_path, :method => :get %>
+-->
