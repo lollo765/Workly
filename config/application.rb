@@ -6,8 +6,6 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Mongoid.load!("/mnt/c/Users/Mio/Desktop/CommunityWork/communitywork/config/mongoid.yml")
-
 module DevGig
   class Application < Rails::Application
   # Don't generate system test files.

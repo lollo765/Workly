@@ -2,7 +2,7 @@
   
   <div>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, required: true %>
     <% gig.errors.full_messages_for(:title).each do |message| %>
       #<div><%= message %></div>
     <% end %>
@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :cost %><br>
-    <%= form.number_field :cost, step: 'any' %><br>
+    <%= form.number_field :cost, required: true, step: 'any' %><br>
     <% gig.errors.full_messages_for(:cost).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -31,7 +31,7 @@
 
   <div>
     <%= form.label :skill %><br>
-    <%= form.text_field :skill %>
+    <%= form.text_field :skill, required: true %>
     <% gig.errors.full_messages_for(:skill).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -39,7 +39,7 @@
 
   <div>
     <%= form.label :categories %><br>
-    <%= form.text_field :categories %><br>
+    <%= form.select :categories, [['Design e Visual Art', 'Design e Visual Art'], ['Programmazione', 'Programmazione'], ['Economia', 'Economia'], ['Musica e Videomaking', 'Musica e Videomaking']] %><br>
     <% gig.errors.full_messages_for(:categories).each do |message| %>
       <div><%= message %></div>
     <% end %>

@@ -5,6 +5,12 @@ class User
   devise :omniauthable, :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable, omniauth_providers: [:facebook, :google_oauth2]
 
+  has_many :gigs
+
+  ## Admin?
+
+  field :admin, :type => Boolean, :default => false
+
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
@@ -62,12 +68,18 @@ class User
   field :invited_by_type, :type => String
 
   def user_params
-    params.require(:user).permit(:provider, :uid, :name, :address, :skill, :category, :email, :password, :password_confirmation, :encrypted_password)
+    params.require(:user).permit(:admin, :provider, :uid, :name, :email, :img, :skill, :category, :review, :password, :password_confirmation, :encrypted_password)
   end
 
   def self.search(input) 
     if input
-        any_of({name: /#{input}/i}, {skill: /#{input}/i}, {email: /#{input}/i})
+        any_of({name: /#{input}/i}, {email: /#{input}/i})
+    end
+  end
+
+  def self.search_for_skill(input) 
+    if input
+        any_of({skill: /#{input}/i})
     end
   end
 

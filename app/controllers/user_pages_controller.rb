@@ -1,7 +1,7 @@
 class UserPagesController < ApplicationController
-
+  
   def index
-      @user=User.all
+    @user=User.all
   end
 
   def show
@@ -20,6 +20,16 @@ class UserPagesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @gig = Gig.where(email: @user.email)
+    
+    @user.destroy
+    @gig.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private

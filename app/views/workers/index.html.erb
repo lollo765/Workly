@@ -1,29 +1,62 @@
-<h1>Workers</h1>
-<br>
-<br>
+<head>
+  <%= stylesheet_link_tag 'workers.css' %>
+</head>
 
-<%= form_tag workers_path, method: 'get' do %>
-  <%= text_field_tag :search, params[:search], placeholder:'Cerca...' %>
-  <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-<% end %>
-<br>
+<body>
+  <h1>Workers</h1>
+  <br>
+  <br>
 
-<%= form_tag workers_path, method: 'get' do %>
-  <%= select_tag :category, options_for_select(["", "Avvocato", "Ingegnere", "Architetto"]) %>
-  <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
-<% end %>
-<br>
 
-<% @users.each do |user| %>
-    <% if user.img == ""%>
-        <% user.img = "https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png" %>
-    <% end %>
-    <%= image_tag(user.img, width: "200px") %>
-    <br>
-    <a href="/workers/<%= user.id %>">
-    <%= user.name%>
-    </a>
-    <br>
-    <%= user.category%>
-    <br>
-<% end %>
+  <div id="griglia-filtri">
+
+    <div class="search-worker">
+
+      <%= form_tag workers_path, method: 'get' do %>
+        <%= text_field_tag :search, params[:search], placeholder:'Cerca Worker...' %>
+        <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+      <% end %>
+
+    </div>
+
+    <div class="search-skill-worker">
+
+      <%= form_tag workers_path, method: 'get' do %>
+        <%= text_field_tag :skill, params[:skill], placeholder:'Cerca Worker per skill...' %>
+        <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+      <% end %>
+
+    </div>
+
+    <div class="search-category-worker">
+
+      <%= form_tag workers_path, method: 'get' do %>
+        <%= select_tag :category, options_for_select(["", "Avvocato", "Ingegnere", "Architetto"]) %>
+        <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
+      <% end %>
+
+    </div>
+
+  </div>
+  <br>
+  <hr>
+  <div id="griglia-workers">
+
+    <div class="content-large">
+
+      <% @users.each do |user|%>
+        <% if user.img == ""%>
+            <% user.img = "https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png" %>
+        <% end %>
+        <%= image_tag(user.img, width: "200px") %>
+        <a href="/workers/<%= user.id %>">
+        <%= user.name%>
+        </a>
+        <%= user.category%>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</body>

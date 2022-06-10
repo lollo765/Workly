@@ -16,6 +16,22 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.action_mailer_default_url_options = { host: 'localhost', port: 3000 }
+  Rails.application.routes.default_url_options[:host] = 'https://localhost:3000'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default charset: 'utf-8'
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com'
+    port: 587
+    domain: 'gmail.com'
+    authentication: 'plain'
+    enable_starttls_auto: true
+    user_name: 'xxxxx',
+    password: 'xxxxx'
+}
+
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true

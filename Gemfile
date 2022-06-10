@@ -44,11 +44,16 @@ gem 'omniauth-rails_csrf_protection'
 # MongoDB
 
 gem 'mongoid'
+gem 'kaminari-mongoid'
 
 # Awesome Font
 
 gem "font-awesome-rails"
 
+# Mail Form
+
+gem 'mail_form'
+gem 'simple_form'
 
 gem 'excon'
 

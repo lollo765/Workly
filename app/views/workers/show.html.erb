@@ -21,16 +21,22 @@
 <br>
 
 <% @gigs.each do |gig| %>
-    <% if gig.email == @user.email%>
-        <%= gig.title %>
-        <br>
-        <%= gig.categories %>
-        <br>
-        <%= gig.skill %>
-        <br>
-        <%= gig.currency %>
-        <br>
-        <%= gig.cost %>
-        <hr>
-    <% end %>
+    <%= gig.title %>
+    <br>
+    <%= gig.categories %>
+    <br>
+    <%= gig.skill %>
+    <br>
+    <%= gig.currency %>
+    <br>
+    <%= gig.cost %>
+    <hr>
+<% end %>
+
+<br>
+
+<%= link_to "Back", workers_path %>
+&nbsp;&nbsp;&nbsp;
+<% if current_user && ((current_user.admin == true)) %>
+    <%= link_to "Destroy", worker_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <% end %>

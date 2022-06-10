@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  match '/contacts',     to: 'contacts#new', via: 'get'
+  match '/contacts/success',     to: 'contacts#success', via: 'get'
+  resources "contacts", only: [:new, :create, :success]
 
   root "home_pages#index"
-
-  resources :workers
 
   resources :home_pages
 
   resources :gigs
 
-  resources :user_pages
+  resources :workers
 
-  #get 'edit_user', action: :editUser, controller: :user_pages
-  #get 'update_user', action: :updateUser, controller: :user_pages
-  #get 'search_user', action: :searchUser, controller: :user_pages
+  resources :user_pages
+  
 end

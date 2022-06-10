@@ -33,7 +33,7 @@
     <div>
         <%= f.label :Category %>
         <br>
-        <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :value => @user.category, :required => true %>
+        <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :selected => @user.category, :required => true %>
     </div>
     <br>
     <div>

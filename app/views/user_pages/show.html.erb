@@ -5,8 +5,9 @@
     Logged in as <%= current_user.email%> [<%= link_to 'Logout', destroy_user_session_path, :method => :delete%>]
 <% end %>
 <br>
-<%= link_to "Change your password or delete your account", edit_user_registration_path %>
+<%= link_to "Change your password", edit_user_registration_path %>
 <br>
+<%= link_to "Delete your account",  user_page_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <br>
 <%= button_to "Edit", edit_user_page_path, :method => :get %>
 <br>

@@ -7,13 +7,14 @@
 <p> <u> <b> Categorie </u> </b> <br> <%= @gig.categories %> </p>
 
 
-
-
-<%= link_to "Edit", edit_gig_path%>
+<%= link_to "Back", gigs_path %>
 &nbsp;&nbsp;&nbsp;
-<%= link_to "Back", root_path %>
-&nbsp;&nbsp;&nbsp;
-<%= link_to "Destroy", gig_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
+
+<% if current_user && ((@gig.user == current_user) || (current_user.admin == true)) %>
+    <%= link_to "Edit", edit_gig_path%>
+    &nbsp;&nbsp;&nbsp;
+    <%= link_to "Destroy", gig_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
+<% end %>
 
 
 
