@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   match '/contacts/success',     to: 'contacts#success', via: 'get'
   resources "contacts", only: [:new, :create, :success]
 
-  root "gigs#index"
+  root "gigs#index";
 
   resources :gigs
+  
+  resources :cmc, only: [:index] do
+  end
   
 end
