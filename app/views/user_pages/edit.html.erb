@@ -1,43 +1,64 @@
-<h1>Edit User</h1>
+<head>
+    <%= stylesheet_link_tag 'edit_user.css' %>
+</head>
 
-<%= form_with url: "/user_pages/"+ @user.id, method: :patch do |f| %>
-    <div>
-        <%= f.label :Immage %>
+<body>
+    <div class="center">
         <br>
-        <%= f.text_field :img, :value => @user.img%>
-        <br>
-        <% if @user.img == ""%>
-            <% @user.img = "https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png" %>
-        <% end %>
-        <%= image_tag(@user.img, width: "200px") %>
-    </div>
+        <h1>Edit User</h1>
+        <div id="form">
 
-    <div>
-        <%= f.label :Username %>
-        <br>
-        <%= f.text_field :name, :value => @user.name, :required => true %>
-    </div>
+            <%= form_with url: "/user_pages/"+ @user.id, method: :patch do |f| %>
+                <div class="img_field">
+                    <%= f.label :Image %>
+                    <br>
+                    <%= f.text_field :img, :value => @user.img%>
+                    <br>
+                    <br>
+                    <% if @user.img == ""%>
+                        <% @user.img = "avatar-user.png" %>
+                    <% end %>
+                    <%= image_tag(@user.img, width: "175px", height: "175px", class: "rounded-circle") %>
+                </div>
 
-    <div>
-        <%= f.label :Address %>
-        <br>
-        <%= f.text_field :address, :value => @user.address, :required => true %>
-    </div>
+                <div class="row">
 
-    <div>
-        <%= f.label :Skill %>
-        <br>
-        <%= f.text_area :skill, :value => @user.skill, :required => true %>
-    </div>
+                    <div class="col">
+                        <div class="txt_field">
+                            <%= f.label :Username %>
+                            <br>
+                            <%= f.text_field :name, :value => @user.name, :required => true %>
+                        </div>
+                    </div>
 
-    <div>
-        <%= f.label :Category %>
-        <br>
-        <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :selected => @user.category, :required => true %>
-    </div>
-    <br>
-    <div>
-    <%= f.submit "Submit", class: 'btn btn-primary' %>
-    </div>
+                    <div class="col">
+                        <div class="txt_field">
+                            <%= f.label :Address %>
+                            <br>
+                            <%= f.text_field :address, :value => @user.address, :required => true %>
+                        </div>
+                    </div>
+                    
+                </div>
 
-<% end %>
+                <div class="field">
+                    <%= f.label :Skill %>
+                    <br>
+                    <%= f.text_area :skill, :value => @user.skill, :required => true %>
+                </div>
+
+                <div class="select_field">
+                    <%= f.label :Category %>
+                    <br>
+                    <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :selected => @user.category, :required => true %>
+                </div>
+                <br>
+                <div>
+                <%= f.submit "Submit", class: 'btn btn-primary' %>
+                </div>
+                <br>
+
+            <% end %>
+        </div>
+    </div>
+</body>

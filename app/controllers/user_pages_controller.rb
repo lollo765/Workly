@@ -1,11 +1,11 @@
 class UserPagesController < ApplicationController
   
   def index
-    @user=User.all
   end
 
   def show
     @user= User.find(params[:id])
+    @gigs=Gig.where(email: @user.email)
   end
 
   def edit

@@ -7,7 +7,7 @@
 <p> <u> <b> Categorie </u> </b> <br> <%= @gig.categories %> </p>
 
 
-<%= link_to "Back", gigs_path %>
+<%= link_to "Back", :back %>
 &nbsp;&nbsp;&nbsp;
 
 <% if current_user && ((@gig.user == current_user) || (current_user.admin == true)) %>

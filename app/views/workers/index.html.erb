@@ -13,7 +13,7 @@
     <div class="search-worker">
 
       <%= form_tag workers_path, method: 'get' do %>
-        <%= text_field_tag :search, params[:search], placeholder:'Cerca Worker...' %>
+        <%= text_field_tag :search, params[:search], placeholder:'Cerca Worker per nome o email...' %>
         <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
       <% end %>
 
@@ -42,20 +42,20 @@
   <hr>
   <div id="griglia-workers">
 
-    <div class="content-large">
-
       <% @users.each do |user|%>
-        <% if user.img == ""%>
-            <% user.img = "https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png" %>
-        <% end %>
-        <%= image_tag(user.img, width: "200px") %>
-        <a href="/workers/<%= user.id %>">
-        <%= user.name%>
-        </a>
-        <%= user.category%>
+        <div>
+          <% if user.img == ""%>
+              <% user.img = "avatar-user.png" %>
+          <% end %>
+          <%= image_tag(user.img, width: "175px", height: "175px", class: "rounded-circle") %>
+          <br>
+          <%= user.name%>
+          <br>
+          <%= user.category%>
+          <br>
+          <a class="btn btn-primary" href="/workers/<%= user.id %>">Dettagli</a>
+        </div>
       <% end %>
-
-    </div>
 
   </div>
 

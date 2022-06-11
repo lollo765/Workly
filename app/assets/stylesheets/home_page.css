@@ -11,7 +11,7 @@ nav {
   display: flex;
   height: 120px;
   width: 100%;
-  background: #e3e6f3;
+  background: #0f130a;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
@@ -28,7 +28,7 @@ nav ul li {
   position: relative;
 }
 nav ul li a {
-  color: #1a1a1a;
+  color: #ffffff;
   text-decoration: none;
   font-size: 17px;
   font-weight: 600;
@@ -38,23 +38,14 @@ nav ul li a {
 }
 nav ul li a.active,
 nav ul li a:hover {
-  color: rgb(49, 198, 24);
-}
-nav .menu-btn i {
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-  display: none;
-}
-input[type="checkbox"] {
-  display: none;
+  color: rgb(252, 125, 6);
 }
 nav ul li a.active::after,
 nav ul li a:hover::after {
   content: "";
   width: 30%;
   height: 2px;
-  background: forestgreen;
+  background: rgb(243, 3, 3);
   position: absolute;
   bottom: 3px;
   left: 15px;
@@ -101,7 +92,7 @@ nav ul li:nth-child(4) a:hover::after {
   justify-content: center;
   left: auto;
   right: auto;
-  width: 50%;
+  width: 40%;
   height: 100%;
   background-color: #1a1a1a;
   opacity: 0.8;
@@ -109,7 +100,7 @@ nav ul li:nth-child(4) a:hover::after {
   left: 0;
 }
 .d-block {
-  max-width: 200%;
+  max-width: 100%;
   height: auto;
 }
 #CarouselButton1 {

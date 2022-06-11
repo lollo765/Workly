@@ -4,6 +4,7 @@ body{
     font-family: montserrat;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
     height: 100vh;
+    font-size: 17px;
 }
 
 .center{
@@ -25,14 +26,6 @@ body{
 #form{
     padding: 0 40px;
     box-sizing: border-box;
-}
-
-a{
-    font-size: 17px;
-}
-
-label{
-    font-size: 17px;
 }
 
 .txt_field{

@@ -3,12 +3,13 @@ body{
     padding: 0;
     font-family: montserrat;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
-    height: 100vh;
+    height: 120vh;
+    font-size: 20px;
 }
 
 .center{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 600px;
@@ -27,23 +28,6 @@ body{
     box-sizing: border-box;
 }
 
-label{
-    font-size: 20px;
-}
-
-a{
-    font-size: 20px;
-}
-
-
-
-.delete_field{
-    position: relative;
-    font-size: 22px;
-    text-align: center;
-    margin: 30px 0;
-}
-
 .txt_field{
     position: relative;
     border-bottom: 2px solid #adadad;
@@ -54,7 +38,6 @@ a{
     width: 100%;
     padding: 0 5px;
     height: 40px;
-    font-size: 20px;
     border: none;
     background: none;
     outline: none;

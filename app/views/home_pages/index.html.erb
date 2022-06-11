@@ -8,14 +8,9 @@
       <!--=====Logo=====-->
       <div class="logo">
         <a href="/">
-          <img src="" class="logo" height="120px" />
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
         </a>
       </div>
-      <!--=====Btn Toggle Responsive=====-->
-      <input type="checkbox" id="click" />
-      <label for="click" class="menu-btn">
-        <i class="fas fa-bars"></i>
-      </label>
       <!--=====Schede=====-->
       <ul id="navbar">
         <li><%= link_to "Home", home_pages_path, class: "active"%></li>
@@ -25,12 +20,12 @@
         <li>
             <% if !user_signed_in? %>
               <div class="loginbox">
-              <%= button_to 'Login', new_user_session_path, :method => :get%>
+              <%= button_to 'Login', new_user_session_path, :method => :get, class: "btn btn-success"%>
               </div>
             <% end %>
 
             <% if user_signed_in? %>
-              <a href="/user_pages/<%= current_user.id %>">User Page</a>
+              <a href="/user_pages/<%= current_user.id %>" class="btn btn-success" >User Page</a>
             <% end %>
 
         </li>
@@ -69,7 +64,7 @@
       <div class="carousel-inner">
         <!--=====Item1=====-->
         <div class="carousel-item active">
-            <%= image_tag('lavoratore_informatico.webp', draggable: "true", id: "drag1", class: "d-block", alt: "Marco") %>
+            <%= image_tag('lavoratore_informatico.webp',class: "d-block", alt: "Marco") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
@@ -87,7 +82,7 @@
         </div>
         <!--=====Item2=====-->
         <div class="carousel-item">
-          <%= image_tag('paolo.webp', draggable: "true", id: "drag1", class: "d-block", alt: "Paolo") %>
+          <%= image_tag('gig.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Paolo") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
@@ -108,7 +103,7 @@
         </div>
         <!--=====Item3=====-->
         <div class="carousel-item">
-        <%= image_tag('alessia.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Alessia") %>
+        <%= image_tag('job.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Alessia") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
@@ -138,4 +133,15 @@
       </section>
     </div>
     <!--==========Fine Sezione Info==========-->
+
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: rgb(3, 107, 243)">
+      <br />
+      <p>© 2022 Copyright: <a class="text-white" href="#">Workly</a></p>
+      <p style="font-size: 0.8em; font-weight: bold; padding-left: 10px">
+        Made with ❤️ by Marco, Roberto, Matteo e Linch
+      </p>
+    </footer>
+    <!-- Footer -->
+
 </body>
