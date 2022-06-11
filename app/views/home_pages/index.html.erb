@@ -134,12 +134,36 @@
     </div>
     <!--==========Fine Sezione Info==========-->
 
+
+    <script>
+    const Http = new XMLHttpRequest();
+    const url='http://localhost:3000/cmc';
+    Http.open("GET", url);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+      let res = JSON.parse(Http.responseText)
+      let pricesRecords = res.data;
+      let mainCrypto = ['BTC', 'ETH', 'BNB', 'DOGE'];
+      let html = '<ul>';
+      for( let record of pricesRecords ){
+        if( !mainCrypto.includes(record.symbol) ) continue;
+        else html += '<li>' + `${ record.symbol }: ${record.quote.USD.price.toFixed(3)}$` + '</li>';
+      }
+      html += '</ul>'
+      console.log( html )
+      let container = document.getElementById("crypto-prices");
+      container.innerHTML = html;
+    }
+    </script>
+    <div id="crypto-prices"></div>
+
     <!-- Footer -->
     <footer class="text-center text-white" style="background-color: rgb(3, 107, 243)">
       <br />
       <p>© 2022 Copyright: <a class="text-white" href="#">Workly</a></p>
       <p style="font-size: 0.8em; font-weight: bold; padding-left: 10px">
-        Made with ❤️ by Marco, Roberto, Matteo e Linch
+        Made with ❤️ by Matteo, Marco, Roberto, Matteo
       </p>
     </footer>
     <!-- Footer -->

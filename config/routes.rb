@@ -9,12 +9,15 @@ Rails.application.routes.draw do
 
   resources :home_pages
 
+  resources :lavoros
+
   resources :gigs
 
   resources :workers
 
   resources :user_pages
   resources :cmc, only: [:index] do
+  end
 
   
 end

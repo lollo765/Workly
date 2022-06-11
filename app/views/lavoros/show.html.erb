@@ -29,6 +29,7 @@
   });
 </script>
 <br>
+ <%= stylesheet_link_tag 'style.css' %>
 <br>
 <% if( user_signed_in? &&  !@lavoro.candidates.to_s.include?(current_user.email) )  %>
     <a id="button" href="?" > candidate </a>
