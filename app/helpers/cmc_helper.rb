@@ -1,0 +1,2 @@
+module CmcHelper
+end

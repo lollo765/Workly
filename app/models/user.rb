@@ -68,6 +68,7 @@ class User
   field :invited_by_type, :type => String
 
   def user_params
+
     params.require(:user).permit(:admin, :provider, :uid, :name, :email, :img, :skill, :category, :review, :password, :password_confirmation, :encrypted_password)
   end
 
@@ -87,6 +88,7 @@ class User
     if input
         any_of({category: /#{input}/i})
     end
+
   end
 
   # run 'rake db:mongoid:create_indexes' to create indexes

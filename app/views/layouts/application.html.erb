@@ -16,6 +16,24 @@
 
   <body>
 
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <i class="fa-regular fa-user"></i> &nbsp; <%= current_user.email%> <br>
+      <%= link_to destroy_user_session_path do %>
+        <i class="fa fa-arrow-right-from-bracket"> </i> Logout
+      <% end %>
+    <% end %>
+
+    <% if !user_signed_in? %>
+      <%= link_to new_user_session_path do %>
+        <i class="fa fa-arrow-right-to-bracket"> </i> Login
+      <% end %>
+    <% end %>
+
+
     <%= yield %>
 
   </body>

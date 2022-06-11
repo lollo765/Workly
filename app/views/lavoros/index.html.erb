@@ -1,0 +1,35 @@
+<h1>Lavoro</h1>
+<div id ="lavoro">
+  <div>
+   <%= form_tag lavoros_path, method: 'get' do %>
+    <%= text_field_tag :search, params[:search], placeholder:'Search...' %>
+    <%= button_tag "Search", data: { disable_with: "Searching..." }%>
+   <% end %>
+   <%= form_tag lavoros_path, method: 'get' do %>
+    <%= select_tag :categories,options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
+    <%= submit_tag 'Filter_Categories' %>
+   <% end %>
+   <%= form_tag lavoros_path, method: 'get' do %>
+    <%= select_tag :skill_Lavoratori,options_for_select(["","WordPress-Developer","Shopify-Developer","Wlx-Developer","Android-Developer","IOS-Developer","Python-Developer","JavaScript-Developer","HTML-CSS-Developer"]) %>
+    <%= submit_tag 'Filter_Skill_Lavoratori' %>
+   <% end %>
+  </div>
+
+  <p>Titolo</p>
+  
+  <% @lavoros.each do |lavoro| %>
+    <%=link_to lavoro.title, lavoro%>
+  <%end%>
+  <br>
+  <br>
+  <% if user_signed_in? %>
+    <%= link_to 'New Lavoro', new_lavoro_path%>
+  <% end %>
+
+  <% if !user_signed_in? %>
+   <%= link_to "New Lavoro", new_user_session_path %>
+  <% end %>
+  </br>
+  </br>
+  
+</div>

@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :workers
 
   resources :user_pages
+  resources :cmc, only: [:index] do
+
   
 end

@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.1"
+ruby ">= 2.7.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.4"
@@ -22,24 +22,24 @@ gem "puma", "~> 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire"s modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-gem 'bootstrap', '~> 4.3.1'
+gem "bootstrap", "~> 4.3.1"
 
 # Auth
 
-gem 'devise'
-gem 'canard', '~> 0.6.2.pre'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-rails_csrf_protection'
+gem "devise"
+gem "canard", "~> 0.6.2.pre"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
 
 # MongoDB
 
@@ -55,7 +55,17 @@ gem "font-awesome-rails"
 gem 'mail_form'
 gem 'simple_form'
 
-gem 'excon'
+
+# Awesome Font
+
+gem "font-awesome-rails"
+
+# Mail Form
+
+gem "mail_form"
+gem "simple_form"
+
+gem "excon"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -81,6 +91,10 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "cucumber-rails", require: false
+  gem "database_cleaner"
+  gem "database_cleaner-mongoid"
+  gem "cucumber-rails-training-wheels"
 end
 
 group :development do

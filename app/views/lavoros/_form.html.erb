@@ -1,0 +1,64 @@
+<%= form_with model: @lavoro do |form| %>
+  <% if lavoro.errors.any?%>
+    <div id="spiegazione_errore">
+      <h2><%= pluralize(lavoro.errors.count, "errore")%></h2>
+        <ul>
+          <%lavoro.errors.each do |error|%>
+          <li><%= error.full_message%></li>
+          <% end %>
+        </ul>
+    </div>
+  <%end%>
+
+  <div class="field">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% lavoro.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :n_Lavoratori %><br>
+    <%= form.number_field :n_Lavoratori,min:1 ,max: 30, step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categories %><br>
+    <%= form.select :categories,[[],['Sviluppo di siti web','Sviluppo di siti web'],
+                                 ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
+                                 ['Assistenza e Sicurezza Informatica','Assistenza e Sicurezza Informatica'],
+                                 ['Varie','Varie']] %><br>
+  </div>
+
+  <div class="field">
+    <%= form.label :skill_Lavoratori %><br>
+    <%= form.select :skill_Lavoratori, [[],['WordPress-Developer','WordPress-Developer'],
+                                        ['Shopify-Developer','Shopify-Developer'],
+                                        ['Wlx-Developer','Wlx-Developer'],
+                                        ['Android-Developer','Android-Developer'],
+                                        ['IOS-Developer','IOS-Developer'],
+                                        ['Python-Developer','Python-Developer'],
+                                        ['JavaScript-Developer','JavaScript-Developer'],
+                                        ['HTML-CSS-Developer','HTML-CSS-Developer']]%><br>
+  </div>
+
+  <div class="field">
+    <%= form.label :timer %><br>
+    <%= form.number_field :timer,min:1,step: 'any' %>
+  </div>
+
+  <div>
+    <%= form.label :currency %><br>
+    <%= form.select :currency, [['BTC', 'BTC'], ['DOGE', 'DOGE'], ['ETH', 'ETH']] %><br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %><br>
+  </div>
+<%end%>
