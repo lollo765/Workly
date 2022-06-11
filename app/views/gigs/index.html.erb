@@ -1,67 +1,56 @@
-<h1>Gigs</h1>
+<head>
+  <%= stylesheet_link_tag 'style.css' %>
+</head>
 
-<script>
-const Http = new XMLHttpRequest();
-const url='http://localhost:3000/cmc';
-Http.open("GET", url);
-Http.send();
+<body>
+  <h1>Gigs</h1>
 
-Http.onreadystatechange = (e) => {
-  let res = JSON.parse(Http.responseText)
-  let pricesRecords = res.data;
-  let mainCrypto = ['BTC', 'ETH', 'BNB', 'DOGE'];
-  let html = '<ul>';
-  for( let record of pricesRecords ){
-    if( !mainCrypto.includes(record.symbol) ) continue;
-    else html += '<li>' + `${ record.symbol }: ${record.quote.USD.price.toFixed(3)}$` + '</li>';
-  }
-  html += '</ul>'
-  console.log( html )
-  let container = document.getElementById("crypto-prices");
-  container.innerHTML = html;
-}
-</script>
-<div id="crypto-prices"></div>
+  <br>
 
-<br>
-
-<% @gigs.each do |gig| %>
-  <%= link_to gig.title, gig %>
-<% end %>
-
-<br>
-
-<%= form_tag gigs_path, method: 'get' do %>
-  <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ], "Design e Visual Art") %>
-  <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
-<% end %>
-
-<br>
-<%= form_tag gigs_path, method: 'get' do %>
-  <%= text_field_tag :search, params[:search], placeholder:'Cerca...', autocomplete: 'off' %>
-  <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-<% end %>
-
-<br>
-<%= form_tag gigs_path, method: 'get' do %>
-  <%= text_field_tag :search, params[:skill], placeholder:'Cerca una skill...', autocomplete: 'off' %>
-  <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-<% end %>
-
-<br>
-<% if user_signed_in? %>
-  <%= link_to new_gig_path do %>
-    <i class="fa-solid fa-plus"> </i> New Gig
+  <% @gigs.each do |gig| %>
+    <%= link_to gig.title, gig %>
   <% end %>
-<% end %>
 
-<% if !user_signed_in? %>
-  <%= link_to new_user_session_path do %>
-    <i class="fa-solid fa-plus"> </i> New Gig
+  <br>
+
+  <%= form_tag gigs_path, method: 'get' do %>
+    <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ], "Design e Visual Art") %>
+    <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
   <% end %>
-<% end %>
 
-<br>
-<%= link_to new_contact_path do %>
-<i class="fa-solid fa-headset"></i> Assistenza
-<% end %>
+  <br>
+  <%= form_tag gigs_path, method: 'get' do %>
+    <%= text_field_tag :search, params[:search], placeholder:'Cerca...', autocomplete: 'off' %>
+    <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+  <% end %>
+
+  <br>
+  <%= form_tag gigs_path, method: 'get' do %>
+    <%= text_field_tag :search, params[:skill], placeholder:'Cerca una skill...', autocomplete: 'off' %>
+    <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+  <% end %>
+
+  <br>
+  <% if user_signed_in? %>
+    <%= link_to new_gig_path do %>
+      <i class="fa-solid fa-plus"> </i> New Gig
+    <% end %>
+  <% end %>
+
+  <% if !user_signed_in? %>
+    <%= link_to new_user_session_path do %>
+      <i class="fa-solid fa-plus"> </i> New Gig
+    <% end %>
+  <% end %>
+
+  <br>
+  <%= link_to new_contact_path do %>
+  <i class="fa-solid fa-headset"></i> Assistenza
+  <% end %>
+</body>
+
+
+
+
+
+

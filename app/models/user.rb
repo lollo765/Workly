@@ -16,6 +16,12 @@ class User
   field :encrypted_password, :type => String, :default => ""
   field :provider, :type => String
   field :uid, :type => String
+  field :address, :type => String, :default => ""
+  field :name, :type => String, :default => ""
+  field :img, :type => String, :default => ""
+  field :skill, :type => String, :default => ""
+  field :review, :type => Integer, :default => 0
+  field :category, :type => String, :default => ""
 
   ## Password Expirable
   field :password_changed_at, :type => Time
@@ -62,7 +68,27 @@ class User
   field :invited_by_type, :type => String
 
   def user_params
-    params.require(:user).permit(:admin, :provider, :uid, :name,:email, :password, :password_confirmation, :encrypted_password)
+
+    params.require(:user).permit(:admin, :provider, :uid, :name, :email, :img, :skill, :category, :review, :password, :password_confirmation, :encrypted_password)
+  end
+
+  def self.search(input) 
+    if input
+        any_of({name: /#{input}/i}, {email: /#{input}/i})
+    end
+  end
+
+  def self.search_for_skill(input) 
+    if input
+        any_of({skill: /#{input}/i})
+    end
+  end
+
+  def self.search_for_category(input) 
+    if input
+        any_of({category: /#{input}/i})
+    end
+
   end
 
   # run 'rake db:mongoid:create_indexes' to create indexes
@@ -76,6 +102,11 @@ class User
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
+      name = user.email.split("@")
+      user.name = name[0]
+      user.skill = "nessuna"
+      user.category = "nessuna"
+      user.address = "nessuno"
     end
   end
 

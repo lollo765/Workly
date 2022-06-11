@@ -26,7 +26,7 @@ class GigsController < ApplicationController
       @gig.email = current_user.email
     end 
     if @gig.save
-      redirect_to @gig
+      redirect_to gigs_path
     else 
       render :new, status: :unprocessable_entity
     end
@@ -55,7 +55,7 @@ class GigsController < ApplicationController
     authorize! :create, @gig, :message => "BEWARE: you are not authorized to destroy this gig."
     @gig.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to gigs_path, status: :see_other
   end
 
   private

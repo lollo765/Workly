@@ -1,0 +1,62 @@
+<head>
+  <%= stylesheet_link_tag 'workers.css' %>
+</head>
+
+<body>
+  <h1>Workers</h1>
+  <br>
+  <br>
+
+
+  <div id="griglia-filtri">
+
+    <div class="search-worker">
+
+      <%= form_tag workers_path, method: 'get' do %>
+        <%= text_field_tag :search, params[:search], placeholder:'Cerca Worker per nome o email...' %>
+        <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+      <% end %>
+
+    </div>
+
+    <div class="search-skill-worker">
+
+      <%= form_tag workers_path, method: 'get' do %>
+        <%= text_field_tag :skill, params[:skill], placeholder:'Cerca Worker per skill...' %>
+        <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+      <% end %>
+
+    </div>
+
+    <div class="search-category-worker">
+
+      <%= form_tag workers_path, method: 'get' do %>
+        <%= select_tag :category, options_for_select(["", "Avvocato", "Ingegnere", "Architetto"]) %>
+        <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
+      <% end %>
+
+    </div>
+
+  </div>
+  <br>
+  <hr>
+  <div id="griglia-workers">
+
+      <% @users.each do |user|%>
+        <div>
+          <% if user.img == ""%>
+              <% user.img = "avatar-user.png" %>
+          <% end %>
+          <%= image_tag(user.img, width: "175px", height: "175px", class: "rounded-circle") %>
+          <br>
+          <%= user.name%>
+          <br>
+          <%= user.category%>
+          <br>
+          <a class="btn btn-primary" href="/workers/<%= user.id %>">Dettagli</a>
+        </div>
+      <% end %>
+
+  </div>
+
+</body>

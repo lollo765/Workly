@@ -1,0 +1,147 @@
+<head>
+  <%= stylesheet_link_tag 'home_page.css' %>
+</head>
+
+<body>
+<!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path, class: "active"%></li>
+        <li><%= link_to "Workers", workers_path%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Jobs"%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+              <%= button_to 'Login', new_user_session_path, :method => :get, class: "btn btn-success"%>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? %>
+              <a href="/user_pages/<%= current_user.id %>" class="btn btn-success" >User Page</a>
+            <% end %>
+
+        </li>
+        <!--=====Login Button=====-->
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+    <!--==========Carousel==========-->
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+      <!--=====Indicatori=====-->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+
+      <!--=====Slide=====-->
+      <div class="carousel-inner">
+        <!--=====Item1=====-->
+        <div class="carousel-item active">
+            <%= image_tag('lavoratore_informatico.webp',class: "d-block", alt: "Marco") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <div class="caption">
+                <h1 id="S1">Marco</h1>
+
+                <p id="caption">
+                  Esperto nei linguaggi rails e nodejs
+                </p>
+                <a href="./appartamenti"><button class="btn btn-lg btn-outline-light" id="CarouselButton1">
+                    Esplora <i class="fa-solid fa-arrow-right"></i>
+                </button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--=====Item2=====-->
+        <div class="carousel-item">
+          <%= image_tag('gig.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Paolo") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <div class="caption">
+                <h1 id="S2">Paolo</h1>
+
+                <p id="caption">
+                  Architetto
+                </p>
+                <a href=""><button
+                    class="btn btn-lg btn-outline-light"
+                    id="CarouselButton2"
+                  >
+                    Esplora <i class="fa-solid fa-arrow-right"></i></button
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--=====Item3=====-->
+        <div class="carousel-item">
+        <%= image_tag('job.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Alessia") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <div class="caption">
+                <h1 id="S3">Alessia</h1>
+
+                <p id="caption">
+                  Avvocato
+                </p>
+                <a href=""><button
+                    class="btn btn-lg btn-outline-light"
+                    id="CarouselButton3"
+                  >
+                    Esplora <i class="fa-solid fa-arrow-right"></i></button
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--==========Fine Carousel==========-->
+
+    <!--==========Info==========-->
+    <div class="InfoSite">
+      <h1>Chi siamo</h1>
+      <section id="InfoP">
+      </section>
+    </div>
+    <!--==========Fine Sezione Info==========-->
+
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: rgb(3, 107, 243)">
+      <br />
+      <p>© 2022 Copyright: <a class="text-white" href="#">Workly</a></p>
+      <p style="font-size: 0.8em; font-weight: bold; padding-left: 10px">
+        Made with ❤️ by Marco, Roberto, Matteo e Linch
+      </p>
+    </footer>
+    <!-- Footer -->
+
+</body>

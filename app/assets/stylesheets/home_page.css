@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+/**=====Navbar Style=====**/
+nav {
+  display: flex;
+  height: 120px;
+  width: 100%;
+  background: #0f130a;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li {
+  margin: 0 5px;
+  margin-top: 20px;
+  position: relative;
+}
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 8px 15px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover {
+  color: rgb(252, 125, 6);
+}
+nav ul li a.active::after,
+nav ul li a:hover::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: rgb(243, 3, 3);
+  position: absolute;
+  bottom: 3px;
+  left: 15px;
+}
+nav ul li:nth-child(2) a:hover {
+  color: #f7de3a;
+}
+nav ul li:nth-child(3) a:hover {
+  color: #f54967;
+}
+nav ul li:nth-child(4) a:hover {
+  color: #328fa5;
+}
+nav ul li:nth-child(2) a:hover::after {
+  background: #f7de3a;
+}
+nav ul li:nth-child(3) a:hover::after {
+  background: #d03852;
+}
+nav ul li:nth-child(4) a:hover::after {
+  background: #23798e;
+}
+#loginButton,
+#UserButton,
+#ContactButton {
+  margin-top: 5px;
+  color: #1a1a1a;
+  border: 2px solid rgb(49, 198, 24);
+  transition-duration: 0.4s;
+}
+#loginButton:hover,
+#UserButton:hover,
+#ContactButton:hover {
+  background-color: rgb(49, 198, 24);
+}
+#UserButton {
+  border-radius: 100px;
+}
+/**=====Fine Navbar Style=====**/
+
+/**=====Carousel Style=====**/
+.carousel-caption {
+  position: absolute;
+  justify-content: center;
+  left: auto;
+  right: auto;
+  width: 40%;
+  height: 100%;
+  background-color: #1a1a1a;
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+}
+.d-block {
+  max-width: 100%;
+  height: auto;
+}
+#CarouselButton1 {
+  color: #ffff;
+  background-color: none;
+  border: 2px solid #f7de3a;
+  transition-duration: 0.4s;
+  height: 100%;
+}
+#CarouselButton1:hover {
+  background-color: #f7de3a;
+}
+#CarouselButton2 {
+  color: #ffff;
+  background-color: none;
+  border: 2px solid #f54967;
+  transition-duration: 0.4s;
+}
+#CarouselButton2:hover {
+  background-color: #d03852;
+}
+#CarouselButton3 {
+  color: #ffff;
+  background-color: none;
+  border: 2px solid #328fa5;
+  transition-duration: 0.4s;
+}
+#CarouselButton3:hover {
+  background-color: #23798e;
+}
+#S1 {
+  padding-top: 25%;
+  font-size: 3vw;
+  border-bottom: 5px solid #f7de3a;
+  display: inline-block;
+  padding-bottom: 1%;
+}
+#S2 {
+  padding-top: 25%;
+  font-size: 3vw;
+  border-bottom: 5px solid #d03852;
+  display: inline-block;
+  padding-bottom: 1%;
+}
+#S3 {
+  padding-top: 25%;
+  font-size: 3vw;
+  border-bottom: 5px solid #23798e;
+  display: inline-block;
+  padding-bottom: 1%;
+}
+/**=====Fine Carousel Style=====**/
+
+/**=====Info Box Style=====**/
+.InfoSite {
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 5%;
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+.InfoSite h1 {
+  font-size: 2vw;
+  text-align: center;
+}
+.InfoSite h1::before,
+.InfoSite h1::after {
+  display: inline-block;
+  content: "";
+  border-top: .2rem solid rgb(49, 198, 24);
+  width: 30vw;
+  margin: -0.5% 1%;
+  transform: translateY(-1vw);
+}
+#InfoP {
+  font-size: 1.5vw;
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+[type="radio"] {
+  display: none;
+}
+
+#slider {
+  height: 35vw;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+#s1 {
+  width: 200%;
+}
+#slider label {
+  margin: auto;
+  width: 60%;
+  height: 100%;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+#s1:checked ~ #slide4,
+#s2:checked ~ #slide5,
+#s3:checked ~ #slide1,
+#s4:checked ~ #slide2,
+#s5:checked ~ #slide3 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  transform: translate3d(-30%, 0, -200px);
+}
+
+#s1:checked ~ #slide5,
+#s2:checked ~ #slide1,
+#s3:checked ~ #slide2,
+#s4:checked ~ #slide3,
+#s5:checked ~ #slide4 {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  transform: translate3d(-15%, 0, -100px);
+}
+
+#s1:checked ~ #slide1,
+#s2:checked ~ #slide2,
+#s3:checked ~ #slide3,
+#s4:checked ~ #slide4,
+#s5:checked ~ #slide5 {
+  box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.3), 0 11px 7px 0 rgba(0, 0, 0, 0.19);
+  transform: translate3d(0, 0, 0);
+}
+
+#s1:checked ~ #slide2,
+#s2:checked ~ #slide3,
+#s3:checked ~ #slide4,
+#s4:checked ~ #slide5,
+#s5:checked ~ #slide1 {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  transform: translate3d(15%, 0, -100px);
+}
+
+#s1:checked ~ #slide3,
+#s2:checked ~ #slide4,
+#s3:checked ~ #slide5,
+#s4:checked ~ #slide1,
+#s5:checked ~ #slide2 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  transform: translate3d(30%, 0, -200px);
+}
+/**=====Fine Info Box Style=====**/
+
+/**=====Help style=====**/
+.col-sm-12 {
+  text-align: center;
+}
+footer{
+  padding-bottom: 0.5%;
+}
+/**=====Fine Help Style=====**/
+
+/**=====Responsive Style=====**/
+@media (max-width: 1000px) {
+  nav {
+    padding: 0 40px 0 50px;
+  }
+}
+
+@media (max-width: 920px) {
+  nav .menu-btn i {
+    display: block;
+    color: #1a1a1a;
+  }
+  #click:checked ~ .menu-btn i:before {
+    content: "\f00d";
+  }
+  nav ul {
+    z-index: 2;
+    position: absolute;
+    top: 100px;
+    left: -100%;
+    background: #e3e6f3;
+    height: 80vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  nav ul li a.active::after,
+  nav ul li a:hover::after {
+    display: none;
+  }
+  #click:checked ~ ul {
+    left: 0;
+  }
+  nav ul li {
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a {
+    width: 100%;
+    margin-left: -90%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a {
+    margin-left: 0px;
+  }
+  nav ul li a.active {
+    background: none;
+    color: rgb(49, 198, 24);
+  }
+  nav ul li:nth-child(2) a:hover {
+    color: #f7de3a;
+  }
+  nav ul li:nth-child(3) a:hover {
+    color: #f54967;
+  }
+  nav ul li:nth-child(4) a:hover {
+    color: #328fa5;
+  }
+  #carousel {
+    z-index: 1;
+  }
+  #S1 {
+    border-bottom: 3px solid #f7de3a;
+  }
+  #S2 {
+    border-bottom: 3px solid #d03852;
+  }
+  #S3 {
+    border-bottom: 3px solid #23798e;
+  }
+  .carousel-caption p {
+    font-size: 14px;
+  }
+  #CarouselButton1,
+  #CarouselButton2,
+  #CarouselButton3 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    padding: 0 40px 0 10px;
+  }
+  .carousel-caption #caption {
+    font-size: 10px;
+  }
+  #CarouselButton1,
+  #CarouselButton2,
+  #CarouselButton3 {
+    font-size: 10px;
+  }
+  #S1 {
+    border-bottom: 1px solid #f7de3a;
+  }
+  #S2 {
+    border-bottom: 1px solid #d03852;
+  }
+  #S3 {
+    border-bottom: 1px solid #23798e;
+  }
+}
+
+@media (max-width: 315px) {
+  nav {
+    padding: 0 60px 0 10px;
+  }
+}
+/**=====Fine responsive Navbar=====**/
