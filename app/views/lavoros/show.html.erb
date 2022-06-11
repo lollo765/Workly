@@ -1,0 +1,42 @@
+<p>
+  <strong>Titolo:</strong>
+  <%= @lavoro.title%>
+</p>
+
+<p>
+  <strong>Descrizione:</strong>
+  <%= @lavoro.description%>
+</p>
+
+<p>
+  <strong>N_Lavoratori:</strong>
+  <%= @lavoro.n_Lavoratori%>
+</p>
+
+<p>
+  <strong>Categorie:</strong>
+  <%= @lavoro.categories%>
+</p>
+
+<p>
+  <strong>skill_Lavoratori</strong>
+  <%= @lavoro.skill_Lavoratori%>
+</p>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+      document.getElementById("button")?.addEventListener("click", () => {window.location.search = '?candidate=true';})
+  });
+</script>
+<br>
+<br>
+<% if( user_signed_in? &&  !@lavoro.candidates.to_s.include?(current_user.email) )  %>
+    <a id="button" href="?" > candidate </a>
+<% end %>
+</br>
+</br>
+<%= link_to "Edit", edit_lavoro_path%>
+&nbsp;&nbsp;&nbsp;
+<%= link_to "Back", root_path %>
+&nbsp;&nbsp;&nbsp;
+<%= link_to "Destroy", lavoro_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
