@@ -9,6 +9,7 @@ class Lavoro
   field :timer, type:Integer
   field :currency, type: String
   field :candidates, type: Array
+  field :email, type: String
 
   validates :title, :presence => true, uniqueness: { case_sensitive: false}
   validates :description, :presence => true, length: {minimum: 10}
