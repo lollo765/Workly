@@ -38,9 +38,9 @@
 <br/>
 <br/>
 
+&nbsp;&nbsp;&nbsp;
 <%= link_to "Back", root_path %>
 &nbsp;&nbsp;&nbsp;
-
 <% if current_user && ( (@lavoro.email == current_user.email) || current_user.admin == true) %>
     <%= link_to "Edit", edit_lavoro_path%>
     &nbsp;&nbsp;&nbsp;
