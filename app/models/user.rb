@@ -5,7 +5,8 @@ class User
   devise :omniauthable, :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable, omniauth_providers: [:facebook, :google_oauth2]
 
-  has_many :gigs, :lavoros
+  has_many :gigs
+  has_many :lavoros
 
   ## Admin?
 
