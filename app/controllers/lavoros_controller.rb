@@ -23,7 +23,7 @@ class LavorosController < ApplicationController
   end
 
   def create 
-    @gig = current_user.lavoros.new(lavoro_params)
+    @lavoro = current_user.lavoros.new(lavoro_params)
     if current_user
       @lavoro.email = current_user.email
     end 
