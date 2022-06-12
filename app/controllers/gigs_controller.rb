@@ -45,7 +45,7 @@ class GigsController < ApplicationController
       render :edit, status: :unprocessable_entity
       end
     else
-      redirect_to root_path
+      redirect_to gigs_path
     end
   end
 

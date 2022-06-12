@@ -14,14 +14,18 @@ class WorkersController < ApplicationController
   def show
     @user=User.find(params[:id])
     @gigs=Gig.where(email: @user.email)
+    @lavoros=Lavoro.where(email: @user.email)
   end
 
   def destroy
     @user = User.find(params[:id])
-    @gig = Gig.where(email: @user.email)
+    @gigs = Gig.where(email: @user.email)
+    @lavoros=Lavoro.where(email: @user.email)
+
     
     @user.destroy
-    @gig.destroy
+    @gigs.destroy
+    @lavoros.destroy
 
     redirect_to workers_path, status: :see_other
   end

@@ -1,5 +1,5 @@
  <%= stylesheet_link_tag 'style.css' %>
-<h1>Lavoro</h1>
+<h1>Jobs</h1>
 <div id ="lavoro">
   <div>
    <%= form_tag lavoros_path, method: 'get' do %>
@@ -30,8 +30,5 @@
   <% if !user_signed_in? %>
    <%= link_to "New Lavoro", new_user_session_path %>
   <% end %>
-  <br/>
-  <br/>
-  <%= link_to "Back", root_path %>
   
 </div>
