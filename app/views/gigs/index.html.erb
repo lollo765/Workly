@@ -29,13 +29,13 @@
   <br>
   <% if user_signed_in? %>
     <%= link_to new_gig_path do %>
-      <i class="fa-solid fa-plus"> </i> New Gig
+      <i class="fa-solid fa-plus"> </i> Crea Gig
     <% end %>
   <% end %>
 
   <% if !user_signed_in? %>
     <%= link_to new_user_session_path do %>
-      <i class="fa-solid fa-plus"> </i> New Gig
+      <i class="fa-solid fa-plus"> </i> Crea Gig
     <% end %>
   <% end %>
 

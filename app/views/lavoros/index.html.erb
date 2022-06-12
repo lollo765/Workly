@@ -1,18 +1,18 @@
  <%= stylesheet_link_tag 'style.css' %>
-<h1>Jobs</h1>
+<h1>Lavori</h1>
 <div id ="lavoro">
   <div>
    <%= form_tag lavoros_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder:'Search...' %>
-    <%= button_tag "Search", data: { disable_with: "Searching..." }%>
+    <%= text_field_tag :search, params[:search], placeholder:'Cerca...' %>
+    <%= button_tag "Cerca", data: { disable_with: "Searching..." }%>
    <% end %>
    <%= form_tag lavoros_path, method: 'get' do %>
     <%= select_tag :categories,options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
-    <%= submit_tag 'Filter_Categories' %>
+    <%= submit_tag 'Filtro per categorie' %>
    <% end %>
    <%= form_tag lavoros_path, method: 'get' do %>
     <%= select_tag :skill_Lavoratori,options_for_select(["","WordPress-Developer","Shopify-Developer","Wlx-Developer","Android-Developer","IOS-Developer","Python-Developer","JavaScript-Developer","HTML-CSS-Developer"]) %>
-    <%= submit_tag 'Filter_Skill_Lavoratori' %>
+    <%= submit_tag 'Filtro per skills' %>
    <% end %>
   </div>
 
@@ -24,11 +24,11 @@
   <br>
   <br>
   <% if user_signed_in? %>
-    <%= link_to 'New Lavoro', new_lavoro_path%>
+    <%= link_to 'Crea Lavoro', new_lavoro_path%>
   <% end %>
 
   <% if !user_signed_in? %>
-   <%= link_to "New Lavoro", new_user_session_path %>
+   <%= link_to "Crea Lavoro", new_user_session_path %>
   <% end %>
   
 </div>

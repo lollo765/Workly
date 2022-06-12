@@ -12,7 +12,8 @@
   <%end%>
 
   <div class="field">
-    <%= form.label :title %><br>
+    <label>Titolo</label>
+    <br>
     <%= form.text_field :title %>
     <% lavoro.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
@@ -20,7 +21,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :description %><br>
+    <label>Descrizione</label>
+    <br>
     <%= form.text_area :description %>
   </div>
 
@@ -30,7 +32,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :categories %><br>
+    <label>Categoria</label>
+    <br>
     <%= form.select :categories,[[],['Sviluppo di siti web','Sviluppo di siti web'],
                                  ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
                                  ['Assistenza e Sicurezza Informatica','Assistenza e Sicurezza Informatica'],
@@ -55,7 +58,8 @@
   </div>
 
   <div>
-    <%= form.label :currency %><br>
+    <label>Moneta</label>
+    <br>
     <%= form.select :currency, [['BTC', 'BTC'], ['DOGE', 'DOGE'], ['ETH', 'ETH']] %><br>
   </div>
 

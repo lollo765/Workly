@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <strong>Categorie:</strong>
+  <strong>Categoria:</strong>
   <%= @lavoro.categories%>
 </p>
 
@@ -42,8 +42,8 @@
 <%= link_to "Back", :back %>
 &nbsp;&nbsp;&nbsp;
 <% if current_user && ( (@lavoro.email == current_user.email) || current_user.admin == true) %>
-    <%= link_to "Edit", edit_lavoro_path%>
+    <%= link_to "Modifica", edit_lavoro_path%>
     &nbsp;&nbsp;&nbsp;
-    <%= link_to "Destroy", lavoro_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
+    <%= link_to "Elimina", lavoro_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
 <% end %>
 
