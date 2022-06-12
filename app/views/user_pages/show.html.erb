@@ -99,18 +99,18 @@
                     <div class="card mb-3 content">
                         <h1 class="m-3">Jobs</h1>
                         <div class="card-body">
-                            
+                            <% @lavoros.each do |lavoro|%>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5>Title</h5>
                                     </div>
                                     <div class="col-md-5 text-secondary">
-                                        Job title
+                                        <%= lavoro.title %>
                                     </div>
                                     
                                 </div>
                                 <hr>
-                            
+                            <% end %>
                         </div>
                     </div>
                 </div>

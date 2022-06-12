@@ -23,7 +23,10 @@ class LavorosController < ApplicationController
   end
 
   def create 
-    @lavoro = Lavoro.new(lavoro_params)
+    @lavoro = current_user.lavorors.new(lavoro_params)
+    if current_user
+      @lavoro.email = current_user.email
+    end 
     if @lavoro.save
       redirect_to @lavoro, :message => "Lavoro creato correttamente"
     else
@@ -37,13 +40,17 @@ class LavorosController < ApplicationController
 
   def update
     @lavoro = Lavoro.find(params[:id])
-
-    if @lavoro.update(lavoro_params)
-      redirect_to @lavoro
-    else
+    if (current_user && (@gig.user == current_user || current_user.admin == true))
+      if @lavoro.update(lavoro_params)
+        redirect_to @lavoro
+      else
       render :edit,status: :unprocessable_entity
+     end
+    else
+      redirect_to root_path
     end
   end
+
   def destroy
     @lavoro = Lavoro.find(params[:id])
     authorize! :create, @lavoro, :message => "Attenzione:Non sei autorizzato ad eliminare questo file"

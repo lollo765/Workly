@@ -6,6 +6,7 @@ class UserPagesController < ApplicationController
   def show
     @user= User.find(params[:id])
     @gigs=Gig.where(email: @user.email)
+    @lavoros=Lavoro.where(email: @user.email)
   end
 
   def edit
@@ -25,9 +26,11 @@ class UserPagesController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @gig = Gig.where(email: @user.email)
-    
+    @lavoro=Lavoro.where(email: @user.email)
+
     @user.destroy
     @gig.destroy
+    @lavoro.destroy
 
     redirect_to root_path, status: :see_other
   end
