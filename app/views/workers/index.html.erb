@@ -22,8 +22,8 @@
     <div class="search-skill-worker">
 
       <%= form_tag workers_path, method: 'get' do %>
-        <%= select_tag :skill, options_for_select(["","WordPress-Developer","Shopify-Developer","Wlx-Developer","Android-Developer","IOS-Developer","Python-Developer","JavaScript-Developer","HTML-CSS-Developer"]) %>
-        <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
+        <%= select_tag :skill, options_for_select(["","WordPress-Developer","Shopify-Developer","Wlx-Developer","Android-Developer","IOS-Developer","Python-Developer","JavaScript-Developer","HTML-CSS-Developer"])%>
+        <%= button_tag (fa_icon "filter", text: "Filtra per skill"), class: "button" %>
       <% end %>
 
     </div>
@@ -32,7 +32,7 @@
 
       <%= form_tag workers_path, method: 'get' do %>
         <%= select_tag :category, options_for_select(["", "Avvocato", "Ingegnere", "Architetto"]) %>
-        <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
+        <%= button_tag (fa_icon "filter", text: "Filtra per categoria"), class: "button" %>
       <% end %>
 
     </div>
@@ -41,7 +41,7 @@
 
       <%= form_tag workers_path, method: 'get' do %>
           <%= select_tag :review, options_for_select(["", "1", "2", "3" ,"4", "5"]) %>
-          <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
+          <%= button_tag (fa_icon "filter", text: "Filtra per review"), class: "button" %>
       <% end %>
 
     </div>

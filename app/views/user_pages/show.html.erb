@@ -19,12 +19,12 @@
                                 <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger"%>
                                 <br>
                                 <br>
-                                <%= link_to "Change your password", edit_user_registration_path, class: "btn btn-danger" %>
+                                <%= link_to "Cambia la tua password", edit_user_registration_path, class: "btn btn-danger" %>
                                 <br>
                                 <br>
-                                <%= button_to "Edit", edit_user_page_path, :method => :get, class: "btn btn-danger" %>
+                                <%= button_to "Modifica", edit_user_page_path, :method => :get, class: "btn btn-danger" %>
                                 <br>
-                                <%= link_to "Delete your account",  user_page_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+                                <%= link_to "Elimina il tuo account",  user_page_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <h5>Name</h5>
+                                    <h5>Nome</h5>
                                 </div>
                                 <div class="col-md-9 text-secondary">
                                     <%= @user.name %>
@@ -71,7 +71,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <h5>Category</h5>
+                                    <h5>Categoria</h5>
                                 </div>
                                 <div class="col-md-9 text-secondary">
                                     <%= @user.category %>
@@ -85,7 +85,7 @@
                             <% @gigs.each do |gig|%>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <h5>Title</h5>
+                                        <h5>Titolo</h5>
                                     </div>
                                     <div class="col-md-5 text-secondary">
                                         <%= gig.title %>
@@ -97,12 +97,12 @@
                         </div>
                     </div>
                     <div class="card mb-3 content">
-                        <h1 class="m-3">Jobs</h1>
+                        <h1 class="m-3">Lavori</h1>
                         <div class="card-body">
                             <% @lavoros.each do |lavoro|%>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <h5>Title</h5>
+                                        <h5>Titolo</h5>
                                     </div>
                                     <div class="col-md-5 text-secondary">
                                         <%= lavoro.title %>

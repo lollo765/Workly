@@ -32,14 +32,14 @@
  <%= stylesheet_link_tag 'style.css' %>
 <br>
 <% if( user_signed_in? &&  !@lavoro.candidates.to_s.include?(current_user.email) )  %>
-    <a id="button" href="?" > candidate </a>
+    <a id="button" href="?" > candidati </a>
 <% end %>
 
 <br/>
 <br/>
 
 &nbsp;&nbsp;&nbsp;
-<%= link_to "Back", :back %>
+<%= link_to "Indietro", :back %>
 &nbsp;&nbsp;&nbsp;
 <% if current_user && ( (@lavoro.email == current_user.email) || current_user.admin == true) %>
     <%= link_to "Modifica", edit_lavoro_path%>
