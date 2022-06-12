@@ -19,6 +19,8 @@ class Lavoro
   validates :n_Lavoratori, :presence => true
   validates :categories, :presence => true
   validates :skill_Lavoratori, :presence => true
+  validates :timer, :presence => true
+  validates :currency, :presence => true
 
   def self.search(input) 
     if input
