@@ -23,8 +23,10 @@ class LavorosController < ApplicationController
   end
 
   def create 
-    @lavoro = Lavoro.new(lavoro_params)
-    @lavoro.email = current_user.email
+    @gig = current_user.lavoros.new(lavoro_params)
+    if current_user
+      @lavoro.email = current_user.email
+    end 
     if @lavoro.save
       redirect_to @lavoro, :message => "Lavoro creato correttamente"
     else
