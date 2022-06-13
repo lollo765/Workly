@@ -1,8 +1,3 @@
-body{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-}
-
 /**=====Griglia display=====**/
 
 #griglia-filtri{
@@ -13,6 +8,11 @@ body{
   
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(2,1fr);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+#griglia-filtri input{
+    width: 300px;
 }
 .search-worker {
     grid-column-start: 1;
@@ -53,15 +53,15 @@ body{
     grid-template-columns: repeat(5,1fr);
     row-gap: 50px !important;
     text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 }
 
 /**=====Fine Griglia display=====**/
 
 /**=====Filtri=====**/
 
-input {
-    width: 300px;
-}
+
 
 select {
     width: 200px;
@@ -73,3 +73,26 @@ select {
 }
 
 /**=====Fine Filtri=====**/
+
+/**=====Navbar Style=====**/
+
+nav ul li:nth-child(1) a:hover {
+    color: #0df0a4;
+  }
+  nav ul li:nth-child(3) a:hover {
+    color: #08ee1b;
+  }
+  nav ul li:nth-child(4) a:hover {
+    color: #328fa5;
+  }
+  nav ul li:nth-child(1) a:hover::after {
+    background: #0df0a4;
+  }
+  nav ul li:nth-child(3) a:hover::after {
+    background: #08ee1b;
+  }
+  nav ul li:nth-child(4) a:hover::after {
+    background: #23798e;
+  }
+  
+  /**=====Fine Navbar Style=====**/

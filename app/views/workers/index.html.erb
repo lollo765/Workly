@@ -3,10 +3,39 @@
 </head>
 
 <body>
-  <h1>Workers</h1>
-  <br>
-  <br>
+  <!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path%></li>
+        <li><%= link_to "Workers", workers_path, class: "active"%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Lavori", lavoros_path%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+                <%= link_to 'Login', new_user_session_path, :method => :get, class: "btn btn-outline-light btn-lg"%>
+              </div>
+            <% end %>
 
+            <% if user_signed_in? %>
+              <div class="loginbox">
+                <a href="/user_pages/<%= current_user.id %>" class="btn btn-outline-light btn-lg" >User Page</a>
+              </div>
+            <% end %>
+
+        </li>
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+  <br>
 
   <div id="griglia-filtri">
 
