@@ -1,6 +1,8 @@
- <%= stylesheet_link_tag 'style.css' %>
+<head>
+  <%= stylesheet_link_tag 'workers.css' %>
+</head>
 
-
+<body>
   <!--==========Navbar==========-->
     <nav>
       <!--=====Logo=====-->
@@ -12,8 +14,8 @@
       <!--=====Schede=====-->
       <ul id="navbar">
         <li><%= link_to "Home", home_pages_path%></li>
-        <li><%= link_to "Workers", workers_path%></li>
-        <li><%= link_to "Gigs", gigs_path, class: "active"%></li>
+        <li><%= link_to "Workers", workers_path, class: "active"%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
         <li><%= link_to "Lavori", lavoros_path%></li>
         <li>
             <% if !user_signed_in? %>
@@ -33,55 +35,79 @@
     </nav>
     <!--==========Fine Navbar==========-->
 
-    <br>
-    <br>
-    <br>
-
-  <% @gigs.each do |gig| %>
-    <%= link_to gig.title, gig %>
-  <% end %>
-
-  <br>
   <br>
 
-  <%= form_tag gigs_path, method: 'get' do %>
-    <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ], "Design e Visual Art") %>
-    <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
-  <% end %>
+  <div id="griglia-filtri">
 
-  <br>
-  <%= form_tag gigs_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder:'Cerca...', autocomplete: 'off' %>
-    <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-  <% end %>
+    <div class="search-worker">
 
-  <br>
-  <%= form_tag gigs_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:skill], placeholder:'Cerca una skill...', autocomplete: 'off' %>
-    <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-  <% end %>
+   <%= form_tag gigs_path, method: 'get' do %>
+     <%= text_field_tag :search, params[:search], placeholder:'Cerca...', autocomplete: 'off' %>
+     <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+   <% end %>
 
-  <br>
-  <% if user_signed_in? %>
-    <%= link_to new_gig_path do %>
-      <i class="fa-solid fa-plus"> </i> Crea Gig
+
+    </div>
+
+    <div class="search-skill-worker">
+  
+    <%= form_tag gigs_path, method: 'get' do %>
+      <%= text_field_tag :search, params[:skill], placeholder:'Cerca una skill...', autocomplete: 'off' %>
+      <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
     <% end %>
-  <% end %>
 
-  <% if !user_signed_in? %>
-    <%= link_to new_user_session_path do %>
-      <i class="fa-solid fa-plus"> </i> Crea Gig
+    </div>
+
+    <div class="search-category-worker">
+     
+    <%= form_tag gigs_path, method: 'get' do %>
+      <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ], "Design e Visual Art") %>
+      <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
     <% end %>
-  <% end %>
 
+    </div>
+
+
+    <% if user_signed_in? %>
+      <%= link_to new_gig_path do %>
+        <i class="fa-solid fa-plus"> </i> Crea Gig
+      <% end %>
+    <% end %>
+
+    <% if !user_signed_in? %>
+      <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-plus"> </i> Crea Gig
+      <% end %>
+    <% end %>
+
+
+  </div>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <hr>
+  <div id="griglia-workers">
 
+      <% @gigs.each do |gig|%>
+        <div>
+          <% if gig.categories == 'Design e Visual Art'%>
+              <% image = "Design.jpg" %>
+          <% end %>
+          <% if gig.categories == 'Programmazione'%>
+              <% image = "Progr.jpg" %>
+          <% end %>
+          <% if gig.categories == 'Economia'%>
+              <% image = "Econ.jpg" %>
+          <% end %>
+          <% if gig.categories == 'Musica e Videomaking'%>
+              <% image = "MusVid.png" %>
+          <% end %>
+          <%= image_tag(image, width: "175px", height: "100px") %>
+          <br>
+          <%= gig.title%>
+          <br>
+          <a class="btn btn-primary" href="/gigs/<%= gig.id%>">Dettagli</a>
+        </div>
+      <% end %>
 
+  </div>
 
-
-
-
+</body>
