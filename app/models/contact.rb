@@ -8,8 +8,8 @@ class Contact < MailForm::Base
   # in ActionMailer accepts.
   def headers
     {
-      :subject => "My Contact Form",
-      :to => "matteofioreasl@gmail.com",
+      :subject => "Workly Support",
+      :to => "worklylabassi@gmail.com",
       :from => %("#{name}" <#{email}>)
     }
   end

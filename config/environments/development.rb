@@ -50,8 +50,8 @@ Rails.application.configure do
     domain: 'gmail.com',
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: 'xxxxx',
-    password: 'xxxxx'
+    user_name: 'worklylabassi@gmail.com',
+    password: 'pfyoitzfaqxqihww'
   }
 
   config.action_mailer.perform_caching = false

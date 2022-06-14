@@ -65,17 +65,17 @@
       <div class="carousel-inner">
         <!--=====Item1=====-->
         <div class="carousel-item active">
-            <%= image_tag('lavoratore_informatico.webp',class: "d-block", alt: "Marco") %>
+            <%= image_tag('Workers.png',class: "d-block", alt: "Workers") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
-                <h1 id="S1">Marco</h1>
+                <h1 id="S1">Workers</h1>
 
                 <p id="caption">
-                  Esperto nei linguaggi rails e nodejs
+                  Cerchi qualcuno per il tuo progetto?
                 </p>
-                <a href="./appartamenti"><button class="btn btn-lg btn-outline-light" id="CarouselButton1">
-                    Esplora <i class="fa-solid fa-arrow-right"></i>
+                <a href="./workers"><button class="btn btn-lg btn-outline-light" id="CarouselButton1">
+                    Esplora i profili dei lavoratori
                 </button></a>
               </div>
             </div>
@@ -83,42 +83,38 @@
         </div>
         <!--=====Item2=====-->
         <div class="carousel-item">
-          <%= image_tag('gig.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Paolo") %>
+          <%= image_tag('Gigs.png', draggable: "true", id: "drag1", class: "d-block", alt: "Gigs") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
-                <h1 id="S2">Paolo</h1>
+                <h1 id="S2">Gigs</h1>
 
                 <p id="caption">
-                  Architetto
+                  Cerchi un servizio specifico?
                 </p>
-                <a href=""><button
-                    class="btn btn-lg btn-outline-light"
-                    id="CarouselButton2"
-                  >
-                    Esplora <i class="fa-solid fa-arrow-right"></i></button
-                ></a>
+                <a href="./gigs"><button class="btn btn-lg btn-outline-light" id="CarouselButton2">
+                    Esplora le gigs 
+                  </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
         <!--=====Item3=====-->
         <div class="carousel-item">
-        <%= image_tag('job.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Alessia") %>
+        <%= image_tag('Jobs.png', draggable: "true", id: "drag1", class: "d-block", alt: "Jobs") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
-                <h1 id="S3">Alessia</h1>
+                <h1 id="S3">Offerte di lavoro</h1>
 
                 <p id="caption">
-                  Avvocato
+                  Alla ricerca di un lavoro?
                 </p>
-                <a href=""><button
-                    class="btn btn-lg btn-outline-light"
-                    id="CarouselButton3"
-                  >
-                    Esplora <i class="fa-solid fa-arrow-right"></i></button
-                ></a>
+                <a href="./lavoros"><button class="btn btn-lg btn-outline-light" id="CarouselButton3">
+                    Esplora le offerte
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -129,8 +125,20 @@
 
     <!--==========Info==========-->
     <div class="InfoSite">
-      <h1>Chi siamo</h1>
+      <h1>Cos'è Workly?</h1>
       <section id="InfoP">
+      <p>
+      Workly è un marketplace online che permette a lavoratori freelancer di mettere a disposizione i propri servizi.
+      Workly fa si che i rapporti fra datori di lavoro e potenziali clienti siano i più sicuri e trasparenti possibile,
+      gestendoli tramite smart contract attraverso un applicativo sviluppato ad hoc che si occupa di gesitre i pagamenti degli utenti.
+      Il punto di forza del sito sta nella connessione con MetaMask (<%= link_to "Cos'è MataMask?", "https://metamask.io" %>)
+      , in modo che la transazione verrà eseguita solo a lavoro ultimato.
+      </p>
+      <br> <br>
+      <p>
+      Hai altre domande?
+        <%= link_to "Contattaci!", new_contact_path %>
+      </p>
       </section>
     </div>
     <!--==========Fine Sezione Info==========-->
