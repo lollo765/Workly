@@ -3,9 +3,47 @@
 </head>
 
 <body>
+
+<!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path%></li>
+        <li><%= link_to "Workers", workers_path%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Lavori", lavoros_path%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+              <%= link_to 'Login', new_user_session_path, :method => :get, class: "btn btn-outline-light btn-lg"%>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? %>
+                <div class="loginbox">
+                    <a href="/user_pages/<%= current_user.id %>" class="btn btn-outline-light btn-lg" >User Page</a>
+                </div>
+            <% end %>
+
+        </li>
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+    <br>
+
+
+
+
   <div class="center">
     <br>
-    <h1>Change your password</h1>
+    <h1>Cambia la tua password</h1>
     <div id="form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: {turbo: "false"}) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
@@ -20,25 +58,27 @@
         <% end %>
 
         <div class="txt_field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it, <em><%= @minimum_password_length %> characters minimum</em>)</i><br />
+          <%= f.label :password %> <i>(<em>Inserisci almeno <%= @minimum_password_length %> caratteri</em>)</i><br />
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
 
         <div class="txt_field">
-          <%= f.label :password_confirmation %><br />
+          <label>Conferma password</label>
+          <br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
         <div class="txt_field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <label>Password corrente</label> 
+          <i>(ci server la tua password corrente per confermare la tua modifica)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Update", class: 'btn btn-primary' %>
+          <%= f.submit "Aggiorna", class: 'btn btn-primary' %>
         </div>
         <br>
-        <%= link_to "Back", :back %>
+        <%= link_to "Indietro", :back %>
         <br>
         <br>
 

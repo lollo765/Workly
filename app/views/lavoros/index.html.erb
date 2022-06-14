@@ -1,18 +1,55 @@
- <%= stylesheet_link_tag 'style.css' %>
-<h1>Lavoro</h1>
+ <%= stylesheet_link_tag 'style_lavori.css' %>
+
+  <!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path%></li>
+        <li><%= link_to "Workers", workers_path%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Lavori", lavoros_path, class: "active"%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+                <%= link_to 'Login', new_user_session_path, :method => :get, class: "btn btn-outline-light btn-lg"%>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? %>
+              <div class="loginbox">
+                <a href="/user_pages/<%= current_user.id %>" class="btn btn-outline-light btn-lg" >User Page</a>
+              </div>
+            <% end %>
+
+        </li>
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+    <br>
+    <br>
+    <br>
+
+
 <div id ="lavoro">
   <div>
    <%= form_tag lavoros_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder:'Search...' %>
-    <%= button_tag "Search", data: { disable_with: "Searching..." }%>
+    <%= text_field_tag :search, params[:search], placeholder:'Cerca...' %>
+    <%= button_tag "Cerca", data: { disable_with: "Searching..." }%>
    <% end %>
    <%= form_tag lavoros_path, method: 'get' do %>
     <%= select_tag :categories,options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
-    <%= submit_tag 'Filter_Categories' %>
+    <%= submit_tag 'Filtro per categorie' %>
    <% end %>
    <%= form_tag lavoros_path, method: 'get' do %>
     <%= select_tag :skill_Lavoratori,options_for_select(["","WordPress-Developer","Shopify-Developer","Wlx-Developer","Android-Developer","IOS-Developer","Python-Developer","JavaScript-Developer","HTML-CSS-Developer"]) %>
-    <%= submit_tag 'Filter_Skill_Lavoratori' %>
+    <%= submit_tag 'Filtro per skills' %>
    <% end %>
   </div>
 
@@ -24,13 +61,16 @@
   <br>
   <br>
   <% if user_signed_in? %>
-    <%= link_to 'New Lavoro', new_lavoro_path%>
+    <%= link_to 'Crea Lavoro', new_lavoro_path%>
   <% end %>
 
   <% if !user_signed_in? %>
-   <%= link_to "New Lavoro", new_user_session_path %>
+   <%= link_to "Crea Lavoro", new_user_session_path %>
   <% end %>
-  </br>
-  </br>
   
 </div>
+
+<br>
+<br>
+<br>
+<br>

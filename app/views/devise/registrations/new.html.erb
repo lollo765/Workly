@@ -3,9 +3,46 @@
 </head>
 
 <body>
+
+<!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path%></li>
+        <li><%= link_to "Workers", workers_path%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Lavori", lavoros_path%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+              <%= link_to 'Login', new_user_session_path, :method => :get, class: "btn btn-outline-light btn-lg"%>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? %>
+                <div class="loginbox">
+                    <a href="/user_pages/<%= current_user.id %>" class="btn btn-outline-light btn-lg" >User Page</a>
+                </div>
+            <% end %>
+
+        </li>
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+    <br>
+
+
+
   <div class="center">
     <br>
-    <h1>Sign up</h1>
+    <h1>Registrati!</h1>
     <div id="form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
@@ -14,7 +51,8 @@
 
           <div class="col">
             <div class="txt_field">
-              <%= f.label :Username %><br />
+              <%= f.label :Username %>
+              <br />
               <%= f.text_field :name, autofocus: true, :required => true %>
             </div>
           </div>
@@ -39,7 +77,8 @@
 
           <div class="col">
             <div class="txt_field">
-                <%= f.label :Image %><br />
+                <label>Link per l'immagine</label>
+                <br />
                 <%= f.text_field :img%>
             </div>
           </div>
@@ -53,9 +92,10 @@
         </div>
 
         <div class="select_field">
-            <%= f.label :Category %><br />
+            <label>Categoria</label>
+            <br />
             <br>
-            <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :required => true %>
+            <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Selezionane Una --' }, :required => true %>
         </div>
 
         <div class="row">
@@ -80,7 +120,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up" %>
+          <%= f.submit "Registrati" %>
         </div>
       <% end %>
 

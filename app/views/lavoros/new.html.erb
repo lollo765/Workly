@@ -1,5 +1,45 @@
- <%= stylesheet_link_tag 'style.css' %>
-<h1>Create Lavoro</h1>
+ <%= stylesheet_link_tag 'style_lavori.css' %>
+
+  <!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path%></li>
+        <li><%= link_to "Workers", workers_path%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Lavori", lavoros_path, class: "active"%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+                <%= link_to 'Login', new_user_session_path, :method => :get, class: "btn btn-outline-light btn-lg"%>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? %>
+              <div class="loginbox">
+                <a href="/user_pages/<%= current_user.id %>" class="btn btn-outline-light btn-lg" >User Page</a>
+              </div>
+            <% end %>
+
+        </li>
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+    <br>
+    <br>
+
+
+
+<h1>Crea un annuncio di lavoro</h1>
 
 <%= render 'form', lavoro: @lavoro%>
-<%= link_to 'Back', lavoros_path%>
+<%= link_to 'Indietro', lavoros_path%>
+
+<br>

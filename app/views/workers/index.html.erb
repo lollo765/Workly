@@ -3,10 +3,39 @@
 </head>
 
 <body>
-  <h1>Workers</h1>
-  <br>
-  <br>
+  <!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path%></li>
+        <li><%= link_to "Workers", workers_path, class: "active"%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Lavori", lavoros_path%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+                <%= link_to 'Login', new_user_session_path, :method => :get, class: "btn btn-outline-light btn-lg"%>
+              </div>
+            <% end %>
 
+            <% if user_signed_in? %>
+              <div class="loginbox">
+                <a href="/user_pages/<%= current_user.id %>" class="btn btn-outline-light btn-lg" >User Page</a>
+              </div>
+            <% end %>
+
+        </li>
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+  <br>
 
   <div id="griglia-filtri">
 
@@ -22,8 +51,8 @@
     <div class="search-skill-worker">
 
       <%= form_tag workers_path, method: 'get' do %>
-        <%= text_field_tag :skill, params[:skill], placeholder:'Cerca Worker per skill...' %>
-        <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+        <%= select_tag :skill, options_for_select(["","WordPress-Developer","Shopify-Developer","Wlx-Developer","Android-Developer","IOS-Developer","Python-Developer","JavaScript-Developer","HTML-CSS-Developer"])%>
+        <%= button_tag (fa_icon "filter", text: "Filtra per skill"), class: "button" %>
       <% end %>
 
     </div>
@@ -32,7 +61,16 @@
 
       <%= form_tag workers_path, method: 'get' do %>
         <%= select_tag :category, options_for_select(["", "Avvocato", "Ingegnere", "Architetto"]) %>
-        <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
+        <%= button_tag (fa_icon "filter", text: "Filtra per categoria"), class: "button" %>
+      <% end %>
+
+    </div>
+
+    <div class="search-review-worker">
+
+      <%= form_tag workers_path, method: 'get' do %>
+          <%= select_tag :review, options_for_select(["", "1", "2", "3" ,"4", "5"]) %>
+          <%= button_tag (fa_icon "filter", text: "Filtra per review"), class: "button" %>
       <% end %>
 
     </div>

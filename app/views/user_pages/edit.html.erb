@@ -3,14 +3,49 @@
 </head>
 
 <body>
+
+<!--==========Navbar==========-->
+    <nav>
+      <!--=====Logo=====-->
+      <div class="logo">
+        <a href="/">
+          <%= image_tag('Workly_Logo.png', class:"logo", height: "120px") %>
+        </a>
+      </div>
+      <!--=====Schede=====-->
+      <ul id="navbar">
+        <li><%= link_to "Home", home_pages_path%></li>
+        <li><%= link_to "Workers", workers_path%></li>
+        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Lavori", lavoros_path%></li>
+        <li>
+            <% if !user_signed_in? %>
+              <div class="loginbox">
+              <%= link_to 'Login', new_user_session_path, :method => :get, class: "btn btn-outline-light btn-lg"%>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? %>
+                <div class="loginbox">
+                    <a href="/user_pages/<%= current_user.id %>" class="btn btn-outline-light btn-lg" >User Page</a>
+                </div>
+            <% end %>
+
+        </li>
+      </ul>
+    </nav>
+    <!--==========Fine Navbar==========-->
+
+    <br>
+
     <div class="center">
         <br>
-        <h1>Edit User</h1>
+        <h1>Modifica Utente</h1>
         <div id="form">
 
             <%= form_with url: "/user_pages/"+ @user.id, method: :patch do |f| %>
                 <div class="img_field">
-                    <%= f.label :Image %>
+                    <label>Link per l'immagine</label>
                     <br>
                     <%= f.text_field :img, :value => @user.img%>
                     <br>
@@ -25,7 +60,7 @@
 
                     <div class="col">
                         <div class="txt_field">
-                            <%= f.label :Username %>
+                            <%= f.label :Nome %>
                             <br>
                             <%= f.text_field :name, :value => @user.name, :required => true %>
                         </div>
@@ -48,7 +83,7 @@
                 </div>
 
                 <div class="select_field">
-                    <%= f.label :Category %>
+                    <%= f.label :Categoria %>
                     <br>
                     <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :selected => @user.category, :required => true %>
                 </div>

@@ -25,12 +25,12 @@ class UserPagesController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @gig = Gig.where(email: @user.email)
-    @lavoro=Lavoro.where(email: @user.email)
+    @gigs = Gig.where(email: @user.email)
+    @lavoros=Lavoro.where(email: @user.email)
 
     @user.destroy
-    @gig.destroy
-    @lavoro.destroy
+    @gigs.destroy
+    @lavoros.destroy
 
     redirect_to root_path, status: :see_other
   end
