@@ -3,13 +3,13 @@ body{
     padding: 0;
     font-family: montserrat;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
-    height: 205vh;
+    height: 200vh;
     font-size: 20px;
 }
 
 .center{
     position: relative;
-    top: 43%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 800px;

@@ -65,60 +65,48 @@
       <div class="carousel-inner">
         <!--=====Item1=====-->
         <div class="carousel-item active">
-            <%= image_tag('lavoratore_informatico.webp',class: "d-block", alt: "Marco") %>
+            <%= image_tag('lavoratore_informatico.webp', alt: "Workers") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
-                <h1 id="S1">Marco</h1>
+                <h1 id="S1">Workers</h1>
 
                 <p id="caption">
                   Esperto nei linguaggi rails e nodejs
                 </p>
-                <a href="./appartamenti"><button class="btn btn-lg btn-outline-light" id="CarouselButton1">
-                    Esplora <i class="fa-solid fa-arrow-right"></i>
-                </button></a>
+                <a href="/workers"><button class="btn btn-lg btn-outline-light" id="CarouselButton1"> Esplora <i class="fa-solid fa-arrow-right"></i></button></a>
               </div>
             </div>
           </div>
         </div>
         <!--=====Item2=====-->
         <div class="carousel-item">
-          <%= image_tag('gig.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Paolo") %>
+          <%= image_tag('gig.jpg', alt: "Gigs") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
-                <h1 id="S2">Paolo</h1>
+                <h1 id="S2">Gigs</h1>
 
                 <p id="caption">
                   Architetto
                 </p>
-                <a href=""><button
-                    class="btn btn-lg btn-outline-light"
-                    id="CarouselButton2"
-                  >
-                    Esplora <i class="fa-solid fa-arrow-right"></i></button
-                ></a>
+                <a href="/gigs"><button class="btn btn-lg btn-outline-light" id="CarouselButton2"> Esplora <i class="fa-solid fa-arrow-right"></i></button></a>
               </div>
             </div>
           </div>
         </div>
         <!--=====Item3=====-->
         <div class="carousel-item">
-        <%= image_tag('job.jpg', draggable: "true", id: "drag1", class: "d-block", alt: "Alessia") %>
+        <%= image_tag('job.jpg', alt: "Lavori") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
-                <h1 id="S3">Alessia</h1>
+                <h1 id="S3">Lavori</h1>
 
                 <p id="caption">
                   Avvocato
                 </p>
-                <a href=""><button
-                    class="btn btn-lg btn-outline-light"
-                    id="CarouselButton3"
-                  >
-                    Esplora <i class="fa-solid fa-arrow-right"></i></button
-                ></a>
+                <a href="/lavoros"><button class="btn btn-lg btn-outline-light" id="CarouselButton3"> Esplora <i class="fa-solid fa-arrow-right"></i></button></a>
               </div>
             </div>
           </div>
@@ -129,10 +117,31 @@
 
     <!--==========Info==========-->
     <div class="InfoSite">
-      <h1>Chi siamo</h1>
-      <section id="InfoP">
-      </section>
+      <h1>Workly</h1>
+        <section id="InfoWorkly">
+          <p>Descrizione Workly</p>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section id="InfoGig">
+          <p>Descrizione Gigs</p>
+          <%= image_tag('gig-description.jpg') %>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section id="InfoLavori">
+          <p>Descrizione Lavori</p>
+          <%= image_tag('job-description.jpg') %>
+        </section>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <!--==========Fine Sezione Info==========-->
 
 

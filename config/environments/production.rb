@@ -28,8 +28,8 @@ Rails.application.configure do
     domain: 'gmail.com'
     authentication: 'plain'
     enable_starttls_auto: true
-    user_name: 'xxxxx',
-    password: 'xxxxx'
+    user_name: 'robertodiggio@gmail.com',
+    password: 'zeraiflaawbglmmz'
 }
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]

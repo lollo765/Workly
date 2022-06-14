@@ -5,7 +5,7 @@ class WorkersController < ApplicationController
     elsif (!params[:category].blank?)
       @users = User.where(category: params[:category])
     elsif (!params[:skill].blank?)
-      @users = User.where(skill: params[:skill])
+      @users = User.search_for_skills(params[:skill])
     elsif (!params[:review].blank?)
       @users = User.where(review: params[:review])
     else
