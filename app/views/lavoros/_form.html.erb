@@ -31,22 +31,22 @@
 
   <div class="field">
     <%= form.label :categories %><br>
-    <%= form.select :categories,[[],['Sviluppo di siti web','Sviluppo di siti web'],
+    <%= form.select :categories,[['Sviluppo di siti web','Sviluppo di siti web'],
                                  ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
                                  ['Assistenza e Sicurezza Informatica','Assistenza e Sicurezza Informatica'],
-                                 ['Varie','Varie']] %><br>
+                                 ['Varie','Varie']], {:include_blank => "--Select One--"} %><br>
   </div>
 
   <div class="field">
     <%= form.label :skill_Lavoratori %><br>
-    <%= form.select :skill_Lavoratori, [[],['WordPress-Developer','WordPress-Developer'],
+    <%= form.select :skill_Lavoratori, [['WordPress-Developer','WordPress-Developer'],
                                         ['Shopify-Developer','Shopify-Developer'],
                                         ['Wlx-Developer','Wlx-Developer'],
                                         ['Android-Developer','Android-Developer'],
                                         ['IOS-Developer','IOS-Developer'],
                                         ['Python-Developer','Python-Developer'],
                                         ['JavaScript-Developer','JavaScript-Developer'],
-                                        ['HTML-CSS-Developer','HTML-CSS-Developer']]%><br>
+                                        ['HTML-CSS-Developer','HTML-CSS-Developer']], {:include_blank => "--Select One--"} %><br>
   </div>
 
   <div class="field">
