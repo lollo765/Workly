@@ -21,7 +21,6 @@ class User
   field :name, :type => String, :default => ""
   field :img, :type => String, :default => ""
   field :skill, :type => String, :default => ""
-  #field :skill, :type => Array, default => []
   field :review, :type => Integer, :default => 0
   field :category, :type => String, :default => ""
 
@@ -77,6 +76,12 @@ class User
   def self.search(input) 
     if input
         any_of({name: /#{input}/i}, {email: /#{input}/i})
+    end
+  end
+
+  def self.search_for_skills(input) 
+    if input
+        any_of({skill: /#{input}/i})
     end
   end
 

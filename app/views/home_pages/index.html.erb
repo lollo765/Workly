@@ -65,25 +65,22 @@
       <div class="carousel-inner">
         <!--=====Item1=====-->
         <div class="carousel-item active">
-            <%= image_tag('Workers.png',class: "d-block", alt: "Workers") %>
+            <%= image_tag('Workers.png', alt: "Workers") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
                 <h1 id="S1">Workers</h1>
 
                 <p id="caption">
-                  Cerchi qualcuno per il tuo progetto?
-                </p>
-                <a href="./workers"><button class="btn btn-lg btn-outline-light" id="CarouselButton1">
-                    Esplora i profili dei lavoratori
-                </button></a>
+                  Cerchi qualcuno per il tuo progetto?                </p>
+                <a href="/workers"><button class="btn btn-lg btn-outline-light" id="CarouselButton1"> Esplora i profili dei lavoratori <i class="fa-solid fa-arrow-right"></i></button></a>
               </div>
             </div>
           </div>
         </div>
         <!--=====Item2=====-->
         <div class="carousel-item">
-          <%= image_tag('Gigs.png', draggable: "true", id: "drag1", class: "d-block", alt: "Gigs") %>
+          <%= image_tag('Gigs.png', alt: "Gigs") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
@@ -92,17 +89,14 @@
                 <p id="caption">
                   Cerchi un servizio specifico?
                 </p>
-                <a href="./gigs"><button class="btn btn-lg btn-outline-light" id="CarouselButton2">
-                    Esplora le gigs 
-                  </button>
-                </a>
+                <a href="/gigs"><button class="btn btn-lg btn-outline-light" id="CarouselButton2"> Esplora le gigs <i class="fa-solid fa-arrow-right"></i></button></a>
               </div>
             </div>
           </div>
         </div>
         <!--=====Item3=====-->
         <div class="carousel-item">
-        <%= image_tag('Jobs.png', draggable: "true", id: "drag1", class: "d-block", alt: "Jobs") %>
+        <%= image_tag('Jobs.png', alt: "Lavori") %>
           <div class="container">
             <div class="carousel-caption">
               <div class="caption">
@@ -111,10 +105,7 @@
                 <p id="caption">
                   Alla ricerca di un lavoro?
                 </p>
-                <a href="./lavoros"><button class="btn btn-lg btn-outline-light" id="CarouselButton3">
-                    Esplora le offerte
-                  </button>
-                </a>
+                <a href="/lavoros"><button class="btn btn-lg btn-outline-light" id="CarouselButton3"> Esplora le offerte <i class="fa-solid fa-arrow-right"></i></button></a>
               </div>
             </div>
           </div>
@@ -126,21 +117,41 @@
     <!--==========Info==========-->
     <div class="InfoSite">
       <h1>Cos'è Workly?</h1>
-      <section id="InfoP">
-      <p>
-      Workly è un marketplace online che permette a lavoratori freelancer di mettere a disposizione i propri servizi.
+        <section id="InfoWorkly">
+          <p>Workly è un marketplace online che permette a lavoratori freelancer di mettere a disposizione i propri servizi.
       Workly fa si che i rapporti fra datori di lavoro e potenziali clienti siano i più sicuri e trasparenti possibile,
       gestendoli tramite smart contract attraverso un applicativo sviluppato ad hoc che si occupa di gesitre i pagamenti degli utenti.
       Il punto di forza del sito sta nella connessione con MetaMask (<%= link_to "Cos'è MataMask?", "https://metamask.io" %>)
-      , in modo che la transazione verrà eseguita solo a lavoro ultimato.
-      </p>
-      <br> <br>
-      <p>
+      , in modo che la transazione verrà eseguita solo a lavoro ultimato.</p>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section id="InfoGig">
+          <p>Descrizione Gigs</p>
+          <%= image_tag('gig-description.jpg') %>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section id="InfoLavori">
+          <p>Descrizione Lavori</p>
+          <%= image_tag('job-description.jpg') %>
+        </section>
+    </div>
+    <br> <br>
+    <section id="InfoWorkly">
+          <p>
       Hai altre domande?
         <%= link_to "Contattaci!", new_contact_path %>
       </p>
-      </section>
-    </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
     <!--==========Fine Sezione Info==========-->
 
 
