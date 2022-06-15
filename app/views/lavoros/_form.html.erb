@@ -34,25 +34,33 @@
   <div class="field">
     <label>Categoria</label>
     <br>
-    <%= form.select :categories,[[],['Sviluppo di siti web','Sviluppo di siti web'],
+    <%= form.select :categories,[['Sviluppo di siti web','Sviluppo di siti web'],
                                  ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
                                  ['Assistenza e Sicurezza Informatica','Assistenza e Sicurezza Informatica'],
-                                 ['Varie','Varie']], {:include_blank => "--Select One--"} %><br>
+                                 ['Varie','Varie']], {:include_blank => "--Selezionane una--"} %><br>
   </div>
-
-
+  <br>
+  
   <div class="field">
-   <%= form.label :skill_Lavoratori %><br>
-   <%= form.check_box :skill_Lavoratori, [['WordPress-Developer'],
-                                        ['Shopify-Developer'],
-                                        ['Wlx-Developer'],
-                                        ['Android-Developer'],
-                                        ['IOS-Developer'],
-                                        ['Python-Developer'],
-                                        ['JavaScript-Developer'],
-                                        ['HTML-CSS-Developer']], {:include_blank => "--Select One--"} ,{multiple: true, checked: form.object.skill_Lavoratori}%>
-   
+   <label>Skill Lavoratori</label>
+   <br>
+    <%= form.label(:skill_Lavoratori, "WordPress-Developer") %>
+    <%= form.check_box :skill_Lavoratori,{:multiple => true},"WordPress-Developer"%>
+    <%= form.label(:skill_Lavoratori, "Shopify-Developer") %>
+    <%= form.check_box :skill_Lavoratori,{:multiple => true},"Shopify-Developer"%>
+    <%= form.label(:skill_Lavoratori, "Wlx-Developer")%>
+    <%= form.check_box :skill_Lavoratori,{:multiple => true},"Wlx-Developer"%>
+    <%= form.label(:skill_Lavoratori, "Android-Developer") %>
+    <%= form.check_box :skill_Lavoratori,{:multiple => true},"Android-Developer"%>
+    <%= form.label(:skill_Lavoratori, "IOS-Developer") %>
+    <%= form.check_box :skill_Lavoratori,{:multiple => true},"IOS-Developer"%>
+    <%= form.label(:skill_Lavoratori, "JavaScript-Developer") %>
+    <%= form.check_box :skill_Lavoratori, {:multiple => true},"JavaScript-Developer"%>
+    <%= form.label(:skill_Lavoratori, "HTML-CSS-Developer") %>
+    <%= form.check_box :skill_Lavoratori,{:multiple => true},"HTML-CSS-Developer"%>
   </div>
+  <br>
+
 
   <div class="field">
     <%= form.label :timer %><br>
@@ -65,6 +73,7 @@
     <%= form.select :currency, [['BTC', 'BTC'], ['DOGE', 'DOGE'], ['ETH', 'ETH']] %><br>
   </div>
 
+  <br>
   <div class="actions">
     <%= form.submit %><br>
   </div>

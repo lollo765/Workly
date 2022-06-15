@@ -8,7 +8,7 @@ class Lavoro
   field :description, type: String
   field :n_Lavoratori, type: Integer
   field :categories, type: String
-  field :skill_Lavoratori, type: Array
+  field :skill_Lavoratori, type: Array, default:[]
   field :timer, type:Integer
   field :currency, type: String
   field :candidates, type: Array
@@ -18,7 +18,7 @@ class Lavoro
   validates :description, :presence => true, length: {minimum: 10}
   validates :n_Lavoratori, :presence => true
   validates :categories, :presence => true
-  validates :skill_Lavoratori, :presence => true
+  
   validates :timer, :presence => true
   validates :currency, :presence => true
 
