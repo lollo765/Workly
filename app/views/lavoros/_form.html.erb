@@ -42,16 +42,48 @@
   </div>
   <br>
   <div class="field">
-   <label>Skill Richieste</label>
-   <br>
-   <%= form.select :categories,[['WordPress-Developer','WordPress-Developer'],
-                                ['Shopify-Developer','Shopify-Developer'],
-                                ['Wlx-Developer','Wlx-Developer'],
-                                ['Android-Developer','Android-Developer'],
-                                ['IOS-Developer','IOS-Developer'],
-                                ['Python-Developer','Python-Developer'],
-                                ['JavaScript-Developer','JavaScript-Developer'],
-                                ['HTML-CSS-Developer','HTML-CSS-Developer']],{:include_blank => "Seleziona Skill"}%>    
+    <%= form.label :skill_Lavoratori %><br/>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <input type="checkbox" value= "WordPress-Developer; " id="1">
+        <label for="1">WordPress-Developer</label>
+      </div>
+      <div class="col-md-4">         
+        <input type="checkbox" value= "Shopify-Developer; " id="2">
+        <label for="2">Shopify-Developer</label>
+      </div>  
+      <div class="col-md-4">
+        <input type="checkbox" value= "Wlx-Developer; " id="3">
+        <label for="3">Wlx-Developer</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <input type="checkbox" value= "Android-Developer; " id="4">
+        <label for="4">Android-Developer</label>
+      </div>
+      <div class="col-md-4">
+        <input type="checkbox" value= "IOS-Developer; " id="5">
+        <label for="5">IOS-Developer</label>
+      </div>
+      <div class="col-md-4">
+        <input type="checkbox" value= "Python-Developer; " id="6">
+        <label for="6">Python-Developer</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <input type="checkbox" value= "JavaScript-Developer; " id="7">
+        <label for="7">JavaScript-Developer</label>
+      </div>
+      <div class="col-md-4">
+        <input type="checkbox" value= "HTML-CSS-Developer; " id="8">
+        <label for="8">HTML-CSS-Developer</label>
+      </div>
+    </div>         
+    <%= form.hidden_field :skill_Lavoratori, id: "skill_Lavoratori"%>
+
   </div>
   <br>
 
@@ -71,88 +103,65 @@
   <div class="actions">
     <%= form.submit %><br>
   </div>
-
   <script>
     $(document).ready(function(){
       $("#1").click(function(){
         var x=$("#1").val();
         if ($("#1").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
-
        $("#2").click(function(){
         var x=$("#2").val();
         if ($("#2").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
-
        $("#3").click(function(){
         var x=$("#3").val();
         if ($("#3").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
-
        $("#4").click(function(){
         var x=$("#4").val();
         if ($("#4").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
-
        $("#5").click(function(){
         var x=$("#5").val();
         if ($("#5").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
-
        $("#6").click(function(){
         var x=$("#6").val();
         if ($("#6").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
-
        $("#7").click(function(){
         var x=$("#7").val();
         if ($("#7").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
-
        $("#8").click(function(){
         var x=$("#8").val();
         if ($("#8").is(":checked"))
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
-        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
+        else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
-        }
       });
     });
   </script>
+  
 <%end%>

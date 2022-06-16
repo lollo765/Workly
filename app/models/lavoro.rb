@@ -8,7 +8,7 @@ class Lavoro
   field :description, type: String
   field :n_Lavoratori, type: Integer
   field :categories, type: String
-  field :skill_Lavoratori, type: String
+  field :skill_Lavoratori, type: String, :default => ""
   field :timer, type:Integer
   field :currency, type: String
   field :candidates, type: Array
