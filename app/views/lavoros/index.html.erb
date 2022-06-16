@@ -1,4 +1,5 @@
  <%= stylesheet_link_tag 'style_lavori.css' %>
+ 
 
   <!--==========Navbar==========-->
     <nav>
@@ -49,10 +50,9 @@
    <% end %>
    <%= form_tag lavoros_path, method: 'get' do %>
     <%= select_tag :skill_Lavoratori,options_for_select(["","WordPress-Developer","Shopify-Developer","Wlx-Developer","Android-Developer","IOS-Developer","Python-Developer","JavaScript-Developer","HTML-CSS-Developer"]) %>
-    <%= submit_tag 'Filtro per skills' %>
+    <%= submit_tag 'Filtro per Skill' %>
    <% end %>
-  </div>
-
+   <br> 
   <p>Titolo</p>
   
   <% @lavoros.each do |lavoro| %>
@@ -67,6 +67,7 @@
   <% if !user_signed_in? %>
    <%= link_to "Crea Lavoro", new_user_session_path %>
   <% end %>
+  
   
 </div>
 

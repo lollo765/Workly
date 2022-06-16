@@ -196,24 +196,11 @@ nav ul li:nth-child(4) a:hover::after {
   grid-column-end: 2;
   text-align: center;
 }
-<<<<<<< HEAD
-footer{
-  padding-bottom: 0.5%;
-}
-/**=====Fine Help Style=====**/
-
-/**=====Responsive Style=====**/
-@media (max-width: 1000px) {
-  nav {
-    padding: 0 40px 0 50px;
-  }
-=======
 #InfoGig img{
   grid-column-start: 2;
   grid-column-end: 3;
   width: 70%;
   height: auto
->>>>>>> d03a88df1ba1ef9e4791038ced47a77d61603f8a
 }
 
 #InfoLavori {

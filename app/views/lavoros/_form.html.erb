@@ -1,4 +1,5 @@
  <%= stylesheet_link_tag 'style.css' %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <%= form_with model: @lavoro do |form| %>
   <% if lavoro.errors.any?%>
     <div id="spiegazione_errore">
@@ -27,37 +28,30 @@
   </div>
 
   <div class="field">
-    <%= form.label :n_Lavoratori %><br>
+    <label>Numero Lavoratori</label><br>
     <%= form.number_field :n_Lavoratori,min:1 ,max: 30, step: 'any' %>
   </div>
-
+  <br>
   <div class="field">
     <label>Categoria</label>
     <br>
     <%= form.select :categories,[['Sviluppo di siti web','Sviluppo di siti web'],
                                  ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
                                  ['Assistenza e Sicurezza Informatica','Assistenza e Sicurezza Informatica'],
-                                 ['Varie','Varie']], {:include_blank => "--Selezionane una--"} %><br>
+                                 ['Varie','Varie']], {:include_blank => "Seleziona Categoria"} %><br>
   </div>
   <br>
-  
   <div class="field">
-   <label>Skill Lavoratori</label>
+   <label>Skill Richieste</label>
    <br>
-    <%= form.label(:skill_Lavoratori, "WordPress-Developer") %>
-    <%= form.check_box :skill_Lavoratori,{:multiple => true},"WordPress-Developer"%>
-    <%= form.label(:skill_Lavoratori, "Shopify-Developer") %>
-    <%= form.check_box :skill_Lavoratori,{:multiple => true},"Shopify-Developer"%>
-    <%= form.label(:skill_Lavoratori, "Wlx-Developer")%>
-    <%= form.check_box :skill_Lavoratori,{:multiple => true},"Wlx-Developer"%>
-    <%= form.label(:skill_Lavoratori, "Android-Developer") %>
-    <%= form.check_box :skill_Lavoratori,{:multiple => true},"Android-Developer"%>
-    <%= form.label(:skill_Lavoratori, "IOS-Developer") %>
-    <%= form.check_box :skill_Lavoratori,{:multiple => true},"IOS-Developer"%>
-    <%= form.label(:skill_Lavoratori, "JavaScript-Developer") %>
-    <%= form.check_box :skill_Lavoratori, {:multiple => true},"JavaScript-Developer"%>
-    <%= form.label(:skill_Lavoratori, "HTML-CSS-Developer") %>
-    <%= form.check_box :skill_Lavoratori,{:multiple => true},"HTML-CSS-Developer"%>
+   <%= form.select :categories,[['WordPress-Developer','WordPress-Developer'],
+                                ['Shopify-Developer','Shopify-Developer'],
+                                ['Wlx-Developer','Wlx-Developer'],
+                                ['Android-Developer','Android-Developer'],
+                                ['IOS-Developer','IOS-Developer'],
+                                ['Python-Developer','Python-Developer'],
+                                ['JavaScript-Developer','JavaScript-Developer'],
+                                ['HTML-CSS-Developer','HTML-CSS-Developer']],{:include_blank => "Seleziona Skill"}%>    
   </div>
   <br>
 
@@ -77,4 +71,88 @@
   <div class="actions">
     <%= form.submit %><br>
   </div>
+
+  <script>
+    $(document).ready(function(){
+      $("#1").click(function(){
+        var x=$("#1").val();
+        if ($("#1").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+
+       $("#2").click(function(){
+        var x=$("#2").val();
+        if ($("#2").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+
+       $("#3").click(function(){
+        var x=$("#3").val();
+        if ($("#3").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+
+       $("#4").click(function(){
+        var x=$("#4").val();
+        if ($("#4").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+
+       $("#5").click(function(){
+        var x=$("#5").val();
+        if ($("#5").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+
+       $("#6").click(function(){
+        var x=$("#6").val();
+        if ($("#6").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+
+       $("#7").click(function(){
+        var x=$("#7").val();
+        if ($("#7").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+
+       $("#8").click(function(){
+        var x=$("#8").val();
+        if ($("#8").is(":checked"))
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x + ", ");
+        else{
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
+          $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(", ", ""));
+        }
+      });
+    });
+  </script>
 <%end%>
