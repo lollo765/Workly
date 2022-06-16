@@ -7,83 +7,26 @@
 }
 
 /**=====Navbar Style=====**/
-nav {
-  display: flex;
-  height: 120px;
-  width: 100%;
-  background: #0f130a;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 50px 0 100px;
-  flex-wrap: wrap;
-}
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
-nav ul li {
-  margin: 0 5px;
-  margin-top: 20px;
-  position: relative;
-}
-nav ul li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 600;
-  padding: 8px 15px;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-nav ul li a.active,
-nav ul li a:hover {
-  color: rgb(252, 125, 6);
-}
-nav ul li a.active::after,
-nav ul li a:hover::after {
-  content: "";
-  width: 30%;
-  height: 2px;
-  background: rgb(243, 3, 3);
-  position: absolute;
-  bottom: 3px;
-  left: 15px;
-}
+
 nav ul li:nth-child(2) a:hover {
-  color: #f7de3a;
+  color: #950df0;
 }
 nav ul li:nth-child(3) a:hover {
-  color: #f54967;
+  color: #08ee1b;
 }
 nav ul li:nth-child(4) a:hover {
   color: #328fa5;
 }
 nav ul li:nth-child(2) a:hover::after {
-  background: #f7de3a;
+  background: #950df0;
 }
 nav ul li:nth-child(3) a:hover::after {
-  background: #d03852;
+  background: #08ee1b;
 }
 nav ul li:nth-child(4) a:hover::after {
   background: #23798e;
 }
-#loginButton,
-#UserButton,
-#ContactButton {
-  margin-top: 5px;
-  color: #1a1a1a;
-  border: 2px solid rgb(49, 198, 24);
-  transition-duration: 0.4s;
-}
-#loginButton:hover,
-#UserButton:hover,
-#ContactButton:hover {
-  background-color: rgb(49, 198, 24);
-}
-#UserButton {
-  border-radius: 100px;
-}
+
 /**=====Fine Navbar Style=====**/
 
 /**=====Carousel Style=====**/
@@ -108,21 +51,21 @@ nav ul li:nth-child(4) a:hover::after {
 #CarouselButton1 {
   color: #ffff;
   background-color: none;
-  border: 2px solid #f7de3a;
+  border: 2px solid #950df0;
   transition-duration: 0.4s;
   height: 100%;
 }
 #CarouselButton1:hover {
-  background-color: #f7de3a;
+  background-color: #950df0;
 }
 #CarouselButton2 {
   color: #ffff;
   background-color: none;
-  border: 2px solid #f54967;
+  border: 2px solid #08ee1b;
   transition-duration: 0.4s;
 }
 #CarouselButton2:hover {
-  background-color: #d03852;
+  background-color: #08ee1b;
 }
 #CarouselButton3 {
   color: #ffff;
@@ -136,14 +79,14 @@ nav ul li:nth-child(4) a:hover::after {
 #S1 {
   padding-top: 25%;
   font-size: 3vw;
-  border-bottom: 5px solid #f7de3a;
+  border-bottom: 5px solid #950df0;
   display: inline-block;
   padding-bottom: 1%;
 }
 #S2 {
   padding-top: 25%;
   font-size: 3vw;
-  border-bottom: 5px solid #d03852;
+  border-bottom: 5px solid #08ee1b;
   display: inline-block;
   padding-bottom: 1%;
 }
