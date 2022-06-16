@@ -14,8 +14,8 @@
       <!--=====Schede=====-->
       <ul id="navbar">
         <li><%= link_to "Home", home_pages_path%></li>
-        <li><%= link_to "Workers", workers_path, class: "active"%></li>
-        <li><%= link_to "Gigs", gigs_path%></li>
+        <li><%= link_to "Workers", workers_path%></li>
+        <li><%= link_to "Gigs", gigs_path, class: "active" %></li>
         <li><%= link_to "Lavori", lavoros_path%></li>
         <li>
             <% if !user_signed_in? %>

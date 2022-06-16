@@ -84,14 +84,14 @@
                     <div class="row">
                         <div class="col-md-4">
 
-                            <input type="checkbox" value= "WordPress-Developer" id="1">
+                            <input type="checkbox" value= "WordPress-Developer, " id="1">
                             <label for="1">WordPress-Developer</label>
 
                         </div>
 
                         <div class="col-md-4">
                         
-                            <input type="checkbox" value= "Shopify-Developer" id="2">
+                            <input type="checkbox" value= "Shopify-Developer, " id="2">
                             <label for="2">Shopify-Developer</label>
 
                         </div>
@@ -100,7 +100,7 @@
 
                         <div class="col-md-4">
 
-                            <input type="checkbox" value= "Wlx-Developer" id="3">
+                            <input type="checkbox" value= "Wlx-Developer, " id="3">
                             <label for="3">Wlx-Developer</label>
 
                         </div>
@@ -111,21 +111,21 @@
 
                         <div class="col-md-4">
 
-                            <input type="checkbox" value= "Android-Developer" id="4">
+                            <input type="checkbox" value= "Android-Developer, " id="4">
                             <label for="4">Android-Developer</label>
 
                         </div>
 
                         <div class="col-md-4">
 
-                            <input type="checkbox" value= "IOS-Developer" id="5">
+                            <input type="checkbox" value= "IOS-Developer, " id="5">
                             <label for="5">IOS-Developer</label>
 
                         </div>
 
                         <div class="col-md-4">
 
-                            <input type="checkbox" value= "Python-Developer" id="6">
+                            <input type="checkbox" value= "Python-Developer, " id="6">
                             <label for="6">Python-Developer</label>
 
                         </div>
@@ -136,14 +136,14 @@
 
                         <div class="col-md-4">
 
-                            <input type="checkbox" value= "JavaScript-Developer" id="7">
+                            <input type="checkbox" value= "JavaScript-Developer, " id="7">
                             <label for="7">JavaScript-Developer</label>
 
                         </div>
 
                         <div class="col-md-4">
 
-                            <input type="checkbox" value= "HTML-CSS-Developer" id="8">
+                            <input type="checkbox" value= "HTML-CSS-Developer, " id="8">
                             <label for="8">HTML-CSS-Developer</label>
 
                         </div>
@@ -170,88 +170,72 @@
     </div>
 
     <script>
-    $(document).ready(function(){
+      $(document).ready(function(){
       $("#1").click(function(){
         var x=$("#1").val();
         if ($("#1").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
        $("#2").click(function(){
         var x=$("#2").val();
         if ($("#2").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
        $("#3").click(function(){
         var x=$("#3").val();
         if ($("#3").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
        $("#4").click(function(){
         var x=$("#4").val();
         if ($("#4").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
        $("#5").click(function(){
         var x=$("#5").val();
         if ($("#5").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
        $("#6").click(function(){
         var x=$("#6").val();
         if ($("#6").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
        $("#7").click(function(){
         var x=$("#7").val();
         if ($("#7").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
        $("#8").click(function(){
         var x=$("#8").val();
         if ($("#8").is(":checked"))
-          $("#skill").val($("#skill").val() + x + ", ");
-        else{
+          $("#skill").val($("#skill").val() + x);
+        else
           $("#skill").val($("#skill").val().replace(x, ""));
-          $("#skill").val($("#skill").val().replace(", ", ""));
-        }
       });
 
     });
-  </script>
+    </script>
 
 </body>
