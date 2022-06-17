@@ -14,6 +14,8 @@ class LavorosController < ApplicationController
   def show
     if( params[:candidate])
       Lavoro.find(params[:id]).add_to_set( candidates: current_user.email )
+    elsif( params[:candidate_remove])
+      Lavoro.find(params[:id]).pull( candidates: current_user.email )
     end
     @lavoro=Lavoro.find(params[:id])
   end

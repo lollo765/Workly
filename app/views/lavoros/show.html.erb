@@ -63,15 +63,132 @@
 </p>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-      document.getElementById("button")?.addEventListener("click", () => {window.location.search = '?candidate=true';})
-  });
+  function bindListners(){
+    console.log('Added listners', document.getElementById("candidate_add"))
+    document.getElementById("candidate_add")?.addEventListener("click", () => {window.location.search = '?candidate=true';})
+    document.getElementById("candidate_remove")?.addEventListener("click", () => {window.location.search = '?candidate_remove=true';})
+  }
+  if( document ){ // if user get to this page without loading it directly, it can come from the works list for example
+    bindListners()
+  } else { // if user get to this page directly
+    window.addEventListener('load', (event) => {
+      bindListners()
+    });
+  }
 </script>
-<br>
-<br>
+
+
 <% if( user_signed_in? &&  !@lavoro.candidates.to_s.include?(current_user.email) )  %>
-    <a id="button" href="?" > candidati </a>
+    <a id="candidate_add" href="?" > candidate </a>
+<% elsif( user_signed_in? &&  @lavoro.candidates.to_s.include?(current_user.email) ) %>
+  <a id="candidate_remove" href="?" > remove application </a>
+<% else  %>
+  <a href="/users/sign_in" >Login to candidate </a>
 <% end %>
+<% if( user_signed_in? && @lavoro.email == current_user.email && @lavoro.candidates? ) %>
+  <% @lavoro.candidates.each do |candidate_mail| %>
+    <div>
+      <br/>
+      <br/>
+      <p><%=candidate_mail%></p>
+      <a href="http://localhost:3010/hire?owner=<%=current_user.email%>&candidate<%=candidate_mail%>&workId=<%=@lavoro._id%>" target="_blank" >Hire candidate</a>
+      <br/>
+      <br/>
+    </div>
+  <% end %>
+<% end %>
+
+<script>
+
+  var CLIENT_ID = "643472053218-v2avpqfo58vvf14dm0kukobpde4hg7hn.apps.googleusercontent.com";
+  var API_KEY = "AIzaSyDb-x3zpsXIq-UKtfaHQTe547QAhLVX3FA";
+  var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+  var SCOPES = "https://www.googleapis.com/auth/calendar.events";
+  var duration = <%= @lavoro.timer %>
+  var unixDay = 60 * 60 * 24;
+  var unixNow = Date.now()/1000;
+  var expire = unixNow + (duration*unixDay);
+
+  
+
+  function handleClick() {
+        gapi.load('client:auth2', () => {
+        console.log('loaded client')
+
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES,
+            plugin_name:'App Name that you used in google developer console API'
+        });
+
+        gapi.client.load('calendar', 'v3', () => console.log('bam!'))
+        
+        let msDay = 1000 * 60 * 60 * 24;
+        let start = new Date( unixNow * 1000 ).toISOString();
+        let end = new Date(expire * 1000).toISOString();
+
+        console.log(start, end)
+
+        gapi.auth2.getAuthInstance()
+        .signIn()
+        .then(() => {
+
+            console.log('Sign in done');
+
+            var event = {
+            'summary': '<%= @lavoro.title%>',
+            'location': 'Remote',
+            'description': '<%= @lavoro.description%>',
+            'start': {
+                'dateTime': start,
+                'timeZone': 'UTC'
+            },
+            'end': {
+                'dateTime': end,
+                'timeZone': 'UTC'
+            },
+            'recurrence': [
+                'RRULE:FREQ=DAILY;COUNT=2'
+            ],
+            'reminders': {
+                'useDefault': false,
+                'overrides': [
+                {'method': 'email', 'minutes': 24 * 60},
+                {'method': 'popup', 'minutes': 10}
+                ]
+            }
+            }
+
+            var request = gapi.client.calendar.events.insert({
+                'calendarId': 'primary',
+                'resource': event,
+            })
+
+            request.execute(event => {
+                console.log(event)
+                window.open(event.htmlLink)
+            })
+            
+
+        })
+        })
+  }
+
+  function bindListners(){
+    console.log('Added listner', document.getElementById("google_calendar"))
+    document.getElementById("google_calendar")?.addEventListener("click", handleClick )
+  }
+  if( document ){ // if user get to this page without loading it directly, it can come from the works list for example
+    bindListners();
+  } else { // if user get to this page directly
+    window.addEventListener('load', (event) => {
+      bindListners();
+    });
+  }
+</script>
+<button id="google_calendar">Add to google calendar</button>
 
 <br/>
 <br/>
