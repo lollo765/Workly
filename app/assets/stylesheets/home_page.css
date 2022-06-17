@@ -30,6 +30,7 @@ nav ul li:nth-child(4) a:hover::after {
 /**=====Fine Navbar Style=====**/
 
 /**=====Carousel Style=====**/
+
 .carousel-inner img{
   width: 100%;
   height: 100%;
@@ -97,15 +98,17 @@ nav ul li:nth-child(4) a:hover::after {
   display: inline-block;
   padding-bottom: 1%;
 }
+
 /**=====Fine Carousel Style=====**/
 
 /**=====Info Box Style=====**/
+
 .InfoSite {
   display: grid;
   grid-template-columns: 100%;
   row-gap: 5%;
   padding-top: 5%;
-  padding-bottom: 15%;
+  padding-bottom: 5%;
 }
 .InfoSite h1 {
   font-size: 2vw;
@@ -126,48 +129,35 @@ nav ul li:nth-child(4) a:hover::after {
   padding-left: 10%;
   padding-right: 10%;
 }
-#InfoGig {
-  width: 100%;
-  height: 100%;
-
-  display: grid;
-
-  grid-template-columns: repeat(2,1fr);
+.row{
+  background-color: rgb(245, 237, 237);
+  padding-bottom: 5%;
+  padding-top: 5%;
+  margin-right: 0%;
 }
 #InfoGig p{
-  grid-column-start: 1;
-  grid-column-end: 2;
   text-align: center;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 20%;
+  margin-right: 7%;
 }
 #InfoGig img{
-  grid-column-start: 2;
-  grid-column-end: 3;
-  width: 70%;
-  height: auto
-}
-
-#InfoLavori {
-  width: 100%;
-  height: 100%;
-
-  display: grid;
-
-  grid-template-columns: repeat(2,1fr);
+  width: 450px;
+  height: 350px;
+  margin-left: 10%;
 }
 #InfoLavori p{
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 1;
   text-align: center;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-right: 22%;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 #InfoLavori img{
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  width: 70%;
-  height: auto;
+  width: 450px;
+  height: 350px;
   margin-left: 20%;
 }
 

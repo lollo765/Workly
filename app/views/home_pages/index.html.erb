@@ -117,41 +117,70 @@
     <!--==========Info==========-->
     <div class="InfoSite">
       <h1>Cos'è Workly?</h1>
-        <section id="InfoWorkly">
-          <p>Workly è un marketplace online che permette a lavoratori freelancer di mettere a disposizione i propri servizi.
-      Workly fa si che i rapporti fra datori di lavoro e potenziali clienti siano i più sicuri e trasparenti possibile,
-      gestendoli tramite smart contract attraverso un applicativo sviluppato ad hoc che si occupa di gesitre i pagamenti degli utenti.
-      Il punto di forza del sito sta nella connessione con MetaMask (<%= link_to "Cos'è MataMask?", "https://metamask.io" %>)
-      , in modo che la transazione verrà eseguita solo a lavoro ultimato.</p>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <section id="InfoGig">
-          <p>Descrizione Gigs</p>
-          <%= image_tag('gig-description.jpg') %>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <section id="InfoLavori">
-          <p>Descrizione Lavori</p>
-          <%= image_tag('job-description.jpg') %>
-        </section>
+      <section id="InfoWorkly">
+        <p>
+        Workly è un marketplace online che permette a lavoratori freelancer di mettere a disposizione i propri servizi.
+        Workly fa si che i rapporti fra datori di lavoro e potenziali clienti siano i più sicuri e trasparenti possibile,
+        gestendoli tramite smart contract attraverso un applicativo sviluppato ad hoc che si occupa di gesitre i pagamenti degli utenti.
+        Il punto di forza del sito sta nella connessione con MetaMask (<%= link_to "Cos'è MataMask?", "https://metamask.io" %>)
+        , in modo che la transazione verrà eseguita solo a lavoro ultimato.
+        Di seguito vi è una breve descrizione che sottolinea la differenza tra Gig e Lavori ed il funzionamento di questi ultimi.
+        </p>
+      </section>
     </div>
-    <br> <br>
+        
+    <div class="row" id="InfoGig">
+      <div class="col">
+        <p>
+        Le gig sono servizi lavorativi di qualsiasi tipo offerti dai freelencer della piattaforma, 
+        come ad esempio: lo sviluppo di un sito web, la creazione di grafiche, la gestione del marketing per un brand, etc .. <br>
+        Tramite le gig un utente del sito puo comprare direttamente il servizio che necessita
+        dal lavoratore che più preferisce e, una volta completato l'acquisto, contattare l'utente tramite piattaforme esterne
+        ( telegram, discord o simili ) per condividere i dettagli riguardanti la sua richiesta. <br>
+        Le gig contengono una descrizione che spiega il funzionamento del servizio offerto e il prezzo di acquisto.
+        </p>
+      </div>
+
+      <div class="col">
+        <%= image_tag('gig-description.jpg') %>
+      </div>
+    </div>
+
+    <div class="row" id="InfoLavori">
+      <div class="col">
+        <%= image_tag('job-description.jpg') %>
+      </div>
+
+      <div class="col">
+        <p>
+        I lavori sono annunci con lo scopo di reclutare personale esperto e non, in base alle necessita dell'utente che pubblica l'annuncio ( il datore di lavoro ). <br>
+        L'annuncio continene una descrizione generale che spiega come il datore vuole venga svolto il lavoro e il budget a disposizione per il pagamento degli utenti assunti. <br>
+        Gli utenti che sonno interessati in un annuncio di lavoro possono visionarlo e candidarsi se interessati, una volta
+        candidati sarà il datore a scegliere quali lavoratori assumere e quali no.
+        </p>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <!--==========Assistenza==========-->
+
     <section id="InfoWorkly">
-          <p>
+      <p>
       Hai altre domande?
-        <%= link_to "Contattaci!", new_contact_path %>
+      <%= link_to "Contattaci!", new_contact_path %>
       </p>
     </section>
+
+    <!--==========Fine Assistenza==========-->
+    
     <br>
     <br>
     <br>
     <br>
+
     <!--==========Fine Sezione Info==========-->
 
 
@@ -177,14 +206,5 @@
     }
     </script>
     <div id="crypto-prices"></div>
-
-    <!--==========Assistenza==========-->
-
-    <%= link_to new_contact_path do %>
-      <i class="fa-solid fa-headset"></i> Assistenza
-    <% end %>
-
-    <!--==========Fine Assistenza==========-->
-
 
 </body>
