@@ -37,9 +37,9 @@
     </nav>
     <!--==========Fine Navbar==========-->
 
-  <br>
+  
 
-  <div id="griglia-filtri">
+  <div id="griglia">
 
     <div class="search-worker">
 
@@ -50,36 +50,39 @@
 
     </div>
 
-    <div class="search-skill-worker">
+    <div class="sidebar">
 
+      <br>
+      <h1>Skills:</h1>
       <%= form_with(url: workers_path, method: "get") do |f| %>
 
         <input type="checkbox" value= "WordPress-Developer," id="1">
         <label for="1">WordPress-Developer</label>
-
+        <br>
         <input type="checkbox" value= "Shopify-Developer," id="2">
         <label for="2">Shopify-Developer</label>
-
+        <br>
         <input type="checkbox" value= "Wlx-Developer," id="3">
         <label for="3">Wlx-Developer</label>
-
+        <br>
         <input type="checkbox" value= "Android-Developer," id="4">
         <label for="4">Android-Developer</label>
-
+        <br>
         <input type="checkbox" value= "IOS-Developer," id="5">
         <label for="5">IOS-Developer</label>
-
+        <br>
         <input type="checkbox" value= "Python-Developer," id="6">
         <label for="6">Python-Developer</label>
-
+        <br>
         <input type="checkbox" value= "JavaScript-Developer," id="7">
         <label for="7">JavaScript-Developer</label>
-
+        <br>
         <input type="checkbox" value= "HTML-CSS-Developer," id="8">
         <label for="8">HTML-CSS-Developer</label>
 
         <%= f.hidden_field :skill, id: "skill"%>
-
+        <br>
+        <br>
         <%= button_tag (fa_icon "filter", text: "Filtra per skill"), class: "button" %>
 
       <% end %>
@@ -104,25 +107,26 @@
 
     </div>
 
-  </div>
-  <br>
-  <hr>
-  <div id="griglia-workers">
+    <div class="content-large">
+      <div id="griglia-workers">
 
-      <% @users.each do |user|%>
-        <div>
-          <% if user.img == ""%>
-              <% user.img = "avatar-user.png" %>
+          <% @users.each do |user|%>
+            <div>
+              <% if user.img == ""%>
+                  <% user.img = "avatar-user.png" %>
+              <% end %>
+              <%= image_tag(user.img, width: "175px", height: "175px", class: "rounded-circle") %>
+              <br>
+              <%= user.name%>
+              <br>
+              <%= user.category%>
+              <br>
+              <a class="btn btn-primary" href="/workers/<%= user.id %>">Dettagli</a>
+            </div>
           <% end %>
-          <%= image_tag(user.img, width: "175px", height: "175px", class: "rounded-circle") %>
-          <br>
-          <%= user.name%>
-          <br>
-          <%= user.category%>
-          <br>
-          <a class="btn btn-primary" href="/workers/<%= user.id %>">Dettagli</a>
-        </div>
-      <% end %>
+
+      </div>
+    </div>
 
   </div>
 
