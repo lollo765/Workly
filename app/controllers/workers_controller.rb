@@ -12,8 +12,6 @@ class WorkersController < ApplicationController
         x=x.and(User.search_for_skills(skill[i]))
       end
       @users=x
-      #@users = User.search_for_skills(skill[0]).and(User.search_for_skills("Shopify-Developer"))
-      #@users = User.where(skill: params[:skill])
     elsif (!params[:review].blank?)
       @users = User.where(review: params[:review])
     else

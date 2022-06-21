@@ -150,14 +150,25 @@
 
                         </div>
                         
-                        <%= f.hidden_field :skill, id: "skill"%>
+                        <%= f.hidden_field :skill, :value => @user.skill, id: "skill"%>
 
                 </div>
 
                 <div class="select_field">
                     <%= f.label :Categoria %>
                     <br>
-                    <%= f.select :category, [['Avvocato', 'Avvocato'], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :selected => @user.category, :required => true %>
+                    <% if @user.category=="Avvocato"%>
+                      <%= f.select :category, [[@user.category, @user.category], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']]%>
+                    <% end %>
+                    <% if @user.category=="Ingegnere" %>
+                      <%= f.select :category, [[@user.category, @user.category], ['Avvocato', 'Avvocato'], ['Architetto', 'Architetto']]%>
+                    <% end %>
+                    <% if @user.category=="Architetto" %>
+                      <%= f.select :category, [[@user.category, @user.category], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']]%>
+                    <% end %>
+                    <% if @user.category=="nessuna" %>
+                      <%= f.select :category, [['Ingegnere', 'Ingegnere'], ['Avvocato', 'Avvocato'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :required => true%>
+                    <% end %>
                 </div>
                 <br>
                 <div>
@@ -171,6 +182,21 @@
 
     <script>
       $(document).ready(function(){
+       
+       var skill=$("#skill").val().split("; ");
+       var l= skill.length;
+       var i;
+       for (i=0; i<l; i++){
+        if(skill[i]=="WordPress-Developer") $("#1").prop('checked', true);
+        else if(skill[i]=="Shopify-Developer") $("#2").prop('checked', true);
+        else if(skill[i]=="Wlx-Developer") $("#3").prop('checked', true);
+        else if(skill[i]=="Android-Developer") $("#4").prop('checked', true);
+        else if(skill[i]=="IOS-Developer") $("#5").prop('checked', true);
+        else if(skill[i]=="Python-Developer") $("#6").prop('checked', true);
+        else if(skill[i]=="JavaScript-Developer") $("#7").prop('checked', true);
+        else if(skill[i]=="HTML-CSS-Developer") $("#8").prop('checked', true);
+       }
+
       $("#1").click(function(){
         var x=$("#1").val();
         if ($("#1").is(":checked"))

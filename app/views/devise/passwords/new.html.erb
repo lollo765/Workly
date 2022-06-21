@@ -39,7 +39,7 @@
 
     <br>
 
-
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="center">
     <br>
@@ -47,10 +47,9 @@
     <div id="form">
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="txt_field">
-          <%= f.email_field :email,  placeholder: "Email", autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email,  placeholder: "Email", autofocus: true, autocomplete: "email", required: true %>
         </div>
 
         <div class="actions">

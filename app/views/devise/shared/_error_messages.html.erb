@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'error_message.css' %>
 <% if resource.errors.any? %>
   <div id="error_explanation">
     <h2>
@@ -11,5 +12,11 @@
         <li><%= message %></li>
       <% end %>
     </ul>
+    <button type="button" class="btn btn-primary" onclick="closeForm()">Ok</button>
   </div>
 <% end %>
+<script>
+  function closeForm() {
+    document.getElementById("error_explanation").style.display = "none";
+  }
+</script>
