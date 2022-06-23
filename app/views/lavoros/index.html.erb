@@ -81,7 +81,18 @@
     <div class="content-large">
       <div id="giglia-lavoros">
        <% @lavoros.each do |lavoro| %>
-         <% image = "Progr.jpg" %>
+         <% if lavoro.categories == 'Sviluppo di siti web'%>
+           <%image = "web.jpg"%>
+         <%end%>
+                  <% if lavoro.categories == 'Sviluppo di applicazioni'%>
+           <%image = "app.jpg"%>
+         <%end%>
+                  <% if lavoro.categories == 'Assistenza e Sicurezza Informatica'%>
+           <%image = "sicurezza.jpg"%>
+         <%end%>
+         <% if lavoro.categories == 'Varie'%>
+           <%image = "Prog.jpg"%>
+         <%end%>
          <br>
          <%= image_tag(image, width: "175px", height: "100px") %>
          <br>

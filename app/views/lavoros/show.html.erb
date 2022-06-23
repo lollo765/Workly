@@ -40,32 +40,37 @@
 
 
 
-<p>
-  <strong>Titolo:</strong>
-  <%= @lavoro.title%>
-</p>
+ <p>
+   <strong>Titolo</strong>
+   <br>
+   <%= @lavoro.title%>
+ </p>
 
-<p>
-  <strong>Descrizione:</strong>
-  <%= @lavoro.description%>
-</p>
+ <p>
+   <strong>Descrizione</strong>
+   <br>
+   <%= @lavoro.description%>
+ </p>
 
-<p>
-  <strong>Numero Lavoratori:</strong>
-  <%= @lavoro.n_Lavoratori%>
-</p>
+ <p>
+   <strong>Numero Lavoratori</strong>
+   <br>
+   <%= @lavoro.n_Lavoratori%>
+ </p>
 
-<p>
-  <strong>Categoria:</strong>
-  <%= @lavoro.categories%>
-</p>
+ <p>
+   <strong>Categoria</strong>
+   <br>
+   <%= @lavoro.categories%>
+ </p>
 
-<p>
-  <strong>Skill Lavoratori:</strong>
+ <p>
+  <strong>Skill Lavoratori</strong>
+  <br>
   <%= @lavoro.skill_Lavoratori%>
-</p>
+ </p>
 
-<script>
+ <script>
   function bindListners(){
     console.log('Added listners', document.getElementById("candidate_add"))
     document.getElementById("candidate_add")?.addEventListener("click", () => {window.location.search = '?candidate=true';})
@@ -78,30 +83,30 @@
       bindListners()
     });
   }
-</script>
+ </script>
 
 
-<% if( user_signed_in? &&  !@lavoro.candidates.to_s.include?(current_user.email) )  %>
-    <a id="candidate_add" href="?" > candidate </a>
-<% elsif( user_signed_in? &&  @lavoro.candidates.to_s.include?(current_user.email) ) %>
-  <a id="candidate_remove" href="?" > remove application </a>
-<% else  %>
-  <a href="/users/sign_in" >Login to candidate </a>
+ <% if( user_signed_in? &&  !@lavoro.candidates.to_s.include?(current_user.email) )  %>
+     <a id="candidate_add" href="?" > candidate </a>
+ <% elsif( user_signed_in? &&  @lavoro.candidates.to_s.include?(current_user.email) ) %>
+   <a id="candidate_remove" href="?" > remove application </a>
+ <% else  %>
+   <a href="/users/sign_in" >Login to candidate </a>
 <% end %>
-<% if( user_signed_in? && @lavoro.email == current_user.email && @lavoro.candidates? ) %>
-  <% @lavoro.candidates.each do |candidate_mail| %>
-    <div>
-      <br/>
-      <br/>
-      <p><%=candidate_mail%></p>
-      <a href="http://localhost:3010/hire?owner=<%=current_user.email%>&candidate<%=candidate_mail%>&workId=<%=@lavoro._id%>" target="_blank" >Hire candidate</a>
-      <br/>
-      <br/>
-    </div>
-  <% end %>
-<% end %>
+ <% if( user_signed_in? && @lavoro.email == current_user.email && @lavoro.candidates? ) %>
+   <% @lavoro.candidates.each do |candidate_mail| %>
+     <div>
+       <br/>
+       <br/>
+       <p><%=candidate_mail%></p>
+       <a href="http://localhost:3010/hire?owner=<%=current_user.email%>&candidate<%=candidate_mail%>&workId=<%=@lavoro._id%>" target="_blank" >Hire candidate</a>
+       <br/>
+       <br/>
+     </div>
+   <% end %>
+ <% end %>
 
-<script>
+ <script>
 
   var CLIENT_ID = "643472053218-v2avpqfo58vvf14dm0kukobpde4hg7hn.apps.googleusercontent.com";
   var API_KEY = "AIzaSyDb-x3zpsXIq-UKtfaHQTe547QAhLVX3FA";
@@ -190,20 +195,28 @@
       bindListners();
     });
   }
-</script>
-<button id="google_calendar">Add to google calendar</button>
+  </script>
+  <br>
+  <br>
+  <button id="google_calendar">Add to google calendar</button>
 
-<br/>
-<br/>
+  <br/>
+  <br/>
 
-&nbsp;&nbsp;&nbsp;
-<%= link_to "Indietro", :back %>
-&nbsp;&nbsp;&nbsp;
-<% if current_user && ( (@lavoro.email == current_user.email) || current_user.admin == true) %>
+  &nbsp;&nbsp;&nbsp;
+  <%= link_to "Indietro", :back %>
+  &nbsp;&nbsp;&nbsp;
+  <% if current_user && ( (@lavoro.email == current_user.email) || current_user.admin == true) %>
     <%= link_to "Modifica", edit_lavoro_path%>
     &nbsp;&nbsp;&nbsp;
     <%= link_to "Elimina", lavoro_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
-<% end %>
-
-<br>
+  <% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </body>
