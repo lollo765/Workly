@@ -65,6 +65,6 @@ class LavorosController < ApplicationController
     @lavoro = Lavoro.find(params[:id])
    end
    def lavoro_params
-    params.require(:lavoro).permit(:title,:description,:n_Lavoratori,:categories,:skill_Lavoratori,:timer,:currency)
+    params.require(:lavoro).permit(:title,:description,:n_Lavoratori,:categories,:skill_Lavoratori,:timer,:cost,:currency)
    end
 end

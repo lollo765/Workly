@@ -10,6 +10,7 @@ class Lavoro
   field :categories, type: String
   field :skill_Lavoratori, type: String, :default => ""
   field :timer, type:Integer
+  field :cost, type: Integer
   field :currency, type: String
   field :candidates, type: Array
   field :email, type: String
