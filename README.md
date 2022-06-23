@@ -16,14 +16,14 @@ Per facilitare la creazione dei lavori e scegliere come crypto di pagamento la p
 
 ### Suddivisione Attivita
 
-> Marco ( gestione lavori )
+> Marco 
 Stories: 6, 7, 8 , 9, 10, 11, 12, 25, 35, 36, 37, 38
 
-> Linch ( blockchain / gestione reviews )
+> Linch 
 Stories: 13, 14, 15, 16, 17, 18, 19, 27, 28
 
-> Matteo ( gestione gigs )
+> Matteo 
 Stories: 20, 21, 22, 23, 26, 39, 40, 41, 42, 29
 
 > Roberto
-Stories: 1, 2, 3, 4, 5, 24, 30, 31, 32, 33, 34 ( registrazione / creazione profilo )
+Stories: 1, 2, 3, 4, 5, 24, 30, 31, 32, 33, 34 
