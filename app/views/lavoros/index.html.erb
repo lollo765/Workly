@@ -50,27 +50,28 @@
    <% end %>
    <br>
    <div class="search-skill_Lavoratori">
-    <%= form_with(url: lavoros_path, method: "get") do |f| %>
-      <input type="checkbox" value= "WordPress-Developer;" id="1">
-      <label for="1">WordPress-Developer</label>
-      <input type="checkbox" value= "Shopify-Developer;" id="2">
-      <label for="2">Shopify-Developer</label>
-      <input type="checkbox" value= "Wlx-Developer;" id="3">
-      <label for="3">Wlx-Developer</label>
-      <input type="checkbox" value= "Android-Developer;" id="4">
-      <label for="4">Android-Developer</label>
-      <input type="checkbox" value= "IOS-Developer;" id="5">
-      <label for="5">IOS-Developer</label>
-      <input type="checkbox" value= "Python-Developer;" id="6">
-      <label for="6">Python-Developer</label>
-      <input type="checkbox" value= "JavaScript-Developer;" id="7">
-      <label for="7">JavaScript-Developer</label>
-      <input type="checkbox" value= "HTML-CSS-Developer;" id="8">
-      <label for="8">HTML-CSS-Developer</label>
-      <%= f.hidden_field :skill_Lavoratori, id: "skill_Lavoratori"%>
-      <%= submit_tag 'Filtro per Skill' %>
-    <%end%>
-  </div>
+      <%= form_with(url: lavoros_path, method: "get") do |f| %>
+        <input type="checkbox" value= "WordPress-Developer;" id="1">
+        <label for="1">WordPress-Developer</label>
+        <input type="checkbox" value= "Shopify-Developer;" id="2">
+        <label for="2">Shopify-Developer</label>
+        <input type="checkbox" value= "Wlx-Developer;" id="3">
+        <label for="3">Wlx-Developer</label>
+        <input type="checkbox" value= "Android-Developer;" id="4">
+        <label for="4">Android-Developer</label>
+        <input type="checkbox" value= "IOS-Developer;" id="5">
+        <label for="5">IOS-Developer</label>
+        <input type="checkbox" value= "Python-Developer;" id="6">
+        <label for="6">Python-Developer</label>
+        <input type="checkbox" value= "JavaScript-Developer;" id="7">
+        <label for="7">JavaScript-Developer</label>
+        <input type="checkbox" value= "HTML-CSS-Developer;" id="8">
+        <label for="8">HTML-CSS-Developer</label>
+        <%= f.hidden_field :skill_Lavoratori, id: "skill_Lavoratori"%>
+        <br>
+        <%= submit_tag 'Filtro per Skill' %>
+      <%end%>
+    </div>
   <br> 
   <p>Titolo</p>
   
@@ -149,6 +150,12 @@
   
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
