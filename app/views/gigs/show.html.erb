@@ -1,4 +1,4 @@
- <%= stylesheet_link_tag 'style.css' %>
+ <%= stylesheet_link_tag 'show_gigs.css' %>
 
 
   <!--==========Navbar==========-->
@@ -37,6 +37,8 @@
     <br>
 
 
+<div> 
+
 <p > <u> <b> Titolo </u> </b> <br> <%= @gig.title %> </p>
 
 <p> <u> <b> Descrizione </u> </b> <br> <%= @gig.description %> </p>
@@ -44,6 +46,7 @@
 <p> <u> <b> Skills </u> </b> <br> <%= @gig.skill %> </p>
 
 <p> <u> <b> Categoria </u> </b> <br> <%= @gig.categories %> </p>
+
 
 &nbsp;&nbsp;&nbsp;
 <%= link_to "Indietro", :back %>
@@ -53,6 +56,8 @@
     &nbsp;&nbsp;&nbsp;
     <%= link_to "Elimina", gig_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
 <% end %>
+
+</div>
 
 <br>
 <br>

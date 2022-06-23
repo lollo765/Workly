@@ -1,0 +1,38 @@
+body{
+    background: whitesmoke;
+}
+
+.main{
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content{
+    background-color: whitesmoke;
+    justify-content: center;
+}
+
+div {text-align: center;}
+
+/**=====Navbar Style=====**/
+
+nav ul li:nth-child(1) a:hover {
+    color: #0df0a4;
+  }
+  nav ul li:nth-child(3) a:hover {
+    color: rgb(252, 125, 6);
+  }
+  nav ul li:nth-child(4) a:hover {
+    color: #328fa5;
+  }
+  nav ul li:nth-child(1) a:hover::after {
+    background: #0df0a4;
+  }
+  nav ul li:nth-child(3) a:hover::after {
+    color: rgb(252, 125, 6);
+  }
+  nav ul li:nth-child(4) a:hover::after {
+    background: #23798e;
+  }
+  
+  /**=====Fine Navbar Style=====**/

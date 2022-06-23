@@ -1,5 +1,5 @@
 
- <%= stylesheet_link_tag 'style.css' %>
+ <%= stylesheet_link_tag 'show_gigs.css' %>
 <%= form_with model: @gig do |form| %>
   
   <div>
@@ -53,8 +53,9 @@
     <% end %>
   </div>
 
+  <br>
 
   <div>
-    <%= form.submit %><br>
+    <%= form.submit "Crea gig" %><br>
   </div>
 <% end %>

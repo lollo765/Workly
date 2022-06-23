@@ -1,5 +1,5 @@
 <head>
-  <%= stylesheet_link_tag 'workers.css' %>
+  <%= stylesheet_link_tag 'gigs.css' %>
 </head>
 
 <body>
@@ -37,54 +37,32 @@
 
   <br>
 
-  <div id="griglia-filtri">
-
-    <div class="search-worker">
 
    <%= form_tag gigs_path, method: 'get' do %>
-     <%= text_field_tag :search, params[:search], placeholder:'Cerca...', autocomplete: 'off' %>
+     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= text_field_tag :search, params[:search], placeholder:'Cerca...', autocomplete: 'off' %>
      <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-   <% end %>
-
-
-    </div>
-
-    <div class="search-skill-worker">
-  
-    <%= form_tag gigs_path, method: 'get' do %>
-      <%= text_field_tag :search, params[:skill], placeholder:'Cerca una skill...', autocomplete: 'off' %>
-      <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-    <% end %>
-
-    </div>
-
-    <div class="search-category-worker">
-     
-    <%= form_tag gigs_path, method: 'get' do %>
-      <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ], "Design e Visual Art") %>
+     &nbsp; &nbsp; &nbsp; <%= text_field_tag :search, params[:skill], placeholder:'Cerca una skill...', autocomplete: 'off' %>
+     <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+     &nbsp; &nbsp; &nbsp; <%= select_tag :categories, options_for_select(["Design e Visual Art", "Programmazione", "Economia", "Musica e Videomaking" ]),:prompt => "Seleziona una categoria..." %>
       <%= button_tag (fa_icon "filter", text: "Filtra"), class: "button" %>
-    <% end %>
-
-    </div>
-
-
-    <% if user_signed_in? %>
+      &nbsp; &nbsp; &nbsp;
+     <% if user_signed_in? %>
       <%= link_to new_gig_path do %>
         <i class="fa-solid fa-plus"> </i> Crea Gig
       <% end %>
     <% end %>
+   <% end %>
 
-    <% if !user_signed_in? %>
-      <%= link_to new_user_session_path do %>
-        <i class="fa-solid fa-plus"> </i> Crea Gig
-      <% end %>
-    <% end %>
+     
 
 
-  </div>
+
+
+
   <br>
   <hr>
-  <div id="griglia-workers">
+  <div id="griglia-gigs">
+
       <% @gigs.each do |gig|%>
         <div>
           <% if gig.categories == 'Design e Visual Art'%>
@@ -99,11 +77,15 @@
           <% if gig.categories == 'Musica e Videomaking'%>
               <% image = "MusVid.png" %>
           <% end %>
+          <% if image %>
+          <br>
           <%= image_tag(image, width: "175px", height: "100px") %>
           <br>
+          <% end %>
           <%= gig.title%>
           <br>
           <a class="btn btn-primary" href="/gigs/<%= gig.id%>">Dettagli</a>
+          <br> <br> <br>
         </div>
       <% end %>
 
