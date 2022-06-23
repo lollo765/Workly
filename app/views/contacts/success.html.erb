@@ -9,6 +9,29 @@
         </a>
       </div>
       <!--=====Schede=====-->
+<script>
+      const Http = new XMLHttpRequest();
+      const url='http://127.0.0.1:3000/cmc';
+      Http.open("GET", url);
+      Http.send();
+
+      Http.onreadystatechange = (e) => {
+        let res = JSON.parse(Http.responseText)
+        let pricesRecords = res.data;
+        let mainCrypto = ['BTC', 'ETH', 'BNB', 'DOGE'];
+        let html = '<ul>';
+        for( let record of pricesRecords ){
+          if( !mainCrypto.includes(record.symbol) ) continue;
+          else html += '<li>' + `${ record.symbol }: ${record.quote.USD.price.toFixed(3)}$` + '</li>';
+        }
+        html += '</ul>'
+        console.log( html )
+        let container = document.getElementById("crypto-prices");
+        container.innerHTML = html;
+      }
+    </script>
+    <div id="crypto-prices"></div>
+     
       <ul id="navbar">
         <li><%= link_to "Home", home_pages_path%></li>
         <li><%= link_to "Workers", workers_path%></li>

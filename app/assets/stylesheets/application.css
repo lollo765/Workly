@@ -10,6 +10,25 @@ nav {
     flex-wrap: wrap;
     font-family: "Spartan", sans-serif;
 }
+nav #crypto-prices ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    max-width: 300px;
+}
+nav #crypto-prices ul li{
+    font-size: 12px;
+    color: #535353;
+    margin-top: 10px;
+
+    padding: 2px 10px;
+    border-radius: 5px;
+    background-color: #aef8fe;
+
+    margin-right: 10px;
+}
 nav ul {
     display: flex;
     flex-wrap: wrap;
