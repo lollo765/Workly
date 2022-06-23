@@ -1,4 +1,4 @@
- <%= stylesheet_link_tag 'style_lavori.css' %>
+ <%= stylesheet_link_tag 'lavoros.css' %>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 
   <!--==========Navbar==========-->
@@ -33,23 +33,23 @@
     </nav>
     <!--==========Fine Navbar==========-->
 
-    <br>
-    <br>
-    <br>
-
-
+<!--==========Filtri==========-->
 <div id ="lavoro">
-  <div>
-   <%= form_tag lavoros_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search], placeholder:'Cerca...' %>
-    <%= button_tag "Cerca", data: { disable_with: "Searching..." }%>
-   <% end %>
-   <%= form_tag lavoros_path, method: 'get' do %>
-    <%= select_tag :categories,options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
-    <%= submit_tag 'Filtro per categorie' %>
-   <% end %>
-   <br>
-   <div class="search-skill_Lavoratori">
+  <div id=griglia>
+   <div class="search-lavoro">
+     <%= form_tag lavoros_path, method: 'get' do %>
+      <%= text_field_tag :search, params[:search], placeholder:'Cerca...',autocomplete: 'off' %>
+      <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+     <% end %>
+    </div>
+    <div class="search-category-lavoro">
+     <%= form_tag lavoros_path, method: 'get' do %>
+     <%= select_tag :categories,options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
+     <%= button_tag (fa_icon "filter", text: "Filtra per categoria"), class: "button" %>
+     <% end %>
+    </div>
+    <br>
+    <div class="sidebar">
       <%= form_with(url: lavoros_path, method: "get") do |f| %>
         <input type="checkbox" value= "WordPress-Developer;" id="1">
         <label for="1">WordPress-Developer</label>
@@ -67,26 +67,42 @@
         <label for="7">JavaScript-Developer</label>
         <input type="checkbox" value= "HTML-CSS-Developer;" id="8">
         <label for="8">HTML-CSS-Developer</label>
+
         <%= f.hidden_field :skill_Lavoratori, id: "skill_Lavoratori"%>
         <br>
-        <%= submit_tag 'Filtro per Skill' %>
+        <br>
+        <%= button_tag (fa_icon "filter", text: "Filtra per skill"), class: "button" %>
       <%end%>
     </div>
-  <br> 
-  <p>Titolo</p>
-  
-  <% @lavoros.each do |lavoro| %>
-    <%=link_to lavoro.title, lavoro%>
-  <%end%>
-  <br>
-  <br>
-  <% if user_signed_in? %>
-    <%= link_to 'Crea Lavoro', new_lavoro_path%>
-  <% end %>
+    <br> 
+    <br>
 
-  <% if !user_signed_in? %>
-   <%= link_to "Crea Lavoro", new_user_session_path %>
-  <% end %>
+    <!--==========Fine Filtri==========-->
+    <div class="content-large">
+      <div id="giglia-lavoros">
+       <% @lavoros.each do |lavoro| %>
+         <% image = "Progr.jpg" %>
+         <br>
+         <%= image_tag(image, width: "175px", height: "100px") %>
+         <br>
+         <%=lavoro.title%>
+         <br>
+         <a class="btn btn-primary" href="/lavoros/<%= lavoro.id%>">Dettagli</a>
+        <% end %>
+      </div>
+    
+      <br>
+      <br>
+      <% if user_signed_in? %>
+        <%= link_to 'Crea Lavoro', new_lavoro_path%>
+      <% end %>
+
+      <% if !user_signed_in? %>
+       <%= link_to "Crea Lavoro", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+    <!--==========Script==========-->
   <script>
     $(document).ready(function(){
       $("#1").click(function(){
@@ -150,13 +166,3 @@
   
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
