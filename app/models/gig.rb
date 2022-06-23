@@ -14,7 +14,7 @@ class Gig
 
     def self.search(input) 
         if input
-            any_of({title: /#{input}/i}, {categories: /#{input}/i}, {description: /#{input}/i})
+            any_of({title: /#{input}/i}, {categories: /#{input}/i}, {description: /#{input}/i}, {skill: /#{input}/i})
         end
     end
 

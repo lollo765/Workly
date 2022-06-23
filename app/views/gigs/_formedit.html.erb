@@ -78,6 +78,10 @@
         <input type="checkbox" value= "HTML-CSS-Developing; " id="8">
         <label for="8">HTML-CSS-Developing</label>
       </div>
+      <div class="col-md-4">
+        <input type="checkbox" value= "Other; " id="9">
+        <label for="8">Altro</label>
+      </div>
     </div>         
     <%= form.hidden_field :skill, id: "skill"%>
 
@@ -103,6 +107,7 @@
   <script>
 
     $(document).ready(function(){
+      $("#skill").val("")
       $("#1").click(function(){
         var x=$("#1").val();
         if ($("#1").is(":checked"))
@@ -155,6 +160,13 @@
        $("#8").click(function(){
         var x=$("#8").val();
         if ($("#8").is(":checked"))
+          $("#skill").val($("#skill").val() + x);
+        else
+          $("#skill").val($("#skill").val().replace(x, ""));
+      });
+       $("#9").click(function(){
+        var x=$("#9").val();
+        if ($("#9").is(":checked"))
           $("#skill").val($("#skill").val() + x);
         else
           $("#skill").val($("#skill").val().replace(x, ""));
