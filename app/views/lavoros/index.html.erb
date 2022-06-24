@@ -66,6 +66,9 @@
     <% if user_signed_in? %>
       <%= link_to 'Crea Lavoro', new_lavoro_path%>
     <% end %>
+    <% if !user_signed_in? %>
+      <%= link_to "New Lavoro", new_user_session_path %>
+    <% end %>
   <%end%> <br>
     
   <%= form_with(url: lavoros_path, method: "get") do |f| %>
