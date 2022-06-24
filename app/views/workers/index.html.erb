@@ -114,7 +114,7 @@
     <div class="search-category-worker">
 
       <%= form_tag workers_path, method: 'get' do %>
-        <%= select_tag :category, options_for_select(["", "Avvocato", "Ingegnere", "Architetto"]) %>
+        <%= select_tag :category, options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
         <%= button_tag (fa_icon "filter", text: "Filtra per categoria"), class: "button" %>
       <% end %>
 

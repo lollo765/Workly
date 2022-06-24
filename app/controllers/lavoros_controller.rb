@@ -55,7 +55,6 @@ class LavorosController < ApplicationController
 
   def destroy
     @lavoro = Lavoro.find(params[:id])
-    authorize! :create, @lavoro, :message => "Attenzione:Non sei autorizzato ad eliminare questo file"
     @lavoro.destroy
     redirect_to lavoros_path, status: :see_other
   end

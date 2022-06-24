@@ -35,22 +35,22 @@ select {
 /**=====Navbar Style=====**/
 
 nav ul li:nth-child(1) a:hover {
-    color: #0df0a4;
-  }
-  nav ul li:nth-child(3) a:hover {
-    color: #08ee1b;
-  }
-  nav ul li:nth-child(4) a:hover {
-    color: #328fa5;
-  }
-  nav ul li:nth-child(1) a:hover::after {
-    background: #0df0a4;
-  }
-  nav ul li:nth-child(3) a:hover::after {
-    background: #08ee1b;
-  }
-  nav ul li:nth-child(4) a:hover::after {
-    background: #23798e;
-  }
+  color: #0df0a4;
+}
+nav ul li:nth-child(3) a:hover {
+  color: #08ee1b;
+}
+nav ul li:nth-child(2) a:hover {
+  color: #950df0;
+}
+nav ul li:nth-child(1) a:hover::after {
+background: #0df0a4;
+}
+nav ul li:nth-child(3) a:hover::after {
+  background: #08ee1b;
+}
+nav ul li:nth-child(2) a:hover::after {
+  background: #950df0;
+}
   
   /**=====Fine Navbar Style=====**/

@@ -179,14 +179,17 @@
                 <div class="select_field">
                     <%= f.label :Categoria %>
                     <br>
-                    <% if @user.category=="Avvocato"%>
-                      <%= f.select :category, [[@user.category, @user.category], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']]%>
+                    <% if @user.category=="Sviluppo di siti web"%>
+                      <%= f.select :category, [[@user.category, @user.category], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica'], ['Varie', 'Varie']]%>
                     <% end %>
-                    <% if @user.category=="Ingegnere" %>
-                      <%= f.select :category, [[@user.category, @user.category], ['Avvocato', 'Avvocato'], ['Architetto', 'Architetto']]%>
+                    <% if @user.category=="Sviluppo di applicazioni" %>
+                      <%= f.select :category, [[@user.category, @user.category], ['Sviluppo di siti web', 'Sviluppo di siti web'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica'], ['Varie', 'Varie']]%>
                     <% end %>
-                    <% if @user.category=="Architetto" %>
-                      <%= f.select :category, [[@user.category, @user.category], ['Ingegnere', 'Ingegnere'], ['Architetto', 'Architetto']]%>
+                    <% if @user.category=="Assistenza e Sicurezza Informatica" %>
+                      <%= f.select :category, [[@user.category, @user.category], ['Sviluppo di siti web', 'Sviluppo di siti web'], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Varie', 'Varie']]%>
+                    <% end %>
+                    <% if @user.category=="Varie" %>
+                      <%= f.select :category, [[@user.category, @user.category], ['Sviluppo di siti web', 'Sviluppo di siti web'], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica']]%>
                     <% end %>
                     <% if @user.category=="nessuna" %>
                       <%= f.select :category, [['Ingegnere', 'Ingegnere'], ['Avvocato', 'Avvocato'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :required => true%>

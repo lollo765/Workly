@@ -21,10 +21,8 @@ class User
   field :name, :type => String, :default => ""
   field :img, :type => String, :default => ""
   field :skill, :type => String, :default => ""
-  #field :skill, :type => Array, :default => []
   field :review, :type => Integer, :default => 0
   field :category, :type => String, :default => ""
-  #SKILL=%i[WordPress-Developer Shopify-Developer Wlx-Developer Android-Developer IOS-Developer Python-Developer JavaScript-Developer HTML-CSS-Developer]
 
   ## Password Expirable
   field :password_changed_at, :type => Time
