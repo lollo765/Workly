@@ -122,17 +122,17 @@
 
       <% @gigs.each do |gig|%>
         <div>
-          <% if gig.categories == 'Design e Visual Art'%>
-              <% image = "Design.jpg" %>
+          <% if gig.categories == 'Sviluppo di siti web'%>
+              <% image = "web.jpg" %>
           <% end %>
-          <% if gig.categories == 'Programmazione'%>
+          <% if gig.categories == 'viluppo di applicazioni'%>
+              <% image = "app.jpg" %>
+          <% end %>
+          <% if gig.categories == 'Assistenza e Sicurezza Informatica'%>
+              <% image = "sicurezza.jpg" %>
+          <% end %>
+          <% if gig.categories == 'Varie'%>
               <% image = "Progr.jpg" %>
-          <% end %>
-          <% if gig.categories == 'Economia'%>
-              <% image = "Econ.jpg" %>
-          <% end %>
-          <% if gig.categories == 'Musica e Videomaking'%>
-              <% image = "MusVid.png" %>
           <% end %>
           <% if image %>
           <br>

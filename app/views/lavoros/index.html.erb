@@ -1,6 +1,6 @@
  <%= stylesheet_link_tag 'lavoros.css' %>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
-
+<body>
   <!--==========Navbar==========-->
     <nav>
       <!--=====Logo=====-->
@@ -56,87 +56,92 @@
     <!--==========Fine Navbar==========-->
 
 <!--==========Filtri==========-->
-<div id ="lavoro">
-  <div id=griglia>
-   <div class="search-lavoro">
-     <%= form_tag lavoros_path, method: 'get' do %>
-      <%= text_field_tag :search, params[:search], placeholder:'Cerca...',autocomplete: 'off' %>
-      <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
-     <% end %>
-    </div>
-    <div class="search-category-lavoro">
-     <%= form_tag lavoros_path, method: 'get' do %>
-     <%= select_tag :categories,options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
-     <%= button_tag (fa_icon "filter", text: "Filtra per categoria"), class: "button" %>
-     <% end %>
-    </div>
+  <br>
+  <%= form_tag lavoros_path, method: 'get' do %>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<%= text_field_tag :search, params[:search], placeholder:'Cerca...',autocomplete: 'off' %>
+    <%= button_tag (fa_icon "magnifying-glass", text: "Cerca "), class: "button" %>
+    &nbsp; &nbsp; &nbsp;<%= select_tag :categories,options_for_select(["","Sviluppo di siti web","Sviluppo di applicazioni","Assistenza e Sicurezza Informatica","Varie"]) %>
+    <%= button_tag (fa_icon "filter", text: "Filtra per categoria"), class: "button" %>
+    &nbsp; &nbsp; &nbsp;
+    <% if user_signed_in? %>
+      <%= link_to 'Crea Lavoro', new_lavoro_path%>
+    <% end %>
+  <%end%> <br>
+    
+  <%= form_with(url: lavoros_path, method: "get") do |f| %>
     <br>
-    <div class="sidebar">
-      <%= form_with(url: lavoros_path, method: "get") do |f| %>
-        <input type="checkbox" value= "WordPress-Developer;" id="1">
-        <label for="1">WordPress-Developer</label>
-        <input type="checkbox" value= "Shopify-Developer;" id="2">
-        <label for="2">Shopify-Developer</label>
-        <input type="checkbox" value= "Wlx-Developer;" id="3">
-        <label for="3">Wlx-Developer</label>
-        <input type="checkbox" value= "Android-Developer;" id="4">
-        <label for="4">Android-Developer</label>
-        <input type="checkbox" value= "IOS-Developer;" id="5">
-        <label for="5">IOS-Developer</label>
-        <input type="checkbox" value= "Python-Developer;" id="6">
-        <label for="6">Python-Developer</label>
-        <input type="checkbox" value= "JavaScript-Developer;" id="7">
-        <label for="7">JavaScript-Developer</label>
-        <input type="checkbox" value= "HTML-CSS-Developer;" id="8">
-        <label for="8">HTML-CSS-Developer</label>
-
-        <%= f.hidden_field :skill_Lavoratori, id: "skill_Lavoratori"%>
-        <br>
-        <br>
-        <%= button_tag (fa_icon "filter", text: "Filtra per skill"), class: "button" %>
-      <%end%>
-    </div>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <input type="checkbox" value= "WordPress-Developer;" id="1">
+    <label for="1">WordPress-Developer</label>
+    &nbsp; &nbsp;
+    <input type="checkbox" value= "Shopify-Developer;" id="2">
+    <label for="2">Shopify-Developer</label>
+    &nbsp; &nbsp;
+    <input type="checkbox" value= "Wlx-Developer;" id="3">
+    <label for="3">Wlx-Developer</label>
+    &nbsp; &nbsp;
+    <input type="checkbox" value= "Android-Developer;" id="4">
+    <label for="4">Android-Developer</label>
+    &nbsp; &nbsp;
+    <input type="checkbox" value= "IOS-Developer;" id="5">
+    <label for="5">IOS-Developer</label>
+    &nbsp; &nbsp;
+    <input type="checkbox" value= "Python-Developer;" id="6">
+    <label for="6">Python-Developer</label>
+    &nbsp; &nbsp;<br>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <input type="checkbox" value= "JavaScript-Developer;" id="7">
+    <label for="7">JavaScript-Developer</label>
+    &nbsp; &nbsp; &nbsp;
+    <input type="checkbox" value= "HTML-CSS-Developer;" id="8">
+    <label for="8">HTML-CSS-Developer</label>
+    &nbsp; &nbsp; &nbsp;
+    <%= f.hidden_field :skill_Lavoratori, id: "skill_Lavoratori"%>
+    <br>
+    <br>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <%= button_tag (fa_icon "filter", text: "Filtra per skill"), class: "button" %>
+  <%end%>
+    
     <br> 
     <br>
 
     <!--==========Fine Filtri==========-->
-    <div class="content-large">
-      <div id="giglia-lavoros">
-       <% @lavoros.each do |lavoro| %>
-         <% if lavoro.categories == 'Sviluppo di siti web'%>
-           <%image = "web.jpg"%>
-         <%end%>
-                  <% if lavoro.categories == 'Sviluppo di applicazioni'%>
-           <%image = "app.jpg"%>
-         <%end%>
-                  <% if lavoro.categories == 'Assistenza e Sicurezza Informatica'%>
-           <%image = "sicurezza.jpg"%>
-         <%end%>
-         <% if lavoro.categories == 'Varie'%>
-           <%image = "Prog.jpg"%>
-         <%end%>
-         <br>
-         <%= image_tag(image, width: "175px", height: "100px") %>
-         <br>
-         <%=lavoro.title%>
-         <br>
-         <a class="btn btn-primary" href="/lavoros/<%= lavoro.id%>">Dettagli</a>
-        <% end %>
-      </div>
+    <hr>
+  <div class = "content-large">
+    <div id="giglia-lavoros">
+      <% @lavoros.each do |lavoro| %>
+        <div>
+          <% if lavoro.categories == 'Sviluppo di siti web'%>
+            <%image = "web.jpg"%>
+          <%end%>
+          <% if lavoro.categories == 'Sviluppo di applicazioni'%>
+            <%image = "app.jpg"%>
+          <%end%>
+          <% if lavoro.categories == 'Assistenza e Sicurezza Informatica'%>
+            <%image = "sicurezza.jpg"%>
+          <%end%>
+          <% if lavoro.categories == 'Varie'%>
+            <%image = "Prog.jpg"%>
+          <%end%>
+          <% if image%>
+            <br>
+            <%= image_tag(image, width: "175px", height: "100px") %>
+            <br>
+          <%end%>
+          <%=lavoro.title%>
+          <br>
+          <a class="btn btn-primary" href="/lavoros/<%= lavoro.id%>">Dettagli</a>
+          <br> <br> <br>
+        </div>
+      <% end %>
     
-      <br>
-      <br>
-      <% if user_signed_in? %>
-        <%= link_to 'Crea Lavoro', new_lavoro_path%>
-      <% end %>
+    
 
-      <% if !user_signed_in? %>
-       <%= link_to "Crea Lavoro", new_user_session_path %>
-      <% end %>
-    </div>
-  </div>
+    
+  
     <!--==========Script==========-->
-  <script>
+   <script>
     $(document).ready(function(){
       $("#1").click(function(){
         var x=$("#1").val();
@@ -195,7 +200,8 @@
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
       });
     });
-  </script>
-  
-</div>
+   </script>
+    </div>
+  </div>
+</body>
 
