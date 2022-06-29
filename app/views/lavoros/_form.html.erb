@@ -13,27 +13,27 @@
   <%end%>
 
   <div class="field">
-    <label>Titolo</label>
+    <strong>Titolo</strong>
     <br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title%>
     <% lavoro.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-
+  <br>
   <div class="field">
-    <label>Descrizione</label>
+    <strong>Descrizione</strong>
     <br>
     <%= form.text_area :description %>
+    <br>
   </div>
-
   <div class="field">
-    <label>Numero Lavoratori</label><br>
+    <strong>Numero Lavoratori</strong><br>
     <%= form.number_field :n_Lavoratori,min:1 ,max: 30, step: 'any' %>
   </div>
   <br>
   <div class="field">
-    <label>Categoria</label>
+    <strong>Categoria</strong>
     <br>
     <%= form.select :categories,[['Sviluppo di siti web','Sviluppo di siti web'],
                                  ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
@@ -42,7 +42,7 @@
   </div>
   <br>
   <div class="field">
-    <%= form.label :skill_Lavoratori %><br/>
+    <strong><%= form.label :skill_Lavoratori %></strong><br/>
     <br>
     <div class="row">
       <div class="col-md-4">
@@ -88,13 +88,13 @@
 
 
   <div class="field">
-    <%= form.label :timer %><br>
+    <strong><%= form.label :timer %></strong><br>
     <%= form.number_field :timer,min:1,step: 'any' %>
   </div>
   <br>
   
   <div>
-    <label>Budget</label>
+    <strong>Budget</strong>
     <br>
     <%= form.number_field :cost,min: 0, step: 'any' %><br>
     <% lavoro.errors.full_messages_for(:cost).each do |message| %>
@@ -104,7 +104,7 @@
   <br>
 
   <div>
-    <label>Moneta</label>
+    <strong>Moneta</strong>
     <br>
     <%= form.select :currency, [['BTC', 'BTC'], ['DOGE', 'DOGE'], ['ETH', 'ETH']] %><br>
   </div>
@@ -113,64 +113,65 @@
   <div class="actions">
     <%= form.submit %><br>
   </div>
+  <br>
   <script>
     $(document).ready(function(){
-      $("#1").click(function(){
+       $("#1").click(function(){
         var x=$("#1").val();
         if ($("#1").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+       });
        $("#2").click(function(){
         var x=$("#2").val();
         if ($("#2").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+       });
        $("#3").click(function(){
         var x=$("#3").val();
         if ($("#3").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+        });
        $("#4").click(function(){
         var x=$("#4").val();
         if ($("#4").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+        });
        $("#5").click(function(){
         var x=$("#5").val();
         if ($("#5").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+        });
        $("#6").click(function(){
         var x=$("#6").val();
         if ($("#6").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+        });
        $("#7").click(function(){
         var x=$("#7").val();
         if ($("#7").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+        });
        $("#8").click(function(){
         var x=$("#8").val();
         if ($("#8").is(":checked"))
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val() + x);
         else
           $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
-      });
+        });
     });
   </script>
   
