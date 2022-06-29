@@ -20,7 +20,7 @@
       <div><%= message %></div>
     <% end %>
   </div>
-  <br>
+  
   <div class="field">
     <strong>Descrizione</strong>
     <br>
@@ -28,6 +28,7 @@
     <br>
   </div>
   <div class="field">
+  
     <strong>Numero Lavoratori</strong><br>
     <%= form.number_field :n_Lavoratori,min:1 ,max: 30, step: 'any' %>
   </div>
