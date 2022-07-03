@@ -27,3 +27,26 @@ Stories: 20, 21, 22, 23, 26, 39, 40, 41, 42, 29
 
 > Roberto
 Stories: 1, 2, 3, 4, 5, 24, 30, 31, 32, 33, 34 
+
+### Piano Dei Test
+- Test registrazione: Controllo che un utente possa registrasi correttamente al sito
+- Test Aggiunta Gig: Controllo possibilita che un utente registrato possa aggiungere una gig
+- Test Modifica Gig: Controllo possibilita che un utente registrato possa aggiungere una gig e modificarla
+
+### Struttura Di Controllo
+- Utente Non Registrato
+    - visionare lista lavori e singolo lavoro
+    - visionare lista gig e singola gig
+    - visionare lista lavoratori e singolo lavoratore
+
+- Utente Registrato
+    - visionare lista lavori e singolo lavoro + creazione/modifica lavoro
+    - visionare lista gig e singola gig + creazione/modifica gig
+    - visionare lista lavoratori e singolo lavoratore + modifica profilo
+    - assunzione/rimozione candidati al suo lavoro
+    - candidarsi a un lavoro
+
+- Administrator
+    - cancella qualsisasi gig
+    - cancella qualsiasi lavoro
+    - cancella qualsiasi utente
