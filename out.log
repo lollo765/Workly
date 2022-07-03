@@ -1,1 +1,86 @@
-/usr/bin/env: "ruby2.7": File o directory non esistente
+Using the default profile...
+Feature: User can signup and add manually a gig and edit a gig
+
+  # login
+  # Given I am on the Sign In Page
+  # When I fill in "user[email]" with "m.carassiti@hotmail.it"
+  # And I fill in "user[password]" with "123456789"
+  # And I press "Log in"
+  # Then I should be on the home page
+  # And I should see "Logout"
+  Scenario: Signup                                               # features/AddGig.feature:11
+    Given I am on the Sign Up Page                               # features/step_definitions/web_steps.rb:44
+    When I fill in "user[email]" with "m.carassiti@hotmail.it"   # features/step_definitions/web_steps.rb:60
+    And I fill in "user[password]" with "123456789"              # features/step_definitions/web_steps.rb:60
+    And I fill in "user[password_confirmation]" with "123456789" # features/step_definitions/web_steps.rb:60
+    And I press "Sign up"                                        # features/step_definitions/web_steps.rb:52
+      Unable to find button "Sign up" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/web_steps.rb:53:in `/^(?:|I )press "([^"]*)"$/'
+      features/AddGig.feature:17:in `I press "Sign up"'
+    Then I should be on the home page                            # features/step_definitions/web_steps.rb:230
+    And I should see "Logout"                                    # features/step_definitions/web_steps.rb:105
+
+  Scenario: Login and Add a gig                                                 # features/AddGig.feature:22
+    # signup
+    Given I am on the Sign Up Page                                              # features/step_definitions/web_steps.rb:44
+    When I fill in "user[email]" with "m.carassiti@hotmail.it"                  # features/step_definitions/web_steps.rb:60
+    And I fill in "user[password]" with "123456789"                             # features/step_definitions/web_steps.rb:60
+    And I fill in "user[password_confirmation]" with "123456789"                # features/step_definitions/web_steps.rb:60
+    And I press "Sign up"                                                       # features/step_definitions/web_steps.rb:52
+      Unable to find button "Sign up" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/web_steps.rb:53:in `/^(?:|I )press "([^"]*)"$/'
+      features/AddGig.feature:29:in `I press "Sign up"'
+    Then I should be on the home page                                           # features/step_definitions/web_steps.rb:230
+    And I should see "Logout"                                                   # features/step_definitions/web_steps.rb:105
+    # create a gig
+    Given I am on the Gig page                                                  # features/step_definitions/web_steps.rb:44
+    When I follow "New Gig"                                                     # features/step_definitions/web_steps.rb:56
+    Then I should be on the Create New Gig page                                 # features/step_definitions/web_steps.rb:230
+    When I fill in "gig[title]" with "La gig di test"                           # features/step_definitions/web_steps.rb:60
+    And I fill in "gig[description]" with "La mia descrizione"                  # features/step_definitions/web_steps.rb:60
+    And I fill in "gig[cost]" with "1"                                          # features/step_definitions/web_steps.rb:60
+    And I fill in "gig[skill]" with "python, javascript, rails, ruby, cucumber" # features/step_definitions/web_steps.rb:60
+    And I select "BTC" from "gig[currency]"                                     # features/step_definitions/web_steps.rb:85
+    And I press "Create Gig"                                                    # features/step_definitions/web_steps.rb:52
+    Then I should see "La gig di test"                                          # features/step_definitions/web_steps.rb:105
+
+  Scenario: Login and Edit a gig                                                # features/AddGig.feature:46
+    # signup
+    Given I am on the Sign Up Page                                              # features/step_definitions/web_steps.rb:44
+    When I fill in "user[email]" with "m.carassiti@hotmail.it"                  # features/step_definitions/web_steps.rb:60
+    And I fill in "user[password]" with "123456789"                             # features/step_definitions/web_steps.rb:60
+    And I fill in "user[password_confirmation]" with "123456789"                # features/step_definitions/web_steps.rb:60
+    And I press "Sign up"                                                       # features/step_definitions/web_steps.rb:52
+      Unable to find button "Sign up" that is not disabled (Capybara::ElementNotFound)
+      ./features/step_definitions/web_steps.rb:53:in `/^(?:|I )press "([^"]*)"$/'
+      features/AddGig.feature:53:in `I press "Sign up"'
+    Then I should be on the home page                                           # features/step_definitions/web_steps.rb:230
+    And I should see "Logout"                                                   # features/step_definitions/web_steps.rb:105
+    # create a gig
+    Given I am on the Gig page                                                  # features/step_definitions/web_steps.rb:44
+    When I follow "New Gig"                                                     # features/step_definitions/web_steps.rb:56
+    Then I should be on the Create New Gig page                                 # features/step_definitions/web_steps.rb:230
+    When I fill in "gig[title]" with "La gig di test da modificare"             # features/step_definitions/web_steps.rb:60
+    And I fill in "gig[description]" with "La mia descrizione"                  # features/step_definitions/web_steps.rb:60
+    And I fill in "gig[cost]" with "1"                                          # features/step_definitions/web_steps.rb:60
+    And I fill in "gig[skill]" with "python, javascript, rails, ruby, cucumber" # features/step_definitions/web_steps.rb:60
+    And I select "BTC" from "gig[currency]"                                     # features/step_definitions/web_steps.rb:85
+    And I press "Create Gig"                                                    # features/step_definitions/web_steps.rb:52
+    Then I should see "La gig di test da modificare"                            # features/step_definitions/web_steps.rb:105
+    # edit a gig
+    Given I am on the Gig page                                                  # features/step_definitions/web_steps.rb:44
+    And I follow "La gig di test da modificare"                                 # features/step_definitions/web_steps.rb:56
+    And I follow "Edit"                                                         # features/step_definitions/web_steps.rb:56
+    Then I should see "Edit Gig"                                                # features/step_definitions/web_steps.rb:105
+    And I fill in "gig[title]" with "La gig di test modificata"                 # features/step_definitions/web_steps.rb:60
+    And I press "Update Gig"                                                    # features/step_definitions/web_steps.rb:52
+    Then I should see "La gig di test modificata"                               # features/step_definitions/web_steps.rb:105
+
+Failing Scenarios:
+cucumber features/AddGig.feature:11 # Scenario: Signup
+cucumber features/AddGig.feature:22 # Scenario: Login and Add a gig
+cucumber features/AddGig.feature:46 # Scenario: Login and Edit a gig
+
+3 scenarios (3 failed)
+48 steps (3 failed, 33 skipped, 12 passed)
+0m7.875s

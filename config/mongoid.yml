@@ -170,7 +170,7 @@ development:
 test:
   clients:
     default:
-      database: CommunityWork
+      database: CommunityWork_test
       hosts:
         - localhost:27017
       options:
