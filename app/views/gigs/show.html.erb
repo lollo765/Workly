@@ -71,7 +71,7 @@
 
 
 &nbsp;&nbsp;&nbsp;
-<%= link_to "Indietro", :back %>
+<%= link_to "Indietro", gigs_path %>
 &nbsp;&nbsp;&nbsp;
 <% if current_user && ((@gig.user == current_user) || (current_user.admin == true)) %>
     <%= link_to "Modifica", edit_gig_path%>

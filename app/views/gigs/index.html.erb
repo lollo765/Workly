@@ -73,7 +73,7 @@
       <% end %>
     <% end %> <br>
 
-<%= form_with(url: workers_path, method: "get") do |f| %>
+<%= form_with(url: gigs_path, method: "get") do |f| %>
         <br>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <input type="checkbox" value= "WordPress-Developing; " id="1">
@@ -125,8 +125,8 @@
           <% if gig.categories == 'Sviluppo di siti web'%>
               <% image = "web.jpg" %>
           <% end %>
-          <% if gig.categories == 'viluppo di applicazioni'%>
-              <% image = "app.jpg" %>
+          <% if gig.categories == 'Sviluppo di applicazioni'%>
+              <% image = "Applicazioni.png" %>
           <% end %>
           <% if gig.categories == 'Assistenza e Sicurezza Informatica'%>
               <% image = "sicurezza.jpg" %>
