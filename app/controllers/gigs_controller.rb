@@ -6,7 +6,13 @@ class GigsController < ApplicationController
     elsif (!params[:categories].blank?)
       @gigs = Gig.search(params[:categories])
     elsif (!params[:skill].blank?)
-      @gigs = Gig.search_for_skills(params[:skill])
+      skill = params[:skill].split("; ")
+      l = skill.length
+      x = Gig.search_for_skills(skill[0])
+      for i in 1...l
+        x=x.and(Gig.search_for_skills(skill[i]))
+      end
+      @gigs=x
     else
       @gigs = Gig.search(params[:search])
    end

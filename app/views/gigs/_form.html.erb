@@ -15,7 +15,7 @@
   <div class="field">
     <label>Titolo</label>
     <br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :required => true %>
     <% gig.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -24,7 +24,7 @@
   <div class="field">
     <label>Descrizione</label>
     <br>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, :required => true %>
   </div>
 
   <br>
@@ -34,7 +34,7 @@
     <%= form.select :categories,[['Sviluppo di siti web','Sviluppo di siti web'],
                                  ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
                                  ['Assistenza e Sicurezza Informatica','Assistenza e Sicurezza Informatica'],
-                                 ['Varie','Varie']], {:include_blank => "Seleziona Categoria"} %><br>
+                                 ['Varie','Varie']], {:include_blank => "Seleziona Categoria"}, :required => true %><br>
   </div>
 
   <br>
@@ -79,7 +79,7 @@
         <label for="8">HTML-CSS-Developing</label>
       </div>
     </div>         
-    <%= form.hidden_field :skill, id: "skill"%>
+    <%= form.hidden_field :skill, id: "skill", :value => @gig.skill %>
 
   </div>
   <br>
@@ -87,13 +87,13 @@
 
   <div class="field">
     <%= form.label :cost %><br>
-    <%= form.number_field :cost, min:1,step: 'any' %>
+    <%= form.number_field :cost, min:1,step: 'any', :required => true %>
   </div>
 
   <div>
     <label>Moneta</label>
     <br>
-    <%= form.select :currency, [['BTC', 'BTC'], ['BNB', 'BNB'], ['DOGE', 'DOGE'], ['ETH', 'ETH']] %><br>
+    <%= form.select :currency, [['BTC', 'BTC'], ['BNB', 'BNB'], ['DOGE', 'DOGE'], ['ETH', 'ETH']], :required => true %><br>
   </div>
 
   <br>
