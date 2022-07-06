@@ -2,10 +2,16 @@ class LavorosController < ApplicationController
   def index
     if (params[:search].blank? && params[:categories].blank? && params[:skill_Lavoratori].blank?)
       @lavoros = Lavoro.all
-    elsif (params[:search].blank? && !params[:categories].blank? && params[:skill_Lavoratori].blank?)
+    elsif (!params[:categories].blank?)
       @lavoros = Lavoro.search(params[:categories])
-    elsif(params[:search].blank? && params[:categories].blank? && !params[:skill_Lavoratori].blank?)
-      @lavoros = Lavoro.search(params[:skill_Lavoratori])
+    elsif(!params[:skill_Lavoratori].blank?)
+      skill_Lavoratori = params[:skill_Lavoratori].split("; ")
+      l = skill_Lavoratori.length
+      x = Lavoro.search_for_skills(skill_Lavoratori[0])
+      for i in 1...l
+        x=x.and(Lavoro.search_for_skills(skill_Lavoratori[i]))
+      end
+      @lavoros=x
     else
       @lavoros = Lavoro.search(params[:search])
    end

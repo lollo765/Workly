@@ -56,7 +56,7 @@
   <%= form_with model: @lavoro do |form| %>
     <% if @lavoro.errors.any?%>
       <div id="spiegazione_errore">
-        <h2><%= pluralize(lavoro.errors.count, "errore")%></h2>
+        <h2><%= pluralize(@lavoro.errors.count, "errore")%></h2>
           <ul>
             <%@lavoro.errors.each do |error|%>
               <li><%= error.full_message%></li>
@@ -89,21 +89,10 @@
               <div class="select_field">
                 <strong><%= form.label :Categoria %></strong>
                 <br>
-                <% if @lavoro.categories=="Sviluppo di siti web"%>
-                  <%= form.select :categories, [[@lavoro.categories, @lavoro.categories], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica'], ['Varie', 'Varie']]%>
-                <% end %>
-                <% if @lavoro.categories=="Sviluppo di applicazioni" %>
-                  <%= form.select :categories, [[@lavoro.categories, @lavoro.categories], ['Sviluppo di siti web', 'Sviluppo di siti web'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica'], ['Varie', 'Varie']]%>
-                <% end %>
-                <% if @lavoro.categories=="Assistenza e Sicurezza Informatica" %>
-                  <%= form.select :categories, [[@lavoro.categories, @lavoro.categories], ['Sviluppo di siti web', 'Sviluppo di siti web'], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Varie', 'Varie']]%>
-                <% end %>
-                <% if @lavoro.categories=="Varie" %>
-                  <%= form.select :categories, [[@lavoro.categories, @lavoro.categories], ['Sviluppo di siti web', 'Sviluppo di siti web'], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica']]%>
-                <% end %>
-                <% if @lavoro.categories=="nessuna" %>
-                  <%= form.select :categories, [['Ingegnere', 'Ingegnere'], ['Avvocato', 'Avvocato'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :required => true%>
-                <% end %>
+                <%= form.select :categories,[['Sviluppo di siti web','Sviluppo di siti web'],
+                                 ['Sviluppo di applicazioni','Sviluppo di applicazioni'],
+                                 ['Assistenza e Sicurezza Informatica','Assistenza e Sicurezza Informatica'],
+                                 ['Varie','Varie']], {:include_blank => "Seleziona Categoria"} %><br>
               </div>
               <br>      
               <div class="field">

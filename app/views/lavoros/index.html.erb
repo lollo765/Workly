@@ -74,36 +74,36 @@
   <%= form_with(url: lavoros_path, method: "get") do |f| %>
     <br>
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    <input type="checkbox" value= "WordPress-Developer;" id="1">
+    <input type="checkbox" value= "WordPress-Developer; " id="1">
     <label for="1">WordPress-Developer</label>
     &nbsp; &nbsp;
-    <input type="checkbox" value= "Shopify-Developer;" id="2">
+    <input type="checkbox" value= "Shopify-Developer; " id="2">
     <label for="2">Shopify-Developer</label>
     &nbsp; &nbsp;
-    <input type="checkbox" value= "Wlx-Developer;" id="3">
+    <input type="checkbox" value= "Wlx-Developer; " id="3">
     <label for="3">Wlx-Developer</label>
     &nbsp; &nbsp;
-    <input type="checkbox" value= "Android-Developer;" id="4">
+    <input type="checkbox" value= "Android-Developer; " id="4">
     <label for="4">Android-Developer</label>
     &nbsp; &nbsp;
-    <input type="checkbox" value= "IOS-Developer;" id="5">
+    <input type="checkbox" value= "IOS-Developer; " id="5">
     <label for="5">IOS-Developer</label>
     &nbsp; &nbsp;
-    <input type="checkbox" value= "Python-Developer;" id="6">
+    <input type="checkbox" value= "Python-Developer; " id="6">
     <label for="6">Python-Developer</label>
     &nbsp; &nbsp;<br>
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    <input type="checkbox" value= "JavaScript-Developer;" id="7">
+    <input type="checkbox" value= "JavaScript-Developer; " id="7">
     <label for="7">JavaScript-Developer</label>
     &nbsp; &nbsp; &nbsp;
-    <input type="checkbox" value= "HTML-CSS-Developer;" id="8">
+    <input type="checkbox" value= "HTML-CSS-Developer; " id="8">
     <label for="8">HTML-CSS-Developer</label>
     &nbsp; &nbsp; &nbsp;
     <%= f.hidden_field :skill_Lavoratori, id: "skill_Lavoratori"%>
     <br>
     <br>
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    <%= button_tag (fa_icon "filter", text: "Filtra per skill"), class: "button" %>
+    <%= button_tag (fa_icon "filter", text: "Filtra per Skill"), class: "button" %>
   <%end%>
     
     <br> 
@@ -203,6 +203,7 @@
            $("#skill_Lavoratori").val($("#skill_Lavoratori").val().replace(x, ""));
         });
         });
+
       </script>
     
   

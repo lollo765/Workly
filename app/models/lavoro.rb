@@ -30,4 +30,10 @@ class Lavoro
     end
   end
 
+  def self.search_for_skills(input)
+    if input
+      any_of({skill_Lavoratori: /#{input}/i})
+    end
+end
+
 end
