@@ -8,7 +8,7 @@ class Gig
     field :categories, type: String
     field :skill, type: String
     field :currency, type: String
-    field :cost, type: Integer
+    field :cost, type: Float
     field :description, type: String
     field :email, type: String
 
