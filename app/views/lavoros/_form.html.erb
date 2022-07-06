@@ -97,7 +97,7 @@
   <div>
     <strong>Budget</strong>
     <br>
-    <%= form.number_field :cost,min: 0, step: 'any' %><br>
+    <%= form.number_field :cost,min: 0, step: 0.00005 %><br>
     <% lavoro.errors.full_messages_for(:cost).each do |message| %>
       <div><%= message %></div>
     <% end %>
