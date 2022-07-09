@@ -16,7 +16,9 @@ Scenario: Signup
     And I fill in "user[password_confirmation]" with "123456789"
     And I select "Sviluppo di siti web" from "user[category]"
     And I check "shopify-developer"
+    And show me the page
     And I press "Registrati"
+    And show me the page
     Then I should be on the home page
     And I should see "User Page"
 
