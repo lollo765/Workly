@@ -24,8 +24,6 @@ class User
   field :review, :type => Integer, :default => 0
   field :category, :type => String, :default => ""
 
-  validates :skill, :presence => true
-
   ## Password Expirable
   field :password_changed_at, :type => Time
 
