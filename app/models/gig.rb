@@ -12,6 +12,8 @@ class Gig
     field :description, type: String
     field :email, type: String
 
+    validates :skill, :presence => true
+
     def self.search(input) 
         if input
             any_of({title: /#{input}/i}, {categories: /#{input}/i}, {description: /#{input}/i}, {skill: /#{input}/i})
