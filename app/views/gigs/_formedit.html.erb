@@ -78,12 +78,8 @@
         <input type="checkbox" value= "HTML-CSS-Developing; " id="8">
         <label for="8">HTML-CSS-Developing</label>
       </div>
-      <div class="col-md-4">
-        <input type="checkbox" value= "Other; " id="9">
-        <label for="8">Altro</label>
-      </div>
     </div>         
-    <%= form.hidden_field :skill, id: "skill", :value => @gig.skill, :required => true %>
+    <%= form.text_field :skill, :value => @gig.skill, id: "skill", :required => true%>
 
   </div>
   <br>
@@ -107,6 +103,19 @@
   <script>
 
     $(document).ready(function(){
+       var skill=$("#skill").val().split("; ");
+       var l= skill.length;
+       var i;
+       for (i=0; i<l; i++){
+        if(skill[i]=="WordPress-Developer") $("#1").prop('checked', true);
+        else if(skill[i]=="Shopify-Developer") $("#2").prop('checked', true);
+        else if(skill[i]=="Wlx-Developer") $("#3").prop('checked', true);
+        else if(skill[i]=="Android-Developer") $("#4").prop('checked', true);
+        else if(skill[i]=="IOS-Developer") $("#5").prop('checked', true);
+        else if(skill[i]=="Python-Developer") $("#6").prop('checked', true);
+        else if(skill[i]=="JavaScript-Developer") $("#7").prop('checked', true);
+        else if(skill[i]=="HTML-CSS-Developer") $("#8").prop('checked', true);
+       }
       $("#1").click(function(){
         var x=$("#1").val();
         if ($("#1").is(":checked"))
@@ -159,13 +168,6 @@
        $("#8").click(function(){
         var x=$("#8").val();
         if ($("#8").is(":checked"))
-          $("#skill").val($("#skill").val() + x);
-        else
-          $("#skill").val($("#skill").val().replace(x, ""));
-      });
-       $("#9").click(function(){
-        var x=$("#9").val();
-        if ($("#9").is(":checked"))
           $("#skill").val($("#skill").val() + x);
         else
           $("#skill").val($("#skill").val().replace(x, ""));
