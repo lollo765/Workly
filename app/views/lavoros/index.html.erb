@@ -64,10 +64,14 @@
     <%= button_tag (fa_icon "filter", text: "Filtra per categoria"), class: "button" %>
     &nbsp; &nbsp; &nbsp;
     <% if user_signed_in? %>
-      <%= link_to 'Crea Lavoro', new_lavoro_path%>
+      <%= link_to new_lavoro_path do %>
+        <i class="fa-solid fa-plus"> </i> Crea Lavoro
+      <% end %>
     <% end %>
     <% if !user_signed_in? %>
-      <%= link_to "New Lavoro", new_user_session_path %>
+      <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-plus"> </i> Crea Lavoro
+      <% end %>
     <% end %>
   <%end%> <br>
     

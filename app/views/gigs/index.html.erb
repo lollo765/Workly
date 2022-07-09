@@ -71,7 +71,12 @@
       <%= link_to new_gig_path do %>
         <i class="fa-solid fa-plus"> </i> Crea Gig
       <% end %>
-    <% end %> <br>
+    <% end %>
+    <% if !user_signed_in? %>
+      <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-plus"> </i> Crea Gig
+      <% end %>
+    <% end %>
 
 <%= form_with(url: gigs_path, method: "get") do |f| %>
         <br>
@@ -105,7 +110,7 @@
         <%= f.hidden_field :skill, id: "skill"%>
         <br>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <%= submit_tag 'Filtra per Skill' %>
+        <%= button_tag (fa_icon "filter", text: "Filtra per Skill"), class: "button" %>
 
       <% end %>
    <% end %>

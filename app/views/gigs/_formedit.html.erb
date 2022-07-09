@@ -100,13 +100,19 @@
   <div class="actions">
     <%= form.submit %><br>
   </div>
-  <script>
 
+<<<<<<< HEAD
     $(document).ready(function(){
+=======
+  <script>
+      $(document).ready(function(){
+       
+>>>>>>> 2d224d944eca0de25beb2f936a1091a648ef1f95
        var skill=$("#skill").val().split("; ");
        var l= skill.length;
        var i;
        for (i=0; i<l; i++){
+<<<<<<< HEAD
         if(skill[i]=="WordPress-Developer") $("#1").prop('checked', true);
         else if(skill[i]=="Shopify-Developer") $("#2").prop('checked', true);
         else if(skill[i]=="Wlx-Developer") $("#3").prop('checked', true);
@@ -116,6 +122,18 @@
         else if(skill[i]=="JavaScript-Developer") $("#7").prop('checked', true);
         else if(skill[i]=="HTML-CSS-Developer") $("#8").prop('checked', true);
        }
+=======
+        if(skill[i]=="WordPress-Developing") $("#1").prop('checked', true);
+        else if(skill[i]=="Shopify-Developing") $("#2").prop('checked', true);
+        else if(skill[i]=="Wlx-Developing") $("#3").prop('checked', true);
+        else if(skill[i]=="Android-Developing") $("#4").prop('checked', true);
+        else if(skill[i]=="IOS-Developing") $("#5").prop('checked', true);
+        else if(skill[i]=="Python-Developing") $("#6").prop('checked', true);
+        else if(skill[i]=="JavaScript-Developing") $("#7").prop('checked', true);
+        else if(skill[i]=="HTML-CSS-Developing") $("#8").prop('checked', true);
+       }
+
+>>>>>>> 2d224d944eca0de25beb2f936a1091a648ef1f95
       $("#1").click(function(){
         var x=$("#1").val();
         if ($("#1").is(":checked"))
@@ -123,6 +141,7 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+
        $("#2").click(function(){
         var x=$("#2").val();
         if ($("#2").is(":checked"))
@@ -130,6 +149,7 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+
        $("#3").click(function(){
         var x=$("#3").val();
         if ($("#3").is(":checked"))
@@ -137,6 +157,7 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+
        $("#4").click(function(){
         var x=$("#4").val();
         if ($("#4").is(":checked"))
@@ -144,6 +165,7 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+
        $("#5").click(function(){
         var x=$("#5").val();
         if ($("#5").is(":checked"))
@@ -151,6 +173,7 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+
        $("#6").click(function(){
         var x=$("#6").val();
         if ($("#6").is(":checked"))
@@ -158,6 +181,7 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+
        $("#7").click(function(){
         var x=$("#7").val();
         if ($("#7").is(":checked"))
@@ -165,6 +189,7 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+
        $("#8").click(function(){
         var x=$("#8").val();
         if ($("#8").is(":checked"))
@@ -172,7 +197,12 @@
         else
           $("#skill").val($("#skill").val().replace(x, ""));
       });
+<<<<<<< HEAD
     });
+=======
+
+      });
+>>>>>>> 2d224d944eca0de25beb2f936a1091a648ef1f95
   </script>
   
 <%end%>

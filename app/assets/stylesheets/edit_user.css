@@ -60,13 +60,8 @@ body{
 
 .img_field input{
     width: 70%;
-    padding: 0 5px;
-    height: 40px;
+    padding-left: 100px;
     font-size: 20px;
-    border: none;
-    background: none;
-    outline: none;
-    border-bottom: 2px solid #adadad;
 }
 
 .select_field{
