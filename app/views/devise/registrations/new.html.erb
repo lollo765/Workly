@@ -100,10 +100,11 @@
           </div>
 
           <div class="col">
-            <div class="txt_field">
-                <label>Link per l'immagine</label>
+            <div class="img_field">
+                <label>Foto Profilo</label>
                 <br />
-                <%= f.text_field :img%>
+                <input type="file" id="file">
+                <%= f.hidden_field :img, id: "f"%>
             </div>
           </div>
 
@@ -223,6 +224,15 @@
   </div>
 
   <script>
+
+    var file = document.getElementById("file").addEventListener('change', function() {
+      var fr=new FileReader();
+      fr.onload=function(){
+          document.getElementById('f').value=fr.result;
+      } 
+      fr.readAsDataURL(this.files[0]);
+    })
+
     $(document).ready(function(){
       $("#1").click(function(){
         var x=$("#1").val();

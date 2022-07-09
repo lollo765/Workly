@@ -69,15 +69,17 @@
 
             <%= form_with url: "/user_pages/"+ @user.id, method: :patch do |f| %>
                 <div class="img_field">
-                    <label>Link per l'immagine</label>
+                    <label>Foto Profilo</label>
                     <br>
-                    <%= f.text_field :img, :value => @user.img%>
+                    <%= f.hidden_field :img, :value => @user.img, id: "f"%>
+                    <br>
+                    <input type="file" id="file">
                     <br>
                     <br>
                     <% if @user.img == ""%>
                         <% @user.img = "avatar-user.png" %>
                     <% end %>
-                    <%= image_tag(@user.img, width: "175px", height: "175px", class: "rounded-circle") %>
+                    <%= image_tag(@user.img, width: "175px", height: "175px", class: "rounded-circle", id: "img") %>
                 </div>
 
                 <div class="row">
@@ -197,7 +199,7 @@
                 </div>
                 <br>
                 <div>
-                <%= f.submit "Submit", class: 'btn btn-primary' %>
+                <%= f.submit "Modifica", class: 'btn btn-primary' %>
                 </div>
                 <br>
 
@@ -206,6 +208,16 @@
     </div>
 
     <script>
+
+      var file = document.getElementById("file").addEventListener('change', function() {
+        var fr=new FileReader();
+        fr.onload=function(){
+            document.getElementById('f').value=fr.result;
+            document.getElementById('img').src=fr.result;
+        } 
+        fr.readAsDataURL(this.files[0]);
+      })
+
       $(document).ready(function(){
        
        var skill=$("#skill").val().split("; ");
