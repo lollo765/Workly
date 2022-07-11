@@ -1,4 +1,6 @@
 class LavorosController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   def index
     if (params[:search].blank? && params[:categories].blank? && params[:skill_Lavoratori].blank?)
       @lavoros = Lavoro.all

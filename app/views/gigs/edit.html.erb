@@ -58,10 +58,19 @@
     <br>
     <br>
 
- <div> <h1>Modifica Gig</h1> </div>
 
-<%= render "formedit", gig: @gig %>
+
+<% if (current_user && (@gig.user == current_user || current_user.admin == true)) %>
+  <div> <h1>Modifica Gig</h1> </div>
+  <%= render "formedit", gig: @gig %>
+<% else %>
+   <div> <h1>Attenzione! <br> </h1> </div> <br>
+   <div> Non hai i permessi per questa operazione. Verrai reindirizzato automaticamente... <br> <br> <div>
+   <head>
+     <meta http-equiv='refresh' content='5; URL=../'>
+   </head>
+<% end %>
 
 <%= link_to 'Indietro', gigs_path%>
 
-<br>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> 
