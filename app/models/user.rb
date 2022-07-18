@@ -98,7 +98,7 @@ class User
       user.password = Devise.friendly_token[0, 20]
       name = user.email.split("@")
       user.name = name[0]
-      user.skill = "nessuna"
+      user.skill = ""
       user.category = "nessuna"
       user.address = "nessuno"
     end

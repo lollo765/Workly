@@ -194,7 +194,7 @@
                       <%= f.select :category, [[@user.category, @user.category], ['Sviluppo di siti web', 'Sviluppo di siti web'], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica']]%>
                     <% end %>
                     <% if @user.category=="nessuna" %>
-                      <%= f.select :category, [['Ingegnere', 'Ingegnere'], ['Avvocato', 'Avvocato'], ['Architetto', 'Architetto']], { :include_blank => '-- Select One --' }, :required => true%>
+                      <%= f.select :category, [['Sviluppo di siti web', 'Sviluppo di siti web'], ['Sviluppo di applicazioni', 'Sviluppo di applicazioni'], ['Assistenza e Sicurezza Informatica', 'Assistenza e Sicurezza Informatica'], ['Varie', 'Varie']], { :include_blank => '-- Select One --' }, :required => true%>
                     <% end %>
                 </div>
                 <br>
