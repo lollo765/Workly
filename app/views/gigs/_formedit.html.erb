@@ -79,7 +79,7 @@
         <label for="8">HTML-CSS-Developing</label>
       </div>
     </div>         
-    <%= form.text_field :skill, :value => @gig.skill, id: "skill", :required => true%>
+    <%= form.hidden_field :skill, :value => @gig.skill, id: "skill", :required => true %>
 
   </div>
   <br>
@@ -185,4 +185,4 @@
       });
   </script>
   
-<%end%>
+<% end %>
