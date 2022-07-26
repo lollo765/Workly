@@ -208,6 +208,16 @@ GEM
       activemodel (>= 5.1, < 7.1, != 7.0.0)
       mongo (>= 2.10.5, < 3.0.0)
       ruby2_keywords (~> 0.0.5)
+    mongoid-compatibility (0.5.1)
+      activesupport
+      mongoid (>= 2.0)
+    mongoid-rspec (4.1.0)
+      activesupport (>= 3.0.0)
+      mongoid (>= 3.1)
+      mongoid-compatibility (>= 0.5.1)
+      rspec-core (~> 3.3)
+      rspec-expectations (~> 3.3)
+      rspec-mocks (~> 3.3)
     msgpack (1.5.2)
     multi_json (1.15.0)
     multi_test (0.1.2)
@@ -303,10 +313,6 @@ GEM
       railties (>= 5.0)
     rexml (3.2.5)
     role_model (0.8.2)
-    rspec (3.11.0)
-      rspec-core (~> 3.11.0)
-      rspec-expectations (~> 3.11.0)
-      rspec-mocks (~> 3.11.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.0)
@@ -404,12 +410,12 @@ DEPENDENCIES
   kaminari-mongoid
   mail_form
   mongoid
+  mongoid-rspec
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.4)
-  rspec
   selenium-webdriver
   simple_form
   sprockets-rails
